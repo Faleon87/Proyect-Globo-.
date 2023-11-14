@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">LoginAndroid_29_09_2023</string>
+    <string name="title_activity_login_user">LoginUser</string>
+    <string name="i_forgot_my_password">I forgot my password</string>
+    <string name="login">Login</string>
+    <string name="or_login_with">Or Login with</string>
+    <string name="remember_me">Remember me</string>
+    <string name="password">Password</string>
+    <string name="email_address">Email address</string>
+    <string name="login_to_continue">Login to continue</string>
+    <string name="hello">¡Hello!</string>
+    <string name="glovo">Glovo</string>
+</resources>
