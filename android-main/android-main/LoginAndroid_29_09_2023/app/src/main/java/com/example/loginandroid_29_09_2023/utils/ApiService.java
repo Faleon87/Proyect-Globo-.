@@ -1,5 +1,6 @@
 package com.example.loginandroid_29_09_2023.utils;
 
+import com.example.loginandroid_29_09_2023.beans.Pelicula;
 import com.example.loginandroid_29_09_2023.login_user.model.data.MyData;
 import com.example.loginandroid_29_09_2023.lst_movies_2.DataMovies;
 

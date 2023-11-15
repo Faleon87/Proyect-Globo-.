@@ -14,7 +14,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LstMoviesModel implements ContractListMovies.Model {
-    private static final String IP_BASE = "169.254.225.61:8080";
+    private static final String IP_BASE = "127.0.0.1:8080";
     private LstMoviesPresenter presenter;
 
     public LstMoviesModel(LstMoviesPresenter presenter){

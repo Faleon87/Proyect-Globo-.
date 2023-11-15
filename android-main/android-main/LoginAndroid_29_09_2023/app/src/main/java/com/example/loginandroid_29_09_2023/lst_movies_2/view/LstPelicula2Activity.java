@@ -1,5 +1,7 @@
 package com.example.loginandroid_29_09_2023.lst_movies_2.view;
 
+import static com.example.loginandroid_29_09_2023.R.id.btnEnviar;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -9,8 +11,9 @@ import android.widget.Toast;
 
 import com.example.loginandroid_29_09_2023.R;
 import com.example.loginandroid_29_09_2023.beans.Pelicula;
-import com.example.loginandroid_29_09_2023.lstMov.ContractListMovies;
-import com.example.loginandroid_29_09_2023.lstMov.presenter.LstMoviesPresenter;
+
+import com.example.loginandroid_29_09_2023.lst_movies_2.ContractListMovies;
+import com.example.loginandroid_29_09_2023.lst_movies_2.presenter.LstMoviesPresenter;
 
 import java.util.ArrayList;
 
@@ -22,12 +25,12 @@ public class LstPelicula2Activity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lst_pelicula2);
+        setContentView(R.layout.activity_lst_movies);
 
         LstMoviesPresenter lstMoviesPresenter = new LstMoviesPresenter(this);
         lstMoviesPresenter.lstMovies("");
 
-        Button btnEnviar = findViewById(R.id.btnEnviar);
+        Button btnEnviar = findViewById(R.id.btnLogin);
         btnEnviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

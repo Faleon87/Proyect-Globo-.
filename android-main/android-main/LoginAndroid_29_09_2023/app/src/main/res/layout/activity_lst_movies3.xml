@@ -6,8 +6,7 @@
     tools:context=".lst_movies3.view.LstMovies3"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/my_primary">
+    android:orientation="vertical">
 
 
     <TextView
