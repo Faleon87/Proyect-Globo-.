@@ -15,13 +15,16 @@ public class MyServlet  extends HttpServlet {
         protected void doGet(HttpServletRequest request, HttpServletResponse response)
                 throws IOException, ServletException {
             // Procesa alguna lógica aquí
-            String message = "{message: 'Hola desde el Servlet'}";
             response.setContentType("application/json");
 
             String action = request.getParameter("ACTION");
+            switch (action){
+                case "USER.LOGIN":
+                   selectUser(request,response);
+                    break;
+            }
+//            PrintWriter out = response.getWriter();
             //String id= request.getParameter("id");
-            PrintWriter out = response.getWriter();
-            
             //out.print(message);a
             //out.print(convertUsersToJSONString(userList));
             // out.print(jsonResponseObject);
@@ -31,6 +34,9 @@ public class MyServlet  extends HttpServlet {
             /*request.setAttribute("message", message);
             request.getRequestDispatcher("/index.jsp").forward(request, response);
              */
+        }
+        public  void  selectUser(HttpServletRequest request, HttpServletResponse response){
+
         }
 
     public static String convertUsersToJSONString(List<User> users) {
