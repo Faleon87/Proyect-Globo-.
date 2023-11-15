@@ -20,6 +20,8 @@ public class LoginUserM extends AppCompatActivity implements ContractLoginUser.V
     private EditText edtPassword;
     private Button btnLogin;
 
+    private String message;
+
     private LoginUserPresenter presenter =
             new LoginUserPresenter(this);
 
@@ -44,7 +46,7 @@ public class LoginUserM extends AppCompatActivity implements ContractLoginUser.V
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(mainActivity, message, Toast.LENGTH_SHORT).show();
+                Toast.makeText(mainActivity, message, Toast.LENGTH_SHORT).show();
                 //sPeliculas.getDatosPeliculas();
                 User user = new User();
                 user.setUsername("jaime");

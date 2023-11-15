@@ -40,7 +40,7 @@ public class LoginUserModel implements ContractLoginUser.Model {
                     // Procesar la respuesta aquí
                     MyData myData = response.body();
 
-                    //String message = myData.getMessage();
+                    String message = myData.getMessage();
 
                     ArrayList<User> lstUsers = myData.getLstUsers();
 

@@ -39,7 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:padding="28dp">
+            android:padding="48dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -69,14 +69,15 @@
             <EditText
                 android:id="@+id/edtEmail"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
+                android:textAlignment="viewStart"
                 android:background="@drawable/edittext_rounded_corners"
                 android:drawableEnd="@drawable/done_icon"
                 android:inputType="textEmailAddress" />
 
             <View
                 android:layout_width="wrap_content"
-                android:layout_height="20dp" />
+                android:layout_height="30dp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -88,7 +89,8 @@
             <EditText
                 android:id="@+id/edtPassword"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
+                android:textAlignment="viewStart"
                 android:background="@drawable/edittext_rounded_corners"
                 android:drawableEnd="@drawable/password_icon"
                 android:inputType="textPassword" />
@@ -119,16 +121,12 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnLogin"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:background="@color/yellowGlovo"
-                android:text="@string/login"
-                android:textColor="@color/greenGlovo"
+                android:layout_height="48dp"
+                android:background="@color/black"
                 android:fontFamily="@font/roboto_medium"
-                 />
-
-            <View
-                android:layout_width="wrap_content"
-                android:layout_height="10dp" />
+                android:text="@string/login"
+                android:textColor="@color/yellowGlovo"
+                android:textSize="18sp" />
 
             <TextView
                 android:layout_width="wrap_content"
