@@ -29,11 +29,10 @@ public class LoginUserModel implements ContractLoginUser.Model {
         // Crear una instancia de ApiService
         ApiService apiService = RetrofitCliente.getClient("http://" + IP_BASE + "/untitled/").
                 create(ApiService.class);
-
-// Realizar la solicitud al Servlet
-        // Call<MyData> call = apiService.getMyData("1");
-        Call<MyData> call = apiService.getDataUser ("USER.LOGIN");
-        call.enqueue(new Callback<MyData>() {
+        // Realizar la solicitud al Servlet
+//         Call<MyData> call = apiService.getMyData("1");
+        Call<MyData> calls = apiService.getDataUser ("USER.LOGIN");
+        calls.enqueue(new Callback<MyData>() {
             @Override
             public void onResponse(Call<MyData> call, Response<MyData> response) {
                 if (response.isSuccessful()) {

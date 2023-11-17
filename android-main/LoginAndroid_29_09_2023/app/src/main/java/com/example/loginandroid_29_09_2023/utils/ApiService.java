@@ -16,6 +16,7 @@ public interface ApiService {
               "Content-Type: application/json"
       })
 
+      @GET("MyServlet")
       Call<MyData> getDataUser(@Query("ACTION") String action);
       @GET("MyServlet")
         Call<MyData> getDataUser(@Query("ACTION") String action,
@@ -28,12 +29,12 @@ public interface ApiService {
         @GET("MyServlet")
         Call<DataMovies> getDataMovies2(@Query("ACTION") String action);
 
-        /*
-        @GET("MyServlet")
-          Call<MyData> getMyData(@Query("id") String id);
 
-        @GET("MyServlet/{id}")
-        Call<MyData> getMyDataURL(@Path("id") String id);*/
+//        @GET("MyServlet")
+//          Call<MyData> getMyData(@Query("id") String id);
+
+//        @GET("MyServlet/{id}")
+//        Call<MyData> getMyDataURL(@Path("id") String id);*/
 
         /*
         @FormUrlEncoded

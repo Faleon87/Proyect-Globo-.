@@ -11,23 +11,22 @@
         android:layout_height="348dp"
         android:layout_marginBottom="192dp"
         android:gravity="center"
-        android:orientation="vertical"
         android:padding="28dp"
         tools:ignore="UnknownId">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="44dp"
-            android:src="@drawable/location_on" />
-
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="87dp"
             android:fontFamily="@font/roboto_medium"
             android:text="@string/glovo"
             android:textColor="@color/greenGlovo"
             android:textSize="79sp"
             android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="75dp"
+            android:layout_height="51dp"
+            android:src="@drawable/glovo_logo" />
 
     </LinearLayout>
     <androidx.cardview.widget.CardView
@@ -73,7 +72,8 @@
                 android:textAlignment="viewStart"
                 android:background="@drawable/edittext_rounded_corners"
                 android:drawableEnd="@drawable/done_icon"
-                android:inputType="textEmailAddress" />
+                android:inputType="textEmailAddress"
+                android:autofillHints="emailAddress" />
 
             <View
                 android:layout_width="wrap_content"
@@ -93,7 +93,8 @@
                 android:textAlignment="viewStart"
                 android:background="@drawable/edittext_rounded_corners"
                 android:drawableEnd="@drawable/password_icon"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:autofillHints="password" />
 
             <RelativeLayout
                 android:layout_width="match_parent"

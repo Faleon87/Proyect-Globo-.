@@ -15,14 +15,20 @@ public class MyServlet  extends HttpServlet {
         protected void doGet(HttpServletRequest request, HttpServletResponse response)
                 throws IOException, ServletException {
             // Procesa alguna lógica aquí
-            response.setContentType("application/json");
 
+            response.setContentType("application/json");
             String action = request.getParameter("ACTION");
-            switch (action){
+            String [] keepaction  = action.split("\\.");
+            System.out.println("Perro:" +  keepaction);
+
+            switch (keepaction[0]){
                 case "USER.LOGIN":
-                   selectUser(request,response);
+                    selectUser(request , response);
                     break;
             }
+
+
+
 //            PrintWriter out = response.getWriter();
             //String id= request.getParameter("id");
             //out.print(message);a

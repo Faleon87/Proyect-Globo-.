@@ -21,6 +21,8 @@ public class LoginUserM extends AppCompatActivity implements ContractLoginUser.V
     private EditText edtPassword;
     private Button btnLogin;
 
+    private boolean status;
+
     private String message;
 
     private LoginUserPresenter presenter =
@@ -44,15 +46,17 @@ public class LoginUserM extends AppCompatActivity implements ContractLoginUser.V
         edtEmail = findViewById(R.id.edtEmail);
         edtPassword = findViewById(R.id.edtPassword);
         btnLogin = findViewById(R.id.btnLogin);
+        LoginUserPresenter lstUserPresenter = new LoginUserPresenter( this);
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-                Toast.makeText(mainActivity, message, Toast.LENGTH_SHORT).show();
-                
-                User user = new User();
-                user.setUsername("jaime");
-                user.setToken("1234");
-                presenter.login(user);
+                    User user = new User();
+                    lstUserPresenter.login(user);
+                    presenter.login(user);
+//                    Toast.makeText(mainActivity, message, Toast.LENGTH_SHORT).show();
+
             }
         });
     }
