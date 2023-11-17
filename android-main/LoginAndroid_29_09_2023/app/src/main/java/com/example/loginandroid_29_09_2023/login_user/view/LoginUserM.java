@@ -2,6 +2,7 @@ package com.example.loginandroid_29_09_2023.login_user.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -46,17 +47,17 @@ public class LoginUserM extends AppCompatActivity implements ContractLoginUser.V
         edtEmail = findViewById(R.id.edtEmail);
         edtPassword = findViewById(R.id.edtPassword);
         btnLogin = findViewById(R.id.btnLogin);
-        LoginUserPresenter lstUserPresenter = new LoginUserPresenter( this);
-
         btnLogin.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
+                Toast.makeText(mainActivity, message, Toast.LENGTH_SHORT).show();
                     User user = new User();
-
-                    lstUserPresenter.login(user);
+                    user.setUsername("jaime");
+                    user.setToken("1234");
+                    message = "Gracias por unirte";
                     presenter.login(user);
-//                    Toast.makeText(mainActivity, message, Toast.LENGTH_SHORT).show();
+
 
             }
         });

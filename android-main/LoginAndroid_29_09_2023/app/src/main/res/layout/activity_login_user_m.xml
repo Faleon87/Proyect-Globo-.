@@ -1,151 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<LinearLayout
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".login_user.view.LoginUserM"
+    android:orientation="vertical"
     android:background="#FFCA28">
 
+    <!-- Logo Section -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="348dp"
-        android:layout_marginBottom="192dp"
+        android:layout_height="356dp"
         android:gravity="center"
-        android:padding="28dp"
-        tools:ignore="UnknownId">
+        android:padding="16dp">
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="87dp"
+            android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_medium"
             android:text="@string/glovo"
             android:textColor="@color/greenGlovo"
-            android:textSize="70sp"
-            android:textStyle="bold"
-            android:minHeight="48dp"
-            />
+            android:textSize="40sp"
+            android:textStyle="bold" />
 
         <ImageView
-            android:layout_width="75dp"
-            android:layout_height="51dp"
-            android:src="@drawable/glovo_logo"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
             android:contentDescription="@string/location_glovo_img"
-            />
-
+            android:src="@drawable/glovo_logo" />
     </LinearLayout>
-    <androidx.cardview.widget.CardView
+
+    <!-- Login Section -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true">
+        android:layout_height="534dp"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:padding="16dp">
 
-        <LinearLayout
+        <!-- Hello Text -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hello"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <!-- Login to Continue Text -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0.7"
+            android:text="@string/login_to_continue"
+            android:textColor="@color/black" />
+
+        <!-- Email Address -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0.7"
+            android:text="@string/email_address"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edtEmail"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/white"
-            android:orientation="vertical"
-            android:padding="48dp">
+            android:layout_height="48dp"
+            android:autofillHints="emailAddress"
+            android:background="@drawable/edittext_rounded_corners"
+            android:contentDescription="@string/email_address"
+            android:drawableEnd="@drawable/done_icon"
+            android:inputType="textEmailAddress"
+            android:textAlignment="viewStart" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/hello"
-                android:textColor="@color/black"
-                android:textSize="32sp"
-                android:textStyle="bold" />
+        <!-- Password -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0.7"
+            android:text="@string/password"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
 
-            <TextView
+        <EditText
+            android:id="@+id/edtPassword"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:autofillHints="password"
+            android:background="@drawable/edittext_rounded_corners"
+            android:drawableEnd="@drawable/password_icon"
+            android:inputType="textPassword" />
+
+        <!-- Remember Me and Forgot Password -->
+
+        <!-- Login Button -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:alpha="0.7"
-                android:text="@string/login_to_continue"
+                android:shadowColor="@color/colorCuandoMarcado"
+                android:text="@string/remember_me"
+                android:textColor="@color/colorCuandoNoMarcado" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:text="@string/i_forgot_my_password"
                 android:textColor="@color/black" />
 
             <View
                 android:layout_width="wrap_content"
-                android:layout_height="30dp" />
+                android:layout_height="10dp" />
+        </RelativeLayout>
 
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:alpha="0.7"
-                android:text="@string/email_address"
-                android:textColor="@color/black"
-                android:textStyle="bold" />
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/yellowGlovo"
+            android:text="@string/button"
+            android:textColor="@color/greenGlovo" />
 
-            <EditText
-                android:id="@+id/edtEmail"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:autofillHints="emailAddress"
-                android:background="@drawable/edittext_rounded_corners"
-                android:drawableEnd="@drawable/done_icon"
-                android:inputType="textEmailAddress"
-                android:textAlignment="viewStart"
-                tools:ignore="LabelFor"
-                android:contentDescription="@string/email_address"
-                />
-
-            <View
-                android:layout_width="wrap_content"
-                android:layout_height="30dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:alpha="0.7"
-                android:text="@string/password"
-                android:textColor="@color/black"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/edtPassword"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:autofillHints="password"
-                android:background="@drawable/edittext_rounded_corners"
-                android:drawableEnd="@drawable/password_icon"
-                android:inputType="textPassword"
-                />
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:alpha="0.7"
-                    android:text="@string/remember_me" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:text="@string/i_forgot_my_password" />
-
-                <View
-                    android:layout_width="wrap_content"
-                    android:layout_height="10dp" />
-            </RelativeLayout>
-
-            <Button
-                android:id="@+id/btnLogin"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/yellowGlovo"
-                android:text="@string/button"
-                android:textColor="@color/greenGlovo"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:alpha="0.7"
-                android:text="@string/or_login_with" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-</RelativeLayout>
+        <!-- Or Login With Text -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:alpha="0.7"
+            android:text="@string/or_login_with"
+            android:textColor="@color/black" />
+    </LinearLayout>
+</LinearLayout>
+</ScrollView>

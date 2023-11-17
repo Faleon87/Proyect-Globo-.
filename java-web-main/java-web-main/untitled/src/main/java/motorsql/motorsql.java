@@ -45,7 +45,6 @@ public class motorsql implements MotorSql {
         }
         return rs;
     }
-
     @Override
     public void disconnect() {
         try {

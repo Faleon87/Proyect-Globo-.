@@ -36,5 +36,9 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>
+    <activity
+        android:name=".NombreDeTuNuevaActividad"
+        android:label="@string/titulo_nueva_actividad">
+    </activity>
 
 </manifest>
