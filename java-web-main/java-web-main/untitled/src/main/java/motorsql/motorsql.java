@@ -54,7 +54,7 @@ public class motorsql implements MotorSql {
             }
         }
         catch (SQLException ex){
-            System.out.println("Error: " + e);
+            System.out.println("Error: " + ex);
         }
     }
 }

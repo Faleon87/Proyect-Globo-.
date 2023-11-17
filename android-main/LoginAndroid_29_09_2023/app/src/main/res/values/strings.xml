@@ -11,4 +11,6 @@
     <string name="hello">¡Hello!</string>
     <string name="glovo">Glovo</string>
     <string name="location_glovo_img">location_glovo_img</string>
+    <string name="button">Button</string>
+    <string name="edtpassword">edtPassword</string>
 </resources>
