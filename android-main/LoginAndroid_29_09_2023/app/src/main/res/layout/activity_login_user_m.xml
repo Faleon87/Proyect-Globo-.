@@ -133,7 +133,7 @@
 
             <Button
                 android:id="@+id/btnLogin"
-                android:layout_width="320dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/yellowGlovo"
                 android:text="@string/button"
