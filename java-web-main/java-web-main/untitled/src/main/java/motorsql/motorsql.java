@@ -52,6 +52,12 @@ public class motorsql implements MotorSql {
             if (conn != null) {
                 conn.close();
             }
+            if (st != null) {
+                st.close();
+            }
+            if (rs != null) {
+                rs.close();
+            }
         }
         catch (SQLException ex){
             System.out.println("Error: " + ex);

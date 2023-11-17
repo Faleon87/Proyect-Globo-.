@@ -53,6 +53,7 @@ public class LoginUserM extends AppCompatActivity implements ContractLoginUser.V
             @Override
             public void onClick(View v) {
                     User user = new User();
+
                     lstUserPresenter.login(user);
                     presenter.login(user);
 //                    Toast.makeText(mainActivity, message, Toast.LENGTH_SHORT).show();
