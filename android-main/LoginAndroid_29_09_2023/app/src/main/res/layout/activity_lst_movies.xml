@@ -1,8 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/yellowGlovo">
+
+    <!-- Tu barra de búsqueda -->
+
+    <!-- Icono de usuario -->
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="256dp"
+        android:layout_height="24dp"
+        android:text="Establecimiento que te pueden gustar"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="72dp"
+        tools:layout_editor_absoluteY="97dp" />
+
+    <EditText
+        android:id="@+id/edtEmail"
+        android:layout_width="258dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="16dp"
+        android:autofillHints="emailAddress"
+        android:background="@drawable/edittext_rounded_corners"
+        android:drawableEnd="@drawable/ic_stat_name"
+        android:textAlignment="viewStart"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Texto de sugerencia -->
+
+    <!-- Elemento 1: Imagen, texto y puntuación -->
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="38dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/yellowGlovo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/person_icon" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="38dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="352dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/yellowGlovo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baseline_shopping_basket_24" />
+
+    <ImageView
+        android:id="@+id/productImage1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/product_image_1"
+        tools:layout_editor_absoluteX="80dp"
+        tools:layout_editor_absoluteY="162dp" />
+
+    <ImageView
+        android:id="@+id/productImage2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/product_image_1"
+        tools:layout_editor_absoluteX="80dp"
+        tools:layout_editor_absoluteY="290dp" />
+
+    <ImageView
+        android:id="@+id/productImage4"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/product_image_1"
+        tools:layout_editor_absoluteX="80dp"
+        tools:layout_editor_absoluteY="428dp" />
+
+    <ImageView
+        android:id="@+id/productImage5"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/product_image_1"
+        tools:layout_editor_absoluteX="230dp"
+        tools:layout_editor_absoluteY="428dp" />
+
+    <ImageView
+        android:id="@+id/productImage3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/product_image_1"
+        tools:layout_editor_absoluteX="230dp"
+        tools:layout_editor_absoluteY="290dp" />
+
+    <ImageView
+        android:id="@+id/productImage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/product_image_1"
+        tools:layout_editor_absoluteX="228dp"
+        tools:layout_editor_absoluteY="162dp" />
+
+    <!-- Puedes agregar más elementos de la galería de productos aquí -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
