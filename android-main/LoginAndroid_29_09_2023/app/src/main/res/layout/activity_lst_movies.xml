@@ -49,6 +49,62 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/person_icon" />
 
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="80dp"
+        tools:layout_editor_absoluteY="238dp" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="228dp"
+        tools:layout_editor_absoluteY="238dp" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="80dp"
+        tools:layout_editor_absoluteY="390dp" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="80dp"
+        tools:layout_editor_absoluteY="390dp" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="80dp"
+        tools:layout_editor_absoluteY="528dp" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="230dp"
+        tools:layout_editor_absoluteY="528dp" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="230dp"
+        tools:layout_editor_absoluteY="390dp" />
+
     <ImageButton
         android:id="@+id/imageButton"
         android:layout_width="38dp"
@@ -66,7 +122,7 @@
         android:layout_height="100dp"
         android:src="@drawable/product_image_1"
         tools:layout_editor_absoluteX="80dp"
-        tools:layout_editor_absoluteY="162dp" />
+        tools:layout_editor_absoluteY="138dp" />
 
     <ImageView
         android:id="@+id/productImage2"
@@ -106,7 +162,7 @@
         android:layout_height="100dp"
         android:src="@drawable/product_image_1"
         tools:layout_editor_absoluteX="228dp"
-        tools:layout_editor_absoluteY="162dp" />
+        tools:layout_editor_absoluteY="138dp" />
 
     <!-- Puedes agregar más elementos de la galería de productos aquí -->
 
