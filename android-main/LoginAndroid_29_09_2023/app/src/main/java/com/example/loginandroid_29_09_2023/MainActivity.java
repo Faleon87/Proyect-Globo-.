@@ -14,7 +14,7 @@ import com.example.loginandroid_29_09_2023.beans.User;
 import com.example.loginandroid_29_09_2023.login_user.ContractLoginUser;
 import com.example.loginandroid_29_09_2023.login_user.presenter.LoginUserPresenter;
 import com.example.loginandroid_29_09_2023.login_user.view.LoginUserM;
-
+import com.example.loginandroid_29_09_2023.lst_movies_2.view.LstPelicula2Activity;
 
 
 public class MainActivity extends AppCompatActivity{
@@ -32,10 +32,12 @@ public class MainActivity extends AppCompatActivity{
                 Intent mainIntent = new Intent(MainActivity.this,
                         LoginUserM.class);
                 startActivity(mainIntent);
-                MainActivity.this.finish();
+//                MainActivity.this.finish();
 
 
             }
         }, SPLASH_DISPLAY_LENGTH);
+
     }
+
 }

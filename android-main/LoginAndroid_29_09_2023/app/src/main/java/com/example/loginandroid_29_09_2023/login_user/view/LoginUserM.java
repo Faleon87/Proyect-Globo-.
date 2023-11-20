@@ -44,19 +44,20 @@ public class LoginUserM extends AppCompatActivity implements ContractLoginUser.V
 
     }
     private void initComponents(){
-        edtEmail = findViewById(R.id.edtEmail);
-        edtPassword = findViewById(R.id.edtPassword);
+
         btnLogin = findViewById(R.id.btnLogin);
         btnLogin.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                Toast.makeText(mainActivity, message, Toast.LENGTH_SHORT).show();
+                edtEmail = findViewById(R.id.edtEmail);
+                edtPassword = findViewById(R.id.edtPassword);
                     User user = new User();
                     user.setUsername("jaime");
                     user.setToken("1234");
                     message = "Gracias por unirte";
-                    presenter.login(user);
+                Toast.makeText(mainActivity, message, Toast.LENGTH_SHORT).show();
+                   presenter.login(user);
 
 
             }

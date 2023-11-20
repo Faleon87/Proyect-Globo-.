@@ -1,6 +1,6 @@
 package com.example.loginandroid_29_09_2023.lst_movies_2.view;
 
-import static com.example.loginandroid_29_09_2023.R.id.btnEnviar;
+//import static com.example.loginandroid_29_09_2023.R.id.btnEnviar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -30,13 +30,13 @@ public class LstPelicula2Activity extends AppCompatActivity
         LstMoviesPresenter lstMoviesPresenter = new LstMoviesPresenter(this);
         lstMoviesPresenter.lstMovies("");
 
-        Button btnEnviar = findViewById(R.id.btnLogin);
-        btnEnviar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                lstMoviesPresenter.lstMovies("");
-            }
-        });
+////        Button btnEnviar = findViewById(R.id.);
+//        btnEnviar.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                lstMoviesPresenter.lstMovies("");
+//            }
+//        });
     }
 
 
