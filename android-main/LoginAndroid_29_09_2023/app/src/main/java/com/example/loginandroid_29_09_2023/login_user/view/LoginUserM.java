@@ -58,15 +58,11 @@ public class LoginUserM extends AppCompatActivity implements ContractLoginUser.V
                     User user = new User();
                     user.setUsername("jaime");
                     user.setToken("1234");
-                    message = "Gracias por unirte";
-                    Toast.makeText(mainActivity, message, Toast.LENGTH_SHORT).show();
+                    successLogin( user);
                     presenter.login(user);
                 }else{
-                    message = "Pusiste mal la contraseña.";
-                    Toast.makeText(mainActivity, message, Toast.LENGTH_SHORT).show();
+                    failureLogin("No has puesto bien el usuario y la contraseña");
                 }
-
-
             }
         });
     }
@@ -79,6 +75,6 @@ public class LoginUserM extends AppCompatActivity implements ContractLoginUser.V
 
     @Override
     public void failureLogin(String err) {
-
+        Toast.makeText(mainActivity, err, Toast.LENGTH_SHORT).show();
     }
 }
