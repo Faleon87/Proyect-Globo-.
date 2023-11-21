@@ -9,6 +9,9 @@ public class User {
         this.username = username;
         this.token = token;
     }
+    public User(){
+
+    }
     // Getters y setters
     public String getUsername() {
         return username;

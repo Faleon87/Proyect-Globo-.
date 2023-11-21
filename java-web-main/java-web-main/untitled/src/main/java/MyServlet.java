@@ -41,7 +41,7 @@ public class MyServlet  extends HttpServlet {
              */
         }
         public  void  selectUsers(HttpServletRequest request, HttpServletResponse response){
-
+            return ;
         }
 
     public static String convertUsersToJSONString(List<User> users) {
