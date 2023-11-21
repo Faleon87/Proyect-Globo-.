@@ -12,29 +12,31 @@ import android.widget.Toast;
 
 import com.example.loginandroid_29_09_2023.beans.User;
 import com.example.loginandroid_29_09_2023.login_user.ContractLoginUser;
+import com.example.loginandroid_29_09_2023.login_user.model.LoginUserModel;
 import com.example.loginandroid_29_09_2023.login_user.presenter.LoginUserPresenter;
 import com.example.loginandroid_29_09_2023.login_user.view.LoginUserM;
+import com.example.loginandroid_29_09_2023.lst_movies_2.presenter.LstMoviesPresenter;
 import com.example.loginandroid_29_09_2023.lst_movies_2.view.LstPelicula2Activity;
 
 
 public class MainActivity extends AppCompatActivity{
     private static final long SPLASH_DISPLAY_LENGTH = 3000;
+    private LoginUserPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         new Handler().postDelayed(new Runnable(){
             @Override
             public void run() {
                 /* Create an Intent that will start the Menu-Activity. */
                 Intent mainIntent = new Intent(MainActivity.this,
-                        LoginUserM.class);
+                        LoginUserM.class  );
                 startActivity(mainIntent);
-//                MainActivity.this.finish();
-
-
+                MainActivity.this.finish();
             }
         }, SPLASH_DISPLAY_LENGTH);
 

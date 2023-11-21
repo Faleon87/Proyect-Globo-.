@@ -1,6 +1,7 @@
 package com.example.loginandroid_29_09_2023.utils;
 
 import com.example.loginandroid_29_09_2023.beans.Pelicula;
+import com.example.loginandroid_29_09_2023.login_user.data.MyLoginData;
 import com.example.loginandroid_29_09_2023.login_user.model.data.MyData;
 import com.example.loginandroid_29_09_2023.lst_movies_2.DataMovies;
 
@@ -15,13 +16,13 @@ public interface ApiService {
               "Accept: application/json",
               "Content-Type: application/json"
       })
-
+//
+//      @GET("MyServlet")
+//      Call<MyData> getDataUser(@Query("ACTION") String action);
       @GET("MyServlet")
-      Call<MyData> getDataUser(@Query("ACTION") String action);
-      @GET("MyServlet")
-        Call<MyData> getDataUser(@Query("ACTION") String action,
-                                 @Query("EMAIL") String email,
-                                 @Query("PASSWORD") String pass);
+        Call<MyLoginData> getDataUser(@Query("ACTION") String action,
+                                      @Query("USERNAME") String username,
+                                      @Query("TOKEN") String token);
 
         @GET("MyServlet")
         Call<DataMovies> getDataMovies(@Query("ACTION") String action);

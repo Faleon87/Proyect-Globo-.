@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/yellowGlovo">
+    android:background="@color/yellowGlovo"
+    tools:context=".lst_movies_2.view.LstPelicula2Activity">
 
     <!-- Tu barra de búsqueda -->
 
@@ -15,11 +16,13 @@
         android:id="@+id/textView3"
         android:layout_width="256dp"
         android:layout_height="24dp"
+        android:layout_marginTop="44dp"
         android:text="Establecimiento que te pueden gustar"
         android:textColor="@color/black"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="72dp"
-        tools:layout_editor_absoluteY="97dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtEmail" />
 
     <EditText
         android:id="@+id/edtEmail"
@@ -45,6 +48,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
         android:background="@color/yellowGlovo"
+        app:layout_constraintEnd_toStartOf="@+id/edtEmail"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/person_icon" />

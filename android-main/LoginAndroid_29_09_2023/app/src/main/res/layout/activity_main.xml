@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/yellowGlovo"
-    tools:context=".login_user.view.LoginUserM">
+    >
 
 
     <LinearLayout

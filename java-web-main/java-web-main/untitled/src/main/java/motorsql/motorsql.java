@@ -4,7 +4,7 @@ import interfaces.MotorSql;
 
 import java.sql.*;
 
-import static java.sql.DriverManager.*;
+
 
 public class motorsql implements MotorSql {
     String INSTANCE_HOSTNAME = "localhost";
@@ -20,10 +20,13 @@ public class motorsql implements MotorSql {
     @Override
     public void connect() {
         try {
-            conn = getConnection(JDBC_URL, "root", "");
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = DriverManager.getConnection(JDBC_URL, "root", "");
             st = conn.createStatement();
         }catch (SQLException ex){
             System.out.println("Error: " + ex);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         }
     }
 

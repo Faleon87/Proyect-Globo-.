@@ -31,9 +31,9 @@ public class User {
 
     @Override
     public String toString() {
-        return "beans.User{" +
-                "username='" + username + '\'' +
-                ", token='" + token + '\'' +
+        return "{" +
+                "\"username\":\"" + username + '\"' +
+                ", \"token\":\"" + token + '\"' +
                 '}';
     }
 

@@ -9,10 +9,10 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 public class SqlAction {
-    private final String SQL = "select R.NOMBRE  P.ID_PRODUCTO, P.NOMBRE , " +
-            "P.DESCRIPCION, P.IMAGEN, P.PRECIO FROM RESTAURANTE R JOIN PRODUCTO P ON R.ID_RESTAURANTE = P.ID_RESTAURANTE";
+//    private final String SQL = "select R.NOMBRE  P.ID_PRODUCTO, P.NOMBRE , " +
+//            "P.DESCRIPCION, P.IMAGEN, P.PRECIO FROM RESTAURANTE R JOIN PRODUCTO P ON R.ID_RESTAURANTE = P.ID_RESTAURANTE";
 
-    private final String SQL_user = "select USERNAME , password from usuario ";
+    private final String SQL_LOGIN = "select USERNAME , password from usuario where ";
 
     private motorsql motorsql;
     private ResultSet rs;
@@ -25,17 +25,17 @@ public class SqlAction {
 //
 //    }
 
-    public ArrayList<User> usuarios() {
-        String Sql = SQL;
-
-        ArrayList<User> listUsuarios = new ArrayList<>();
+    public  User findUsername(User infouser) {
+        String sql = SQL_LOGIN;
+        sql+= "USERNAME = '" + infouser.getUsername() + "' AND password= '" + infouser.getToken() + "'";
         try {
             this.motorsql.connect();
-            rs = this.motorsql.executeQuery(Sql);
+            rs = this.motorsql.executeQuery(sql);
             while (rs.next()) {
                 User usuario = new User();
-                usuario.setUsername(rs.getString(0));
-                usuario.setToken(rs.getString(1));
+                usuario.setUsername(rs.getString(1));
+                usuario.setToken(rs.getString(2));
+                return usuario;
             }
         } catch (Exception ex) {
             System.out.println("Error: " + ex);

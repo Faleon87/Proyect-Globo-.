@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.example.loginandroid_29_09_2023.beans.User;
 import com.example.loginandroid_29_09_2023.login_user.ContractLoginUser;
+import com.example.loginandroid_29_09_2023.login_user.data.MyLoginData;
 import com.example.loginandroid_29_09_2023.login_user.model.data.MyData;
 import com.example.loginandroid_29_09_2023.login_user.presenter.LoginUserPresenter;
 import com.example.loginandroid_29_09_2023.utils.ApiService;
@@ -17,7 +18,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LoginUserModel implements ContractLoginUser.Model {
-    private static final String IP_BASE = "10.0.2.2:8080";
+    private static final String IP_BASE = "192.168.0.22:8080";
     private LoginUserPresenter presenter;
     public LoginUserModel(LoginUserPresenter presenter){
         this.presenter = presenter;
@@ -31,23 +32,29 @@ public class LoginUserModel implements ContractLoginUser.Model {
                 create(ApiService.class);
         // Realizar la solicitud al Servlet
 //         Call<MyData> call = apiService.getMyData("1");
-        Call<MyData> calls = apiService.getDataUser ("ACTION.LOGIN");
-        calls.enqueue(new Callback<MyData>() {
+        Call<MyLoginData> calls = apiService.getDataUser ("LOGIN", user.getUsername(), user.getToken() );
+        calls.enqueue(new Callback<MyLoginData>() {
             @Override
-            public void onResponse(Call<MyData> call, Response<MyData> response) {
+            public void onResponse(Call<MyLoginData> call, Response<MyLoginData> response) {
                 if (response.isSuccessful()) {
                     // Procesar la respuesta aquí
-                    MyData myData = response.body();
+                    try {
+                        MyLoginData myData = response.body();
+                        if (myData.getMessage().equals("Okey")) {
+                            onLoginUserListener.onFinished(myData.getUser());
+                        }else if(myData.getMessage().equals("Error")){
+                            onLoginUserListener.onFailure(myData.getMessage());
+                        }
 
-                    String message = myData.getMessage();
+                    }catch (Exception ex){
+                        System.out.println("error: " + ex);
+                    }
 
-                    ArrayList<User> lstUsers = myData.getLstUsers();
-
-                    onLoginUserListener.onFinished(lstUsers.get(0));
-
+//                    String message = myData.getMessage();
+//                    ArrayList<User> lstUsers = myData.getLstUsers();
+//                    onLoginUserListener.onFinished(lstUsers.get(0));
                     // Actualizar la interfaz de usuario con el mensaje recibido
                 } else {
-                    // Manejar una respuesta no exitosa
                     // Manejar una respuesta no exitosa
                     Log.e("Response Error", "Código de estado HTTP: " + response.code());
                     try {
@@ -60,7 +67,7 @@ public class LoginUserModel implements ContractLoginUser.Model {
             }
 
             @Override
-            public void onFailure(Call<MyData> call, Throwable t) {
+            public void onFailure(Call<MyLoginData> call, Throwable t) {
                 // Manejar errores de red o del servidor
                 Log.e("Response Error", "Cuerpo de error: " + t.getMessage());
             }

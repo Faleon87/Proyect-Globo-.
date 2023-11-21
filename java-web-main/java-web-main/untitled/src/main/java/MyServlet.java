@@ -1,5 +1,7 @@
 
 
+import SQLACTION.SqlAction;
+import beans.MyLoginData;
 import beans.User;
 
 import javax.servlet.ServletException;
@@ -8,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 @WebServlet("/MyServlet")
@@ -20,9 +23,11 @@ public class MyServlet  extends HttpServlet {
             String action = request.getParameter("ACTION");
             String [] keepaction  = action.split("\\.");
 
-            switch (keepaction[1]){
+            PrintWriter out = response.getWriter();
+
+            switch (keepaction[0]){
                 case "LOGIN":
-                    selectUsers(request , response);
+                    out.print(selectUsers(request , response).toString());
                     break;
             }
 
@@ -40,8 +45,19 @@ public class MyServlet  extends HttpServlet {
             request.getRequestDispatcher("/index.jsp").forward(request, response);
              */
         }
-        public  void  selectUsers(HttpServletRequest request, HttpServletResponse response){
-            return ;
+        public MyLoginData selectUsers(HttpServletRequest request, HttpServletResponse response){
+            User usuario = new User();
+            usuario.setUsername(request.getParameter("USERNAME"));
+            usuario.setToken(request.getParameter("TOKEN"));
+            SqlAction sql = new SqlAction();
+            MyLoginData myloginData = new MyLoginData();
+            myloginData.setUser(sql.findUsername(usuario));
+            if (sql.findUsername(usuario) != null){
+                myloginData.setMessage("Okey");
+            }else {
+                myloginData.setMessage("Error");
+            }
+            return  myloginData;
         }
 
     public static String convertUsersToJSONString(List<User> users) {
