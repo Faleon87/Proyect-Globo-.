@@ -23,8 +23,6 @@ public class LoginUserM extends AppCompatActivity implements ContractLoginUser.V
     private EditText edtPassword;
     private Button btnLogin;
 
-    private boolean status;
-
     private String message;
 
     private LoginUserPresenter presenter =
@@ -42,7 +40,6 @@ public class LoginUserM extends AppCompatActivity implements ContractLoginUser.V
         setContentView(R.layout.activity_login_user_m);
         mainActivity = this;
         initComponents();
-
     }
     private void initComponents(){
 

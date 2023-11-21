@@ -71,6 +71,7 @@
             android:textColor="@color/black"
             android:textStyle="bold" />
 
+        <!-- Password -->
         <EditText
             android:id="@+id/edtEmail"
             android:layout_width="match_parent"
@@ -80,9 +81,10 @@
             android:contentDescription="@string/email_address"
             android:drawableEnd="@drawable/done_icon"
             android:inputType="textEmailAddress"
-            android:textAlignment="viewStart" />
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            />
 
-        <!-- Password -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -98,7 +100,11 @@
             android:autofillHints="password"
             android:background="@drawable/edittext_rounded_corners"
             android:drawableEnd="@drawable/password_icon"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+
+            />
 
         <!-- Remember Me and Forgot Password -->
 

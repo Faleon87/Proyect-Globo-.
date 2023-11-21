@@ -33,9 +33,11 @@
         android:autofillHints="emailAddress"
         android:background="@drawable/edittext_rounded_corners"
         android:drawableEnd="@drawable/ic_stat_name"
-        android:textAlignment="viewStart"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/black"
+        android:textAlignment="center"
+        />
 
     <!-- Texto de sugerencia -->
 
@@ -53,114 +55,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/person_icon" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="80dp"
-        tools:layout_editor_absoluteY="238dp" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="228dp"
-        tools:layout_editor_absoluteY="238dp" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="80dp"
-        tools:layout_editor_absoluteY="390dp" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="80dp"
-        tools:layout_editor_absoluteY="390dp" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="80dp"
-        tools:layout_editor_absoluteY="528dp" />
-
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="230dp"
-        tools:layout_editor_absoluteY="528dp" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="230dp"
-        tools:layout_editor_absoluteY="390dp" />
-
     <ImageButton
         android:id="@+id/imageButton"
         android:layout_width="38dp"
         android:layout_height="32dp"
-        android:layout_marginStart="352dp"
         android:layout_marginTop="16dp"
         android:background="@color/yellowGlovo"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/edtEmail"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/baseline_shopping_basket_24" />
-
-    <ImageView
-        android:id="@+id/productImage1"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        tools:layout_editor_absoluteX="80dp"
-        tools:layout_editor_absoluteY="138dp" />
-
-    <ImageView
-        android:id="@+id/productImage2"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        tools:layout_editor_absoluteX="80dp"
-        tools:layout_editor_absoluteY="290dp" />
-
-    <ImageView
-        android:id="@+id/productImage4"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        tools:layout_editor_absoluteX="80dp"
-        tools:layout_editor_absoluteY="428dp" />
-
-    <ImageView
-        android:id="@+id/productImage5"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        tools:layout_editor_absoluteX="230dp"
-        tools:layout_editor_absoluteY="428dp" />
-
-    <ImageView
-        android:id="@+id/productImage3"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        tools:layout_editor_absoluteX="230dp"
-        tools:layout_editor_absoluteY="290dp" />
-
-    <ImageView
-        android:id="@+id/productImage"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        tools:layout_editor_absoluteX="228dp"
-        tools:layout_editor_absoluteY="138dp" />
 
     <!-- Puedes agregar más elementos de la galería de productos aquí -->
 
