@@ -28,7 +28,7 @@ public class MyServlet  extends HttpServlet {
             switch (keepaction[0]){
                 case "LOGIN":
                     out.print(selectUsers(request , response).toString());
-                    break;
+                case ""
             }
 
 
