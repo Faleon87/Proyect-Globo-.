@@ -19,11 +19,10 @@ public class MyServlet  extends HttpServlet {
             response.setContentType("application/json");
             String action = request.getParameter("ACTION");
             String [] keepaction  = action.split("\\.");
-            System.out.println("Perro:" +  keepaction);
 
-            switch (keepaction[0]){
-                case "USER.LOGIN":
-                    selectUser(request , response);
+            switch (keepaction[1]){
+                case "LOGIN":
+                    selectUsers(request , response);
                     break;
             }
 
@@ -41,7 +40,7 @@ public class MyServlet  extends HttpServlet {
             request.getRequestDispatcher("/index.jsp").forward(request, response);
              */
         }
-        public  void  selectUser(HttpServletRequest request, HttpServletResponse response){
+        public  void  selectUsers(HttpServletRequest request, HttpServletResponse response){
 
         }
 

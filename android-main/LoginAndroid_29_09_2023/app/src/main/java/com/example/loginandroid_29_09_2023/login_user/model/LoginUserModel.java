@@ -17,7 +17,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LoginUserModel implements ContractLoginUser.Model {
-    private static final String IP_BASE = "192.168.0.22:8080";
+    private static final String IP_BASE = "192.168.104.62:8080";
     private LoginUserPresenter presenter;
     public LoginUserModel(LoginUserPresenter presenter){
         this.presenter = presenter;
@@ -31,7 +31,7 @@ public class LoginUserModel implements ContractLoginUser.Model {
                 create(ApiService.class);
         // Realizar la solicitud al Servlet
 //         Call<MyData> call = apiService.getMyData("1");
-        Call<MyData> calls = apiService.getDataUser ("USER.LOGIN");
+        Call<MyData> calls = apiService.getDataUser ("ACTION.LOGIN");
         calls.enqueue(new Callback<MyData>() {
             @Override
             public void onResponse(Call<MyData> call, Response<MyData> response) {
