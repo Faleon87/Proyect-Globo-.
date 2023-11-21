@@ -1,12 +1,15 @@
+package beans;
+
 public class User {
     private String username;
-    private String token; // Puedes agregar otros campos según tus necesidades
+    private String token; //
 
+    //Constructor
     public User(String username, String token) {
         this.username = username;
         this.token = token;
     }
-
+    // Getters y setters
     public String getUsername() {
         return username;
     }
@@ -23,5 +26,12 @@ public class User {
         this.token = token;
     }
 
-    // Getters y setters
+    @Override
+    public String toString() {
+        return "beans.User{" +
+                "username='" + username + '\'' +
+                ", token='" + token + '\'' +
+                '}';
+    }
+
 }

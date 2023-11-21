@@ -4,6 +4,8 @@ import interfaces.MotorSql;
 
 import java.sql.*;
 
+import static java.sql.DriverManager.*;
+
 public class motorsql implements MotorSql {
     String INSTANCE_HOSTNAME = "localhost";
     String INSTANCE_PORT="3306";
@@ -18,7 +20,7 @@ public class motorsql implements MotorSql {
     @Override
     public void connect() {
         try {
-            conn = DriverManager.getConnection(JDBC_URL, "root", "");
+            conn = getConnection(JDBC_URL, "root", "");
             st = conn.createStatement();
         }catch (SQLException ex){
             System.out.println("Error: " + ex);
