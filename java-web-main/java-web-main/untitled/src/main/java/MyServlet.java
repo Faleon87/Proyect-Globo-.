@@ -34,7 +34,8 @@ public class MyServlet  extends HttpServlet {
                     out.print(selectUsers(request , response).toString());
                     break;
                 case "PRODUCTREST":
-                    out.print(selectProductRest(request ,response).toString());
+                    out.print(selectProductRest(request ,response));
+                    break;
             }
 
 

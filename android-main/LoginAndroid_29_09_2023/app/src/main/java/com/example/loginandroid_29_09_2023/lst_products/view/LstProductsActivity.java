@@ -19,14 +19,14 @@ public class LstProductsActivity extends AppCompatActivity
                                     implements ContractListMovies.View
 {
 
-    private LstProductsPresenter lstMoviesPresenter;
+    private LstProductsPresenter lstProductsPresenter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lst_movies);
 
-        LstProductsPresenter lstMoviesPresenter = new LstProductsPresenter(this);
-        lstMoviesPresenter.lstMovies("");
+        LstProductsPresenter lstProductsPresenter = new LstProductsPresenter(this);
+        lstProductsPresenter.lstMovies("");
 
 ////        Button btnEnviar = findViewById(R.id.);
 //        btnEnviar.setOnClickListener(new View.OnClickListener() {

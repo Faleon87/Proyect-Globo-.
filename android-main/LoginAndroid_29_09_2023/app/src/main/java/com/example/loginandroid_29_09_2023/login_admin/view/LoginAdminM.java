@@ -1,26 +1,21 @@
-package com.example.loginandroid_29_09_2023.login_user.view;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.loginandroid_29_09_2023.login_admin.view;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.loginandroid_29_09_2023.R;
 import com.example.loginandroid_29_09_2023.beans.User;
-import com.example.loginandroid_29_09_2023.login_admin.view.LoginAdminM;
 import com.example.loginandroid_29_09_2023.login_user.ContractLoginUser;
 import com.example.loginandroid_29_09_2023.login_user.presenter.LoginUserPresenter;
 import com.example.loginandroid_29_09_2023.lst_products.view.LstProductsActivity;
 
-public class LoginUserM extends AppCompatActivity implements ContractLoginUser.View{
+public class LoginAdminM extends AppCompatActivity implements ContractLoginUser.View{
 
-    private EditText edtEmail;
-    private EditText edtPassword;
-    private Button btnLogin;
+
+
 
     private String message;
 
@@ -28,35 +23,22 @@ public class LoginUserM extends AppCompatActivity implements ContractLoginUser.V
             new LoginUserPresenter(this);
 
     /* PATRÓN SINGLETON*/
-    private static LoginUserM mainActivity = null;
-    public static LoginUserM getInstance(){
+    private static LoginAdminM mainActivity = null;
+    public static LoginAdminM getInstance(){
         return mainActivity; //0x457845AF
     }
     /* FIN PATRÓN SINGLETON*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login_user_m);
+        setContentView(R.layout.activity_login_admin);
         mainActivity = this;
         initComponents();
     }
     private void initComponents(){
 
-        btnLogin = findViewById(R.id.btnLogin);
-        btnLogin.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View v) {
-                edtEmail = findViewById(R.id.edtEmail);
-                edtPassword = findViewById(R.id.edtPassword);
-                String valoredtEmail = edtEmail.getText().toString();
-                String valoredtPassword = edtPassword.getText().toString();
-                User user = new User();
-                user.setUsername(valoredtEmail);
-                user.setToken(valoredtPassword);
-                presenter.login(user);
-            }
-        });
+
     }
 
 
