@@ -1,7 +1,7 @@
 package com.example.loginandroid_29_09_2023.utils;
 
 import com.example.loginandroid_29_09_2023.login_user.data.MyLoginData;
-import com.example.loginandroid_29_09_2023.lst_movies_2.DataProduct;
+import com.example.loginandroid_29_09_2023.lst_products.DataProduct;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

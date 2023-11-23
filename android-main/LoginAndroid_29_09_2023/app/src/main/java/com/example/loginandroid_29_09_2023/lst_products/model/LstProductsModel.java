@@ -1,9 +1,9 @@
-package com.example.loginandroid_29_09_2023.lst_movies_2.model;
+package com.example.loginandroid_29_09_2023.lst_products.model;
 
 import com.example.loginandroid_29_09_2023.beans.Producto;
-import com.example.loginandroid_29_09_2023.lst_movies_2.ContractListMovies;
-import com.example.loginandroid_29_09_2023.lst_movies_2.DataProduct;
-import com.example.loginandroid_29_09_2023.lst_movies_2.presenter.LstMoviesPresenter;
+import com.example.loginandroid_29_09_2023.lst_products.ContractListMovies;
+import com.example.loginandroid_29_09_2023.lst_products.DataProduct;
+import com.example.loginandroid_29_09_2023.lst_products.presenter.LstProductsPresenter;
 import com.example.loginandroid_29_09_2023.utils.ApiService;
 import com.example.loginandroid_29_09_2023.utils.RetrofitCliente;
 
@@ -13,11 +13,11 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class LstMoviesModel implements ContractListMovies.Model {
+public class LstProductsModel implements ContractListMovies.Model {
     private static final String IP_BASE = " 192.168.0.22:8080";
-    private LstMoviesPresenter presenter;
+    private LstProductsPresenter presenter;
 
-    public LstMoviesModel(LstMoviesPresenter presenter){
+    public LstProductsModel(LstProductsPresenter presenter){
         this.presenter = presenter;
     }
 

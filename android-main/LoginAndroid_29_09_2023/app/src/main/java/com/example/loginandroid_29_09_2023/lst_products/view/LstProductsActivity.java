@@ -1,4 +1,4 @@
-package com.example.loginandroid_29_09_2023.lst_movies_2.view;
+package com.example.loginandroid_29_09_2023.lst_products.view;
 
 //import static com.example.loginandroid_29_09_2023.R.id.btnEnviar;
 
@@ -10,22 +10,22 @@ import android.widget.Toast;
 import com.example.loginandroid_29_09_2023.R;
 import com.example.loginandroid_29_09_2023.beans.Producto;
 
-import com.example.loginandroid_29_09_2023.lst_movies_2.ContractListMovies;
-import com.example.loginandroid_29_09_2023.lst_movies_2.presenter.LstMoviesPresenter;
+import com.example.loginandroid_29_09_2023.lst_products.ContractListMovies;
+import com.example.loginandroid_29_09_2023.lst_products.presenter.LstProductsPresenter;
 
 import java.util.ArrayList;
 
-public class LstPelicula2Activity extends AppCompatActivity
+public class LstProductsActivity extends AppCompatActivity
                                     implements ContractListMovies.View
 {
 
-    private LstMoviesPresenter lstMoviesPresenter;
+    private LstProductsPresenter lstMoviesPresenter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lst_movies);
 
-        LstMoviesPresenter lstMoviesPresenter = new LstMoviesPresenter(this);
+        LstProductsPresenter lstMoviesPresenter = new LstProductsPresenter(this);
         lstMoviesPresenter.lstMovies("");
 
 ////        Button btnEnviar = findViewById(R.id.);
