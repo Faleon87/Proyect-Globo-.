@@ -7,6 +7,7 @@ import beans.User;
 import motorsql.motorsql;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class SqlAction {
@@ -65,7 +66,9 @@ public class SqlAction {
                 productRestaurant.setProducto(p1);
                listproductRestaurants.add(productRestaurant);
             }
-        }catch (Exception ex){
+        } catch (SQLException ex){
+            System.out.println("Error de sql: " + ex);
+        } catch (Exception ex){
             System.out.println("Error: " + ex);
         }
         return listproductRestaurants;
