@@ -1,8 +1,7 @@
 package com.example.loginandroid_29_09_2023.lst_movies_2.presenter;
 
-import com.example.loginandroid_29_09_2023.beans.Pelicula;
+import com.example.loginandroid_29_09_2023.beans.Producto;
 import com.example.loginandroid_29_09_2023.lst_movies_2.ContractListMovies;
-import com.example.loginandroid_29_09_2023.lst_movies_2.DataMovies;
 import com.example.loginandroid_29_09_2023.lst_movies_2.model.LstMoviesModel;
 
 import java.util.ArrayList;
@@ -22,7 +21,7 @@ public class LstMoviesPresenter implements ContractListMovies.Presenter,
     }
 
     @Override
-    public void onFinished(ArrayList<Pelicula> lstPelicula) {
+    public void onFinished(ArrayList<Producto> lstPelicula) {
         vista.successMovies(lstPelicula);
     }
 

@@ -19,6 +19,9 @@ public class Producto {
         this.precio = precio;
     }
 
+    public  Producto(){
+
+    }
     public int getId_producto() {
         return id_producto;
     }

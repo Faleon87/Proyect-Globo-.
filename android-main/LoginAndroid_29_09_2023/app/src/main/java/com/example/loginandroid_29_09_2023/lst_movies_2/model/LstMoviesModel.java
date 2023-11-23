@@ -1,8 +1,8 @@
 package com.example.loginandroid_29_09_2023.lst_movies_2.model;
 
-import com.example.loginandroid_29_09_2023.beans.Pelicula;
+import com.example.loginandroid_29_09_2023.beans.Producto;
 import com.example.loginandroid_29_09_2023.lst_movies_2.ContractListMovies;
-import com.example.loginandroid_29_09_2023.lst_movies_2.DataMovies;
+import com.example.loginandroid_29_09_2023.lst_movies_2.DataProduct;
 import com.example.loginandroid_29_09_2023.lst_movies_2.presenter.LstMoviesPresenter;
 import com.example.loginandroid_29_09_2023.utils.ApiService;
 import com.example.loginandroid_29_09_2023.utils.RetrofitCliente;
@@ -27,19 +27,19 @@ public class LstMoviesModel implements ContractListMovies.Model {
 
         ApiService apiService = RetrofitCliente.getClient("http://" + IP_BASE + "/untitled/").
                 create(ApiService.class);
-        Call<DataMovies> call = apiService.getDataMovies("MOVIE.LST");
-        call.enqueue(new Callback<DataMovies>() {
+        Call<DataProduct> call = apiService.getDataProducts("PRODUCTREST");
+        call.enqueue(new Callback<DataProduct>() {
             @Override
-            public void onResponse(Call<DataMovies> call, Response<DataMovies> response) {
+            public void onResponse(Call<DataProduct> call, Response<DataProduct> response) {
                 if (response.isSuccessful()) {
-                    DataMovies myData = response.body();
-                    ArrayList<Pelicula> lstMovies = myData.getLstPeliculas();
-                    respuestaMovies.onFinished(lstMovies);
+                    DataProduct myData = response.body();
+                    ArrayList<Producto> lstProducto = myData.getLstPeliculas();
+                    respuestaMovies.onFinished(lstProducto);
                 }
             }
 
             @Override
-            public void onFailure(Call<DataMovies> call, Throwable t) {
+            public void onFailure(Call<DataProduct> call, Throwable t) {
 
             }
         });

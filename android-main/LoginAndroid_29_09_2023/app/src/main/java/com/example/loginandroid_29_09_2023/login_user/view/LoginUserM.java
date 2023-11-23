@@ -9,9 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.loginandroid_29_09_2023.MainActivity;
 import com.example.loginandroid_29_09_2023.R;
-import com.example.loginandroid_29_09_2023.beans.Pelicula;
 import com.example.loginandroid_29_09_2023.beans.User;
 import com.example.loginandroid_29_09_2023.login_user.ContractLoginUser;
 import com.example.loginandroid_29_09_2023.login_user.presenter.LoginUserPresenter;

@@ -2,6 +2,7 @@
 
 import SQLACTION.SqlAction;
 import beans.MyLoginData;
+import beans.ProductRestaurant;
 import beans.User;
 
 import javax.servlet.ServletException;
@@ -11,7 +12,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
+
+import static beans.ProductRestaurant.convertToJson;
 
 @WebServlet("/MyServlet")
 public class MyServlet  extends HttpServlet {
@@ -28,6 +32,9 @@ public class MyServlet  extends HttpServlet {
             switch (keepaction[0]){
                 case "LOGIN":
                     out.print(selectUsers(request , response).toString());
+                    break;
+                case "PRODUCTREST":
+                    out.print(selectProductRest(request ,response).toString());
             }
 
 
@@ -58,26 +65,11 @@ public class MyServlet  extends HttpServlet {
             }
             return  myloginData;
         }
-
-    public static String convertUsersToJSONString(List<User> users) {
-        StringBuilder jsonBuilder = new StringBuilder();
-        jsonBuilder.append("[");
-
-        for (int i = 0; i < users.size(); i++) {
-            User user = users.get(i);
-            jsonBuilder.append("{");
-            jsonBuilder.append("\"username\": \"").append(user.getUsername()).append("\", ");
-            jsonBuilder.append("\"token\": \"").append(user.getToken()).append("\"");
-            jsonBuilder.append("}");
-
-            // Si no es el último elemento, añade una coma
-            if (i < users.size() - 1) {
-                jsonBuilder.append(", ");
-            }
+        public String selectProductRest(HttpServletRequest request, HttpServletResponse response){
+            SqlAction sql = new SqlAction();
+            ArrayList<ProductRestaurant> p1 = sql.findProduct_Restaurant();
+            String json = convertToJson(p1);
+            return json;
         }
-
-        jsonBuilder.append("]");
-        return jsonBuilder.toString();
-    }
     }
 
