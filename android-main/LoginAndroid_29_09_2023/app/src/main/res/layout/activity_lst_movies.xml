@@ -39,7 +39,7 @@
 
     <!-- Texto de sugerencia -->
 
-    <?xml version="1.0" encoding="utf-8"?>
+
     <HorizontalScrollView
         android:id="@+id/horizontalScrollView"
         android:layout_width="167dp"
@@ -68,7 +68,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="120dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/ic_launcher_foreground" />
+                    />
 
                 <TextView
                     android:id="@+id/productNameTextView"

@@ -27,7 +27,7 @@ public class SqlAction {
 //
 //    }
 
-    public  User findUsername(User infouser) {
+    public  User findUsername(User infouser) { //SELECT * FROM usuario WHERE USERNAME = 'admin' AND password = 'admin'
         String sql = SQL_LOGIN;
         sql+= "USERNAME = '" + infouser.getUsername() + "' AND password= '" + infouser.getToken() + "'";
         try {
@@ -45,6 +45,7 @@ public class SqlAction {
         }
             return null;
     }
+
 
     public ArrayList<ProductRestaurant> findProduct_Restaurant(){
         String sql = SQL_PRODUCT_RESTAURANTE;

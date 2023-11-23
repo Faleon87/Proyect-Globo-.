@@ -1,6 +1,7 @@
 package com.example.loginandroid_29_09_2023.lst_products.model;
 
-import com.example.loginandroid_29_09_2023.beans.Producto;
+
+import com.example.loginandroid_29_09_2023.beans.Productos;
 import com.example.loginandroid_29_09_2023.lst_products.ContractListMovies;
 import com.example.loginandroid_29_09_2023.lst_products.DataProduct;
 import com.example.loginandroid_29_09_2023.lst_products.presenter.LstProductsPresenter;
@@ -23,7 +24,8 @@ public class LstProductsModel implements ContractListMovies.Model {
 
     @Override
     public void moviesAPI(String filtro,
-                          OnLstMoviesListener respuestaMovies) {
+                          OnLstProductoListener respuestaProductos) {
+
 
         ApiService apiService = RetrofitCliente.getClient("http://" + IP_BASE + "/untitled/").
                 create(ApiService.class);
@@ -33,8 +35,8 @@ public class LstProductsModel implements ContractListMovies.Model {
             public void onResponse(Call<DataProduct> call, Response<DataProduct> response) {
                 if (response.isSuccessful()) {
                     DataProduct myData = response.body();
-                    ArrayList<Producto> lstProducto = myData.getLstPeliculas();
-                    respuestaMovies.onFinished(lstProducto);
+                    ArrayList<Productos> lstProducto = myData.getLstPeliculas();
+                    respuestaProductos.onFinished(lstProducto);
                 }
             }
 

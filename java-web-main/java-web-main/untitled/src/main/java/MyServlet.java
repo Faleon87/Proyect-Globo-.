@@ -66,10 +66,10 @@ public class MyServlet  extends HttpServlet {
             return  myloginData;
         }
         public String selectProductRest(HttpServletRequest request, HttpServletResponse response){
-            SqlAction sql = new SqlAction();
-            ArrayList<ProductRestaurant> p1 = sql.findProduct_Restaurant();
-            String json = convertToJson(p1);
-            return json;
+        SqlAction sql = new SqlAction();
+        ArrayList<ProductRestaurant> p1 = sql.findProduct_Restaurant();
+        String json = convertToJson(p1);
+        return json;
         }
     }
 

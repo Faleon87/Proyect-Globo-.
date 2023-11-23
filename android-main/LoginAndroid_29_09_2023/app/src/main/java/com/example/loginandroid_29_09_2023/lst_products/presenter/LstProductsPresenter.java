@@ -1,13 +1,14 @@
 package com.example.loginandroid_29_09_2023.lst_products.presenter;
 
-import com.example.loginandroid_29_09_2023.beans.Producto;
+
+import com.example.loginandroid_29_09_2023.beans.Productos;
 import com.example.loginandroid_29_09_2023.lst_products.ContractListMovies;
 import com.example.loginandroid_29_09_2023.lst_products.model.LstProductsModel;
 
 import java.util.ArrayList;
 
 public class LstProductsPresenter implements ContractListMovies.Presenter,
-                                        ContractListMovies.Model.OnLstMoviesListener{
+                                        ContractListMovies.Model.OnLstProductoListener{
 
     private ContractListMovies.View vista;
     private LstProductsModel lstMoviesModel;
@@ -21,8 +22,8 @@ public class LstProductsPresenter implements ContractListMovies.Presenter,
     }
 
     @Override
-    public void onFinished(ArrayList<Producto> lstPelicula) {
-        vista.successMovies(lstPelicula);
+    public void onFinished(ArrayList<Productos> lstProductos) {
+        vista.successMovies(lstProductos);
     }
 
     @Override

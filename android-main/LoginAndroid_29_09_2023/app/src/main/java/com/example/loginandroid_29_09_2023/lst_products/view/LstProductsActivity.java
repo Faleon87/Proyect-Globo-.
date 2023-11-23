@@ -8,8 +8,8 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.example.loginandroid_29_09_2023.R;
-import com.example.loginandroid_29_09_2023.beans.Producto;
 
+import com.example.loginandroid_29_09_2023.beans.Productos;
 import com.example.loginandroid_29_09_2023.lst_products.ContractListMovies;
 import com.example.loginandroid_29_09_2023.lst_products.presenter.LstProductsPresenter;
 
@@ -39,9 +39,9 @@ public class LstProductsActivity extends AppCompatActivity
 
 
     @Override
-    public void successMovies(ArrayList<Producto> lstPelicula) {
-        Toast.makeText(this, lstPelicula.get(0).getTitulo(), Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, lstPelicula.get(0).getDescripcion(), Toast.LENGTH_SHORT).show();
+    public void successMovies(ArrayList<Productos> lstProductos) {
+//        Toast.makeText(this, lstProductos.get(0).getTitulo(), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, lstProductos.get(0).getDescripcion(), Toast.LENGTH_SHORT).show();
     }
 
     @Override
