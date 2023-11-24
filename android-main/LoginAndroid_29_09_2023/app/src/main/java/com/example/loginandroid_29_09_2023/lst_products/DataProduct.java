@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class DataProduct {
         //Atributos
         private String message;
-        private ArrayList<Productos> lstPeliculas;
+        private ArrayList<Productos> lstProductos;
         // Getters y setters
         public String getMessage() {
             return message;
@@ -18,12 +18,12 @@ public class DataProduct {
             this.message = message;
         }
 
-        public ArrayList<Productos> getLstPeliculas() {
-        return lstPeliculas;
+        public ArrayList<Productos> getLstProductos() {
+        return getLstProductos();
         }
 
-        public void setLstPeliculas(ArrayList<Productos> lstPeliculas) {
-        this.lstPeliculas = lstPeliculas;
+        public void setLstProductos(ArrayList<Productos> lstProductos) {
+        this.lstProductos = lstProductos;
         }
 
 

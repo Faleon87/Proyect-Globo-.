@@ -35,8 +35,8 @@ public class LstProductsModel implements ContractListMovies.Model {
             public void onResponse(Call<DataProduct> call, Response<DataProduct> response) {
                 if (response.isSuccessful()) {
                     DataProduct myData = response.body();
-                    ArrayList<Productos> lstProducto = myData.getLstPeliculas();
-                    respuestaProductos.onFinished(lstProducto);
+//                    ArrayList<Productos> lstProducto = myData.getLstPeliculas();
+//                    respuestaProductos.onFinished(lstProducto);
                 }
             }
 

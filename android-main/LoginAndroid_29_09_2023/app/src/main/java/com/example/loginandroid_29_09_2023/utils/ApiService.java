@@ -26,10 +26,8 @@ public interface ApiService {
         Call<DataProduct> getDataProducts(@Query("ACTION") String action);
 
 
-
-
 //        @GET("MyServlet")
-//          Call<MyData> getMyData(@Query("id") String id);
+//         Call<DataProduct> getMyData(@Query("ACTION") String action, @Query("NAMER") String rname,@Query("NAMEP"));
 
 //        @GET("MyServlet/{id}")
 //        Call<MyData> getMyDataURL(@Path("id") String id);*/
