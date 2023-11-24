@@ -15,7 +15,7 @@
     <!-- Logo Section -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="107dp"
+        android:layout_height="200dp"
         android:gravity="center"
         android:padding="16dp">
 
@@ -48,6 +48,7 @@
         <!-- Hello Text -->
 
         <!-- Login to Continue Text -->
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -55,14 +56,15 @@
             android:text="Dar de Alta Productos"
             android:textColor="@color/black"
             android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            />
 
         <!-- Email Address -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:alpha="0.7"
-            android:text="@string/email_address"
+            android:text="Nombre Restaurante"
             android:textColor="@color/black"
             android:textStyle="bold" />
 
@@ -74,66 +76,103 @@
             android:autofillHints="emailAddress"
             android:background="@drawable/edittext_rounded_corners"
             android:contentDescription="@string/email_address"
-            android:drawableEnd="@drawable/done_icon"
             android:inputType="textEmailAddress"
             android:textAlignment="center"
-            android:textColor="@color/black"
-            />
+            android:textColor="@color/black" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:alpha="0.7"
-            android:text="@string/password"
+            android:text="Nombre Producto"
             android:textColor="@color/black"
             android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/edtPassword"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:autofillHints="password"
-            android:background="@drawable/edittext_rounded_corners"
-            android:drawableEnd="@drawable/password_icon"
-            android:inputType="textPassword"
-            android:textColor="@color/black"
-            android:textAlignment="center"
-
-            />
 
         <!-- Remember Me and Forgot Password -->
 
         <!-- Login Button -->
+
+        <EditText
+            android:id="@+id/edtEmail2"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:autofillHints="emailAddress"
+            android:background="@drawable/edittext_rounded_corners"
+            android:contentDescription="@string/email_address"
+            android:inputType="textEmailAddress"
+            android:textAlignment="center"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alpha="0.7"
+            android:text="Descripcion Producto"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edtEmail3"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:autofillHints="emailAddress"
+            android:background="@drawable/edittext_rounded_corners"
+            android:contentDescription="@string/email_address"
+            android:inputType="textEmailAddress"
+            android:textAlignment="center"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alpha="0.7"
+            android:text="URL Imagen"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edtEmail4"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:autofillHints="emailAddress"
+            android:background="@drawable/edittext_rounded_corners"
+            android:contentDescription="@string/email_address"
+            android:inputType="textEmailAddress"
+            android:textAlignment="center"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alpha="0.7"
+            android:text="Precio Producto"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/editTextNumber"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/edittext_rounded_corners"
+            android:ems="10"
+            android:inputType="number" />
+
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:text="@string/i_forgot_my_password"
-                android:textColor="@color/black" />
-
-        </RelativeLayout>
+            android:layout_height="wrap_content"/>
 
         <!-- Or Login With Text -->
         <Button
             android:id="@+id/btnLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/yellowGlovo"
+            android:backgroundTint="@color/greenGlovo"
             android:text="@string/button"
-            android:textColor="@color/greenGlovo" />
+            android:textColor="@color/white" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:alpha="0.7"
-            android:text="@string/or_login_with"
-            android:textColor="@color/black" />
     </LinearLayout>
 </LinearLayout>
 </ScrollView>
