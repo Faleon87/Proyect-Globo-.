@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import com.example.loginandroid_29_09_2023.R;
 import com.example.loginandroid_29_09_2023.beans.User;
-import com.example.loginandroid_29_09_2023.login_admin.view.LoginAdminM;
+import com.example.loginandroid_29_09_2023.Parte_admin.view.LoginAdminM;
 import com.example.loginandroid_29_09_2023.login_user.ContractLoginUser;
 import com.example.loginandroid_29_09_2023.login_user.presenter.LoginUserPresenter;
 import com.example.loginandroid_29_09_2023.lst_products.view.LstProductsActivity;

@@ -13,6 +13,13 @@
     android:background="#FFCA28">
 
     <!-- Logo Section -->
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="41dp"
+        android:layout_height="37dp"
+        android:background="@drawable/baseline_arrow_back_24" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="200dp"
@@ -25,12 +32,12 @@
             android:fontFamily="@font/roboto_medium"
             android:text="@string/glovo"
             android:textColor="@color/greenGlovo"
-            android:textSize="40sp"
+            android:textSize="48sp"
             android:textStyle="bold" />
 
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_marginStart="8dp"
             android:contentDescription="@string/location_glovo_img"
             android:src="@drawable/glovo_logo" />
