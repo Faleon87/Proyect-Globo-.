@@ -1,4 +1,4 @@
-package beans;
+package com.example.loginandroid_29_09_2023.beans;
 
 import com.google.gson.Gson;
 
@@ -46,4 +46,5 @@ public class ProductRestaurant {
         // Convertir el ArrayList de ProductRestaurant a JSON
         return gson.toJson(info);
     }
+
 }

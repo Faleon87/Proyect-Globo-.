@@ -1,7 +1,10 @@
 package com.example.loginandroid_29_09_2023.utils;
 
+import com.example.loginandroid_29_09_2023.beans.ProductRestaurant;
 import com.example.loginandroid_29_09_2023.login_user.data.MyLoginData;
 import com.example.loginandroid_29_09_2023.lst_products.DataProduct;
+
+import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -23,7 +26,7 @@ public interface ApiService {
                                       @Query("TOKEN") String token);
 
         @GET("MyServlet")
-        Call<DataProduct> getDataProducts(@Query("ACTION") String action);
+        Call<ArrayList<ProductRestaurant>> getDataProducts(@Query("ACTION") String action);
 
 
 //        @GET("MyServlet")

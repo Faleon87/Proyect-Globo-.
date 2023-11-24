@@ -1,7 +1,7 @@
-package beans;
+package com.example.loginandroid_29_09_2023.beans;
 
 public class Producto {
-    private transient int id_producto;
+    private int id_producto;
     private int id_restauranter;
     private String descripcion;
 
@@ -81,5 +81,4 @@ public class Producto {
                 ", precio=" + precio +
                 '}';
     }
-
 }

@@ -1,13 +1,14 @@
 package com.example.loginandroid_29_09_2023.lst_products;
 
 
-import com.example.loginandroid_29_09_2023.beans.Productos;
+import com.example.loginandroid_29_09_2023.beans.ProductRestaurant;
+import com.example.loginandroid_29_09_2023.beans.Producto;
 
 import java.util.ArrayList;
 
 public interface ContractListMovies {
     public interface Presenter{
-        void lstMovies(String filtro);
+        void lstProductos(String filtro);
     }
 
     public interface Model{
@@ -15,13 +16,13 @@ public interface ContractListMovies {
                        OnLstProductoListener respuestaMovies);
 
         interface OnLstProductoListener{
-            void onFinished(ArrayList<Productos> lstProductos);
+            void onFinished(ArrayList<ProductRestaurant> lstProductos);
             void onFailure(String err);
         }
 
     }
     public interface View{
-        public void successMovies(ArrayList<Productos> lstProductos);
+        public void successMovies(ArrayList<ProductRestaurant>  ProductoRestaurantes);
         void failureMovies(String err);
     }
 }

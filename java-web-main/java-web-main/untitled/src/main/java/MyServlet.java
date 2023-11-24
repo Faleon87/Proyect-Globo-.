@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.List;
+
 
 import static beans.ProductRestaurant.convertToJson;
 
@@ -34,7 +34,7 @@ public class MyServlet  extends HttpServlet {
                     out.print(selectUsers(request , response).toString());
                     break;
                 case "PRODUCTREST":
-                    out.print(selectProductRest(request ,response));
+                    out.print(selectProductRest(request ,response).toString());
                     break;
             }
 
@@ -69,7 +69,7 @@ public class MyServlet  extends HttpServlet {
         public String selectProductRest(HttpServletRequest request, HttpServletResponse response){
         SqlAction sql = new SqlAction();
         ArrayList<ProductRestaurant> p1 = sql.findProduct_Restaurant();
-        String json = convertToJson(p1);
+       String json = convertToJson(p1);
         return json;
         }
     }

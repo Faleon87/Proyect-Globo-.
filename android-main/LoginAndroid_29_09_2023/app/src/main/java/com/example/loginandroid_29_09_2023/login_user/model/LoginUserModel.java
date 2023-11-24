@@ -31,7 +31,6 @@ public class LoginUserModel implements ContractLoginUser.Model {
         ApiService apiService = RetrofitCliente.getClient("http://" + IP_BASE + "/untitled/").
                 create(ApiService.class);
         // Realizar la solicitud al Servlet
-//         Call<MyData> call = apiService.getMyData("1");
         Call<MyLoginData> calls = apiService.getDataUser ("LOGIN", user.getUsername(), user.getToken() );
         calls.enqueue(new Callback<MyLoginData>() {
             @Override
@@ -51,10 +50,6 @@ public class LoginUserModel implements ContractLoginUser.Model {
                     }catch (Exception ex){
                         System.out.println("error: " + ex);
                     }
-
-//                    String message = myData.getMessage();
-//                    ArrayList<User> lstUsers = myData.getLstUsers();
-//                    onLoginUserListener.onFinished(lstUsers.get(0));
                     // Actualizar la interfaz de usuario con el mensaje recibido
                 } else {
                     // Manejar una respuesta no exitosa
