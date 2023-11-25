@@ -1,62 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<!-- activity_lst_products.xml -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:layout_height="match_parent"
-    tools:context=".lst_products.view.LstProductsActivity">
-    <ScrollView
+    android:layout_height="match_parent">
+
+    <!-- Otras vistas y elementos en tu diseño -->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
-            android:orientation="vertical"
-            android:layout_height="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp" />
 
-            android:id="@+id/constraintLayoutProduct"
-            tools:context=".lst_products.view.LstProductsActivity">
-
-            <!--    <ListView-->
-            <!--        android:layout_width="match_parent"-->
-            <!--        android:layout_height="match_parent" >-->
-            <!--        <LinearLayout-->
-            <!--            android:id="@+id/linearLayoutProduct"-->
-            <!--            android:layout_width="374dp"-->
-            <!--            android:layout_height="match_parent"-->
-            <!--            android:orientation="vertical">-->
-
-            <!--        <ImageView-->
-            <!--            android:id="@+id/imageView4"-->
-            <!--            android:layout_width="match_parent"-->
-            <!--            android:layout_height="120dp"-->
-            <!--            android:scaleType="centerCrop" />-->
-
-            <!--        <TextView-->
-            <!--            android:id="@+id/productNameTextView3"-->
-            <!--            android:layout_width="match_parent"-->
-            <!--            android:layout_height="wrap_content"-->
-            <!--            android:text="Nombre del Producto"-->
-            <!--            android:textSize="16sp" />-->
-
-            <!--        <TextView-->
-            <!--            android:id="@+id/restaurantNameTextView3"-->
-            <!--            android:layout_width="match_parent"-->
-            <!--            android:layout_height="wrap_content"-->
-            <!--            android:text="Nombre del Restaurante"-->
-            <!--            android:textSize="14sp" />-->
-
-            <!--        <TextView-->
-            <!--            android:id="@+id/priceTextView3"-->
-            <!--            android:layout_width="match_parent"-->
-            <!--            android:layout_height="wrap_content"-->
-            <!--            android:text="$0.00"-->
-            <!--            android:textSize="18sp" />-->
-            <!--        </LinearLayout>-->
-            <!--    </ListView>-->
-
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
-    </ScrollView>
-</androidx.appcompat.widget.LinearLayoutCompat>
+</RelativeLayout>

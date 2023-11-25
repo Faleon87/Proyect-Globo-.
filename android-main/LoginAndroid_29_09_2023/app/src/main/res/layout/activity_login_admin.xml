@@ -180,6 +180,14 @@
             android:text="@string/button"
             android:textColor="@color/white" />
 
+        <Button
+            android:id="@+id/btnLogin2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/greenGlovo"
+            android:text="Lista Productos por Restaurante"
+            android:textColor="@color/white" />
+
     </LinearLayout>
 </LinearLayout>
 </ScrollView>

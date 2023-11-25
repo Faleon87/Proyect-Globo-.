@@ -2,6 +2,7 @@ package com.example.loginandroid_29_09_2023.Parte_admin.view;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -19,6 +20,8 @@ public class LoginAdminM extends AppCompatActivity implements ContractLoginUser.
 
 
     private ImageButton btnvuelta;
+
+    private Button btnverproductos;
     private String message;
 
     private LoginUserPresenter presenter =
@@ -39,6 +42,11 @@ public class LoginAdminM extends AppCompatActivity implements ContractLoginUser.
     }
     private void initComponents(){
             btnvuelta = findViewById(R.id.imageButton);
+            btnverproductos = findViewById(R.id.btnLogin2);
+            btnverproductos.setOnClickListener(v -> {
+                Intent intent = new Intent(LoginAdminM.this, LstProductsActivity.class);
+                startActivity(intent);
+            });
             btnvuelta.setOnClickListener(v -> {
                 Intent intent = new Intent(LoginAdminM.this, LoginUserM.class);
                 startActivity(intent);

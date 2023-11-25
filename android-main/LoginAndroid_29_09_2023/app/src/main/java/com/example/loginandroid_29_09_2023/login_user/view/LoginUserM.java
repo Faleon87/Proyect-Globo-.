@@ -15,6 +15,7 @@ import com.example.loginandroid_29_09_2023.Parte_admin.view.LoginAdminM;
 import com.example.loginandroid_29_09_2023.login_user.ContractLoginUser;
 import com.example.loginandroid_29_09_2023.login_user.presenter.LoginUserPresenter;
 import com.example.loginandroid_29_09_2023.lst_products.view.LstProductsActivity;
+import com.example.loginandroid_29_09_2023.productos_users.view.LstProductsViewUser;
 
 public class LoginUserM extends AppCompatActivity implements ContractLoginUser.View{
 
@@ -63,7 +64,7 @@ public class LoginUserM extends AppCompatActivity implements ContractLoginUser.V
     @Override
     public void successLogin(User user) {
         Toast.makeText(mainActivity, user.getUsername(), Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(mainActivity, LstProductsActivity.class);
+        Intent intent = new Intent(this, LstProductsViewUser.class);
         startActivity(intent);
     }
 

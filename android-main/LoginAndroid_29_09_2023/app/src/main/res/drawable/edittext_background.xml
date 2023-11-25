@@ -1,0 +1,5 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners android:radius="8dp" /> <!-- Ajusta el radio según tus preferencias -->
+    <solid android:color="@color/greenGlovo" /> <!-- Color de fondo del EditText -->
+    <stroke android:width="2dp" android:color="@color/white" /> <!-- Borde del EditText -->
+</shape>
