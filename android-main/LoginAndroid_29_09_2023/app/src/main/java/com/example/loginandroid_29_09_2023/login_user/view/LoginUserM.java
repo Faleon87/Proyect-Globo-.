@@ -14,7 +14,6 @@ import com.example.loginandroid_29_09_2023.beans.User;
 import com.example.loginandroid_29_09_2023.Parte_admin.view.LoginAdminM;
 import com.example.loginandroid_29_09_2023.login_user.ContractLoginUser;
 import com.example.loginandroid_29_09_2023.login_user.presenter.LoginUserPresenter;
-import com.example.loginandroid_29_09_2023.lst_products.view.LstProductsActivity;
 import com.example.loginandroid_29_09_2023.productos_users.view.LstProductsViewUser;
 
 public class LoginUserM extends AppCompatActivity implements ContractLoginUser.View{
@@ -43,12 +42,12 @@ public class LoginUserM extends AppCompatActivity implements ContractLoginUser.V
     }
     private void initComponents(){
 
-        btnLogin = findViewById(R.id.btnLogin);
+        btnLogin = findViewById(R.id.btnEnviarProduct);
         btnLogin.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                edtEmail = findViewById(R.id.edtEmail);
+                edtEmail = findViewById(R.id.NombreRestaurante);
                 edtPassword = findViewById(R.id.edtPassword);
                 String valoredtEmail = edtEmail.getText().toString();
                 String valoredtPassword = edtPassword.getText().toString();

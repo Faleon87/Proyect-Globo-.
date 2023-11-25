@@ -73,7 +73,7 @@
 
         <!-- Password -->
         <EditText
-            android:id="@+id/edtEmail"
+            android:id="@+id/NombreRestaurante"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:autofillHints="emailAddress"
@@ -135,7 +135,7 @@
         </RelativeLayout>
 
         <Button
-            android:id="@+id/btnLogin"
+            android:id="@+id/btnEnviarProduct"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/yellowGlovo"

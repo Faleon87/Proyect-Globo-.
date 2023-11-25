@@ -22,7 +22,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="128dp"
         android:gravity="center"
         android:padding="16dp">
 
@@ -46,7 +46,7 @@
     <!-- Login Section -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="534dp"
+        android:layout_height="569dp"
         android:layout_weight="1"
         android:background="@color/white"
         android:orientation="vertical"
@@ -63,8 +63,7 @@
             android:text="Dar de Alta Productos"
             android:textColor="@color/black"
             android:textSize="16sp"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
 
         <!-- Email Address -->
         <TextView
@@ -77,7 +76,7 @@
 
         <!-- Password -->
         <EditText
-            android:id="@+id/edtEmail"
+            android:id="@+id/NombreRestaurante"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:autofillHints="emailAddress"
@@ -100,7 +99,7 @@
         <!-- Login Button -->
 
         <EditText
-            android:id="@+id/edtEmail2"
+            android:id="@+id/NombreProducto"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:autofillHints="emailAddress"
@@ -120,7 +119,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/edtEmail3"
+            android:id="@+id/Descripcion"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:autofillHints="emailAddress"
@@ -140,7 +139,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/edtEmail4"
+            android:id="@+id/ImagenUrl"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:autofillHints="emailAddress"
@@ -160,7 +159,27 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/editTextNumber"
+            android:id="@+id/PrecioProducto"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:autofillHints="emailAddress"
+            android:background="@drawable/edittext_rounded_corners"
+            android:contentDescription="@string/email_address"
+            android:inputType="textEmailAddress"
+            android:textAlignment="center"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alpha="0.7"
+            android:text="ID Restaurante"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/Restauranteid"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:background="@drawable/edittext_rounded_corners"
@@ -169,15 +188,15 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
 
         <!-- Or Login With Text -->
         <Button
-            android:id="@+id/btnLogin"
+            android:id="@+id/btnEnviarProduct"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/greenGlovo"
-            android:text="@string/button"
+            android:text="Enviar"
             android:textColor="@color/white" />
 
         <Button

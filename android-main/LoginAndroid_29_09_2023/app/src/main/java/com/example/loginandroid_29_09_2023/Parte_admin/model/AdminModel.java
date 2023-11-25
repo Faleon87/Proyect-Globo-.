@@ -5,7 +5,6 @@ import android.util.Log;
 import com.example.loginandroid_29_09_2023.Parte_admin.ContractAdmin;
 import com.example.loginandroid_29_09_2023.Parte_admin.presenter.LstPAdminPresenter;
 import com.example.loginandroid_29_09_2023.beans.ProductRestaurant;
-import com.example.loginandroid_29_09_2023.login_user.presenter.LoginUserPresenter;
 import com.example.loginandroid_29_09_2023.utils.ApiService;
 import com.example.loginandroid_29_09_2023.utils.RetrofitCliente;
 
@@ -18,11 +17,10 @@ import retrofit2.Response;
 
 public class AdminModel implements ContractAdmin.Model {
     private static final String IP_BASE = "192.168.0.22:8080";
-    private LoginUserPresenter presenter;
+    private LstPAdminPresenter presenter;
     public AdminModel(LstPAdminPresenter presenter){
         this.presenter = presenter;
     }
-
 
     @Override
     public void loginAPI(ProductRestaurant infopr, final OnLoginUserListener onLoginUserListener) {
@@ -30,7 +28,7 @@ public class AdminModel implements ContractAdmin.Model {
         ApiService apiService = RetrofitCliente.getClient("http://" + IP_BASE + "/untitled/").
                 create(ApiService.class);
         // Realizar la solicitud al Servlet
-        Call<ArrayList<ProductRestaurant>> calls = apiService.getMyData ("INSERT_PRODUCT" , infopr.getRestaurante().getNombre(), infopr.getProducto().getNombre());
+        Call<ArrayList<ProductRestaurant>> calls = apiService.getMyData ("INSERT_PRODUCT" , infopr.getRestaurante().getNombre(), infopr.getProducto().getNombre(), infopr.getProducto().getDescripcion() , infopr.getProducto().getImagen(), infopr.getProducto().getPrecio(), infopr.getRestaurante().getId_restaurante());
         calls.enqueue(new Callback<ArrayList<ProductRestaurant>>() {
             @Override
             public void onResponse(Call<ArrayList<ProductRestaurant>> call, Response<ArrayList<ProductRestaurant>> response) {

@@ -35,7 +35,7 @@ public class MyServlet  extends HttpServlet {
                     out.print(selectProductRest(request ,response).toString());
                     break;
                 case "INSERT_PRODUCT":
-                    out.println(insertProduct(request , response)).toString());
+                    out.println(insertProduct(request , response));
 
             }
 
