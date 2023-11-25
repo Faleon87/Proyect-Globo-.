@@ -38,18 +38,7 @@ public class LstProductsViewUser extends AppCompatActivity implements ContractPr
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_products_user);
         mainActivity = this;
-        initComponents();
-    }
-    private void initComponents(){
 
-        btnLogin = findViewById(R.id.btnLogin);
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
     }
 
 
