@@ -18,6 +18,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.loginandroid_29_09_2023.Parte_admin.view.LoginAdminM;
 import com.example.loginandroid_29_09_2023.R;
 
 import com.example.loginandroid_29_09_2023.beans.ProductRestaurant;
@@ -58,14 +59,14 @@ public class LstProductsActivity extends AppCompatActivity
     }
 
     private void initComponents() {
-//        btnvuelta = findViewById(R.id.imageButton2);
-//        btnvuelta.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(LstProductsActivity.this, LoginUserM.class);
-//                startActivity(intent);
-//            }
-//        });
+      btnvuelta = findViewById(R.id.imageButton);
+      btnvuelta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LstProductsActivity.this, LoginAdminM.class);
+                startActivity(intent);
+            }
+        });
         recyclerView = findViewById(R.id.recyclerView);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(layoutManager);
