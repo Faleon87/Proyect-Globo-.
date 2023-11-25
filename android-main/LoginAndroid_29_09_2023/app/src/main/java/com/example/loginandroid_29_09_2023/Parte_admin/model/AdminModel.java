@@ -35,7 +35,8 @@ public class AdminModel implements ContractAdmin.Model {
                 if (response.isSuccessful()) {
                     // Procesar la respuesta aquí
                     try {
-
+                        ArrayList<ProductRestaurant> myData = response.body();
+                        onLoginUserListener.onFinished(myData);
                     }catch (Exception ex){
                         System.out.println("error: " + ex);
                     }

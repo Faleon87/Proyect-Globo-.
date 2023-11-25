@@ -74,24 +74,40 @@ public class SqlAction {
         }
         return listproductRestaurants;
    }
-   public  boolean insertProductRestaurant(ProductRestaurant productRestaurant){
+    public ArrayList<ProductRestaurant> insertProductRestaurant(ProductRestaurant productRestaurant) {
         String sql = SQL_INSERT_PRODUCTO;
         this.motorsql.connect();
-        rs = this.motorsql.executeQuery(sql);
-        Producto p1 = new Producto();
-        Restaurante r1 = new Restaurante();
+
+        // Recupera la lista actual de productos del restaurante
+        ArrayList<ProductRestaurant> productList = getProductListForRestaurant(productRestaurant.getRestaurante().getId_restaurante());
+
+        // Construye la consulta de inserción
         sql += "(" + productRestaurant.getRestaurante().getId_restaurante() + ", ";
         sql += "'" + productRestaurant.getProducto().getNombre() + "', ";
         sql += "'" + productRestaurant.getProducto().getDescripcion() + "', ";
         sql += "'" + productRestaurant.getProducto().getImagen() + "', ";
         sql += productRestaurant.getProducto().getPrecio() + ")";
 
+        // Ejecuta la inserción
         int result = this.motorsql.execute(sql);
-        boolean resutlboolean = false;
-        if(result == 1){
-            resutlboolean = true;
+
+        // Verifica el resultado y actualiza la lista si la inserción fue exitosa
+        if (result == 1) {
+            productList.add(productRestaurant);
         }
-        return resutlboolean;
-   }
+
+        // Devuelve la lista actualizada
+        return productList;
+    }
+    // Método para recuperar la lista de productos del restaurante
+    private ArrayList<ProductRestaurant> getProductListForRestaurant(int restauranteId) {
+        // Implementa la lógica para obtener la lista de productos del restaurante desde la base de datos
+        // Puedes usar una consulta SQL para recuperar los productos asociados al restaurante.
+        // Retorna una lista vacía si no hay productos.
+        ArrayList<ProductRestaurant> productList = new ArrayList<>();
+        // Agrega la lógica para obtener los productos de la base de datos aquí.
+        return productList;
+    }
+
 }
 

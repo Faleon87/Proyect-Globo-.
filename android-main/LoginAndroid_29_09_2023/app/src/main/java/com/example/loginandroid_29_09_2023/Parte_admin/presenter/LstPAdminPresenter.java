@@ -22,13 +22,15 @@ public class LstPAdminPresenter implements ContractAdmin.Presenter,
         adminModel = new AdminModel(this);
     }
 
+
     @Override
-    public void onFinished(User user) {
+    public void onFinished(ArrayList<ProductRestaurant> user) {
 
     }
 
     @Override
     public void onFailure(String err) {
+
     }
 
 

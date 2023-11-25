@@ -4,6 +4,8 @@ import com.example.loginandroid_29_09_2023.beans.ProductRestaurant;
 import com.example.loginandroid_29_09_2023.beans.Producto;
 import com.example.loginandroid_29_09_2023.beans.User;
 
+import java.util.ArrayList;
+
 public interface ContractAdmin {
     public interface View{
         public void successLogin(ProductRestaurant productRestaurant);
@@ -16,7 +18,7 @@ public interface ContractAdmin {
     }
     public interface Model{
         interface OnLoginUserListener{
-            void onFinished(User user);
+            void onFinished(ArrayList<ProductRestaurant> user);
             void onFailure(String err);
 
         }

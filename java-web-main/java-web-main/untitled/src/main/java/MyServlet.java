@@ -74,7 +74,7 @@ public class MyServlet  extends HttpServlet {
         return json;
         }
 
-        public boolean insertProduct(HttpServletRequest request, HttpServletResponse response){
+        public ArrayList<ProductRestaurant> insertProduct(HttpServletRequest request, HttpServletResponse response){
             SqlAction sql = new SqlAction();
             ProductRestaurant productRestaurant = new ProductRestaurant();
             Restaurante r1 = new Restaurante();
