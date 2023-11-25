@@ -3,11 +3,8 @@ package com.example.loginandroid_29_09_2023.Parte_admin.model;
 import android.util.Log;
 
 import com.example.loginandroid_29_09_2023.Parte_admin.ContractAdmin;
+import com.example.loginandroid_29_09_2023.Parte_admin.presenter.LstPAdminPresenter;
 import com.example.loginandroid_29_09_2023.beans.ProductRestaurant;
-import com.example.loginandroid_29_09_2023.beans.Producto;
-import com.example.loginandroid_29_09_2023.beans.User;
-import com.example.loginandroid_29_09_2023.login_user.ContractLoginUser;
-import com.example.loginandroid_29_09_2023.login_user.data.MyLoginData;
 import com.example.loginandroid_29_09_2023.login_user.presenter.LoginUserPresenter;
 import com.example.loginandroid_29_09_2023.utils.ApiService;
 import com.example.loginandroid_29_09_2023.utils.RetrofitCliente;
@@ -22,7 +19,7 @@ import retrofit2.Response;
 public class AdminModel implements ContractAdmin.Model {
     private static final String IP_BASE = "192.168.0.22:8080";
     private LoginUserPresenter presenter;
-    public AdminModel(LoginUserPresenter presenter){
+    public AdminModel(LstPAdminPresenter presenter){
         this.presenter = presenter;
     }
 

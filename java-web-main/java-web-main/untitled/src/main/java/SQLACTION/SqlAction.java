@@ -15,7 +15,7 @@ public class SqlAction {
            "P.DESCRIPCION, P.IMAGEN, P.PRECIO , R.ID_RESTAURANTE FROM RESTAURANTE R JOIN PRODUCTO P ON R.ID_RESTAURANTE = P.ID_RESTAURANTE";
     private final String SQL_LOGIN = "select USERNAME , password from usuario where ";
 
-//    private final String SQL_INSERT_PRODUCTO= "INSERT INTO PRODUCTO (ID_RESTAURANTE, NOMBRE, DESCRIPCION, IMAGEN, PRECIO) VALUES ";
+    private final String SQL_INSERT_PRODUCTO= "INSERT INTO PRODUCTO (ID_RESTAURANTE, NOMBRE, DESCRIPCION, IMAGEN, PRECIO) VALUES ";
     private motorsql motorsql;
     private ResultSet rs;
 

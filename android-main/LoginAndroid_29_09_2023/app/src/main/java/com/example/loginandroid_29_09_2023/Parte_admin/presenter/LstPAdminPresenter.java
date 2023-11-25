@@ -18,7 +18,7 @@ public class LstPAdminPresenter implements ContractAdmin.Presenter,
 
     private ArrayList<ProductRestaurant> ProductoRestaurantes = new ArrayList<>();
     public LstPAdminPresenter(ContractAdmin.View vista){
-        this.vista = vista;
+        this.vista = (ContractListMovies.View) vista;
         adminModel = new AdminModel(this);
     }
 
@@ -32,8 +32,5 @@ public class LstPAdminPresenter implements ContractAdmin.Presenter,
 
     }
 
-    @Override
-    public void login(User user) {
 
-    }
 }
