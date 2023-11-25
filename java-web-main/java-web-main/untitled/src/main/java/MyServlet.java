@@ -1,9 +1,7 @@
 
 
 import SQLACTION.SqlAction;
-import beans.MyLoginData;
-import beans.ProductRestaurant;
-import beans.User;
+import beans.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -36,6 +34,9 @@ public class MyServlet  extends HttpServlet {
                 case "PRODUCTREST":
                     out.print(selectProductRest(request ,response).toString());
                     break;
+                case "INSERT_PRODUCT":
+                    out.println(insertProduct(request , response)).toString());
+
             }
 
 
@@ -69,8 +70,24 @@ public class MyServlet  extends HttpServlet {
         public String selectProductRest(HttpServletRequest request, HttpServletResponse response){
         SqlAction sql = new SqlAction();
         ArrayList<ProductRestaurant> p1 = sql.findProduct_Restaurant();
-       String json = convertToJson(p1);
+        String json = convertToJson(p1);
         return json;
+        }
+
+        public boolean insertProduct(HttpServletRequest request, HttpServletResponse response){
+            SqlAction sql = new SqlAction();
+            ProductRestaurant productRestaurant = new ProductRestaurant();
+            Restaurante r1 = new Restaurante();
+            Producto p1 = new Producto();
+            r1.setNombre(request.getParameter("NOMBRE_REST"));
+            p1.setNombre(request.getParameter("NOMBRE_PRODUCTO"));
+            p1.setDescripcion(request.getParameter("DESCRIPCION"));
+            p1.setImagen(request.getParameter("IMAGEN"));
+            p1.setPrecio(Integer.parseInt(request.getParameter("PRECIO")));
+            r1.setId_restaurante(Integer.parseInt(request.getParameter("ID_REST")));
+            productRestaurant.setRestaurante(r1);
+            productRestaurant.setProducto(p1);
+            return sql.insertProductRestaurant(productRestaurant);
         }
     }
 

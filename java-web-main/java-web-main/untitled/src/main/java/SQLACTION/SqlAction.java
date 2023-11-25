@@ -73,18 +73,25 @@ public class SqlAction {
             System.out.println("Error: " + ex);
         }
         return listproductRestaurants;
-    }
-//    public  ArrayList<ProductRestaurant> insertProductRestaurant(ProductRestaurant productRestaurant, int id_restaurante){
-//        String sql = SQL_INSERT_PRODUCTO;
-//        this.motorsql.connect();
-//        rs = this.motorsql.executeQuery(sql);
-//        Producto p1 = new Producto();
-//        Restaurante r1 = new Restaurante();
-//        sql += "(" + id_restaurante + ", ";
-//
-//
-//
-//
-//    }
+   }
+   public  boolean insertProductRestaurant(ProductRestaurant productRestaurant){
+        String sql = SQL_INSERT_PRODUCTO;
+        this.motorsql.connect();
+        rs = this.motorsql.executeQuery(sql);
+        Producto p1 = new Producto();
+        Restaurante r1 = new Restaurante();
+        sql += "(" + productRestaurant.getRestaurante().getId_restaurante() + ", ";
+        sql += "'" + productRestaurant.getProducto().getNombre() + "', ";
+        sql += "'" + productRestaurant.getProducto().getDescripcion() + "', ";
+        sql += "'" + productRestaurant.getProducto().getImagen() + "', ";
+        sql += productRestaurant.getProducto().getPrecio() + ")";
+
+        int result = this.motorsql.execute(sql);
+        boolean resutlboolean = false;
+        if(result == 1){
+            resutlboolean = true;
+        }
+        return resutlboolean;
+   }
 }
 

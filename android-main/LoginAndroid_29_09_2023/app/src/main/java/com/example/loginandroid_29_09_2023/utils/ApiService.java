@@ -30,7 +30,8 @@ public interface ApiService {
 
 
        @GET("MyServlet")
-      Call<ArrayList<ProductRestaurant>> getMyData(@Query("ACTION") String action, @Query("NAMER") String rname,@Query("NAMEP")String pname);
+      Call<ArrayList<ProductRestaurant>> getMyData(@Query("ACTION") String action, @Query("NOMBRE_REST") String rname,@Query("NOMBRE_PRODUCTO")String pname ,
+                                                   @Query("DESCRIPCION") String description,@Query("IMAGEN") String image, @Query("PRECIO") int precio , @Query("ID_REST") int idrest);
 
 //        @GET("MyServlet/{id}")
 //        Call<MyData> getMyDataURL(@Path("id") String id);*/
