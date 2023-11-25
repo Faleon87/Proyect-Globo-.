@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.loginandroid_29_09_2023.Parte_admin.presenter.LstPAdminPresenter;
 import com.example.loginandroid_29_09_2023.R;
 import com.example.loginandroid_29_09_2023.beans.User;
 import com.example.loginandroid_29_09_2023.login_user.ContractLoginUser;
@@ -24,8 +25,8 @@ public class LoginAdminM extends AppCompatActivity implements ContractLoginUser.
     private Button btnverproductos;
     private String message;
 
-    private LoginUserPresenter presenter =
-            new LoginUserPresenter(this);
+    private LstPAdminPresenter presenter =
+            new LstPAdminPresenter(this);
 
     /* PATRÓN SINGLETON*/
     private static LoginAdminM mainActivity = null;
