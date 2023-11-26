@@ -16,6 +16,8 @@ public class SqlAction {
     private final String SQL_LOGIN = "select USERNAME , password from usuario where ";
 
     private final String SQL_INSERT_PRODUCTO= " INSERT INTO RESTAURANTE(ID_RESTAURANTE ,NOMBRE) VALUES";
+
+    private final String SQL_SELECT_RESTAURANT_VENTAS = "SELECT ID_RESTAURANTE, NOMBRE, DESCRIPCION, IMAGEN, VENTAS FROM RESTAURANTE ORDER BY VENTAS DESC";
     private motorsql motorsql;
     private ResultSet rs;
 
@@ -45,8 +47,6 @@ public class SqlAction {
         }
             return null;
     }
-
-
     public ArrayList<ProductRestaurant> findProduct_Restaurant(){
         String sql = SQL_PRODUCT_RESTAURANTE;
         ArrayList <ProductRestaurant> listproductRestaurants = new ArrayList<>();
@@ -74,6 +74,32 @@ public class SqlAction {
         }
         return listproductRestaurants;
    }
+
+   public ArrayList<ProductRestaurant> findRestaurantVentas() {
+        String sql = SQL_SELECT_RESTAURANT_VENTAS;
+        ArrayList<ProductRestaurant> restaurantList = new ArrayList<>();
+        try {
+            this.motorsql.connect();
+            rs = this.motorsql.executeQuery(sql);
+            while (rs.next()) {
+                Restaurante restaurante = new Restaurante();
+                restaurante.setId_restaurante(rs.getInt(1));
+                restaurante.setNombre(rs.getString(2));
+                restaurante.setDescripcion(rs.getString(3));
+                restaurante.setImagen(rs.getString(4));
+                restaurante.setVentas(rs.getInt(5));
+                ProductRestaurant productRestaurant = new ProductRestaurant();
+                productRestaurant.setRestaurante(restaurante);
+                restaurantList.add(productRestaurant);
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error de sql: " + ex);
+        } catch (Exception ex) {
+            System.out.println("Error: " + ex);
+        }
+        return restaurantList;
+    }
+
     public ArrayList<ProductRestaurant> insertProductRestaurant(ProductRestaurant productRestaurant) {
         ArrayList<ProductRestaurant> productList = new ArrayList<>();
         String sql = SQL_INSERT_PRODUCTO;

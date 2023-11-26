@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
+import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 public interface ApiService {
@@ -20,7 +21,7 @@ public interface ApiService {
 //
 //      @GET("MyServlet")
 //      Call<MyData> getDataUser(@Query("ACTION") String action);
-      @GET("MyServlet")
+        @GET("MyServlet")
         Call<MyLoginData> getDataUser(@Query("ACTION") String action,
                                       @Query("USERNAME") String username,
                                       @Query("TOKEN") String token);
@@ -30,9 +31,10 @@ public interface ApiService {
 
 
        @GET("MyServlet")
-      Call<ArrayList<ProductRestaurant>> getMyData(@Query("ACTION") String action, @Query("NOMBRE_REST") String rname,@Query("NOMBRE_PRODUCTO")String pname ,
+       Call<ArrayList<ProductRestaurant>> getMyData(@Query("ACTION") String action, @Query("NOMBRE_REST") String rname,@Query("NOMBRE_PRODUCTO")String pname ,
                                                    @Query("DESCRIPCION") String description,@Query("IMAGEN") String image, @Query("PRECIO") int precio , @Query("ID_REST") int idrest ,
                                                    @Query("NOMBRE_REST") String name_rest);
+
 
 //        @GET("MyServlet/{id}")
 //        Call<MyData> getMyDataURL(@Path("id") String id);*/

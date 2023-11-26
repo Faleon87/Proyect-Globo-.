@@ -36,6 +36,10 @@ public class MyServlet  extends HttpServlet {
                     break;
                 case "INSERT_PRODUCT":
                     out.println(insertProduct(request , response));
+                    break;
+                case "SELECT_RESTAURANT_VENTAS":
+                    out.println(selectRestaurantVentas(request , response));
+                    break;
 
             }
 
@@ -52,6 +56,13 @@ public class MyServlet  extends HttpServlet {
             /*request.setAttribute("message", message);
             request.getRequestDispatcher("/index.jsp").forward(request, response);
              */
+        }
+
+        public String selectRestaurantVentas(HttpServletRequest request, HttpServletResponse response){
+            SqlAction sql = new SqlAction();
+            ArrayList<ProductRestaurant> r1 = sql.findRestaurantVentas();
+            String json = convertToJson(r1);
+            return json;
         }
         public MyLoginData selectUsers(HttpServletRequest request, HttpServletResponse response){
             User usuario = new User();
