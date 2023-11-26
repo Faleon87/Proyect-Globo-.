@@ -1,21 +1,15 @@
-package com.example.loginandroid_29_09_2023.productos_users.view;
+package com.example.loginandroid_29_09_2023.restaurant_ventas.view;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.loginandroid_29_09_2023.Parte_admin.view.LoginAdminM;
 import com.example.loginandroid_29_09_2023.R;
 import com.example.loginandroid_29_09_2023.beans.User;
-import com.example.loginandroid_29_09_2023.login_user.ContractLoginUser;
-import com.example.loginandroid_29_09_2023.login_user.presenter.LoginUserPresenter;
-import com.example.loginandroid_29_09_2023.lst_products.view.LstProductsActivity;
-import com.example.loginandroid_29_09_2023.productos_users.ContractProductUser;
+import com.example.loginandroid_29_09_2023.restaurant_ventas.ContractProductUser;
 
 public class LstProductsViewUser extends AppCompatActivity implements ContractProductUser.View{
 

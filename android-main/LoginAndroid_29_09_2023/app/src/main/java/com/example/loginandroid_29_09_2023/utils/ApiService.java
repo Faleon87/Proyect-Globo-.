@@ -36,8 +36,10 @@ public interface ApiService {
                                                    @Query("NOMBRE_REST") String name_rest);
 
 
-//        @GET("MyServlet/{id}")
-//        Call<MyData> getMyDataURL(@Path("id") String id);*/
+
+       @GET("MYServlet")
+        Call<ArrayList<ProductRestaurant>> getDataRestaurantVentas (@Query("ACTION") String action);
+
 
         /*
         @FormUrlEncoded
