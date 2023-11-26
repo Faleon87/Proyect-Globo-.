@@ -28,7 +28,9 @@ public class AdminModel implements ContractAdmin.Model {
         ApiService apiService = RetrofitCliente.getClient("http://" + IP_BASE + "/untitled/").
                 create(ApiService.class);
         // Realizar la solicitud al Servlet
-        Call<ArrayList<ProductRestaurant>> calls = apiService.getMyData ("INSERT_PRODUCT" , infopr.getRestaurante().getNombre(), infopr.getProducto().getNombre(), infopr.getProducto().getDescripcion() , infopr.getProducto().getImagen(), infopr.getProducto().getPrecio(), infopr.getRestaurante().getId_restaurante());
+        Call<ArrayList<ProductRestaurant>> calls = apiService.getMyData ("INSERT_PRODUCT" , infopr.getRestaurante().getNombre(), infopr.getProducto().getNombre(),
+                infopr.getProducto().getDescripcion(), infopr.getProducto().getImagen(), infopr.getProducto().getPrecio(), infopr.getRestaurante().getId_restaurante() ,
+                infopr.getRestaurante().getNombre());
         calls.enqueue(new Callback<ArrayList<ProductRestaurant>>() {
             @Override
             public void onResponse(Call<ArrayList<ProductRestaurant>> call, Response<ArrayList<ProductRestaurant>> response) {

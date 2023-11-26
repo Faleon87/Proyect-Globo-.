@@ -15,7 +15,7 @@ public class SqlAction {
            "P.DESCRIPCION, P.IMAGEN, P.PRECIO , R.ID_RESTAURANTE FROM RESTAURANTE R JOIN PRODUCTO P ON R.ID_RESTAURANTE = P.ID_RESTAURANTE";
     private final String SQL_LOGIN = "select USERNAME , password from usuario where ";
 
-    private final String SQL_INSERT_PRODUCTO= "INSERT INTO PRODUCTO (ID_RESTAURANTE, NOMBRE, DESCRIPCION, IMAGEN, PRECIO) VALUES ";
+    private final String SQL_INSERT_PRODUCTO= " INSERT INTO RESTAURANTE(ID_RESTAURANTE ,NOMBRE) VALUES";
     private motorsql motorsql;
     private ResultSet rs;
 
@@ -75,37 +75,26 @@ public class SqlAction {
         return listproductRestaurants;
    }
     public ArrayList<ProductRestaurant> insertProductRestaurant(ProductRestaurant productRestaurant) {
+        ArrayList<ProductRestaurant> productList = new ArrayList<>();
         String sql = SQL_INSERT_PRODUCTO;
         this.motorsql.connect();
-
+        sql+="(" + productRestaurant.getRestaurante().getId_restaurante() + ", ";
+        sql+= "'" + productRestaurant.getRestaurante().getNombre()+ "');";
+         this.motorsql.execute(sql);
         // Recupera la lista actual de productos del restaurante
-        ArrayList<ProductRestaurant> productList = getProductListForRestaurant(productRestaurant.getRestaurante().getId_restaurante());
-
+        String sql2="";
+        sql2+= "INSERT INTO PRODUCTO (ID_RESTAURANTE, NOMBRE, DESCRIPCION, IMAGEN, PRECIO) VALUES";
         // Construye la consulta de inserción
-        sql += "(" + productRestaurant.getRestaurante().getId_restaurante() + ", ";
-        sql += "'" + productRestaurant.getProducto().getNombre() + "', ";
-        sql += "'" + productRestaurant.getProducto().getDescripcion() + "', ";
-        sql += "'" + productRestaurant.getProducto().getImagen() + "', ";
-        sql += productRestaurant.getProducto().getPrecio() + ")";
+        sql2 += "(" + productRestaurant.getRestaurante().getId_restaurante() + ", ";
+        sql2 += "'" + productRestaurant.getProducto().getNombre() + "', ";
+        sql2 += "'" + productRestaurant.getProducto().getDescripcion() + "', ";
+        sql2 += "'" + productRestaurant.getProducto().getImagen() + "', ";
+        sql2 += productRestaurant.getProducto().getPrecio() + ")";
 
         // Ejecuta la inserción
-        int result = this.motorsql.execute(sql);
-
-        // Verifica el resultado y actualiza la lista si la inserción fue exitosa
-        if (result == 1) {
-            productList.add(productRestaurant);
-        }
-
+        this.motorsql.execute(sql2);
+        productList.add(productRestaurant);
         // Devuelve la lista actualizada
-        return productList;
-    }
-    // Método para recuperar la lista de productos del restaurante
-    private ArrayList<ProductRestaurant> getProductListForRestaurant(int restauranteId) {
-        // Implementa la lógica para obtener la lista de productos del restaurante desde la base de datos
-        // Puedes usar una consulta SQL para recuperar los productos asociados al restaurante.
-        // Retorna una lista vacía si no hay productos.
-        ArrayList<ProductRestaurant> productList = new ArrayList<>();
-        // Agrega la lógica para obtener los productos de la base de datos aquí.
         return productList;
     }
 
