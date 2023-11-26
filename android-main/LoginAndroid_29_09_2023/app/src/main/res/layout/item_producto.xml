@@ -11,14 +11,14 @@
 
     <!-- Contenido del CardView para cada producto -->
     <androidx.cardview.widget.CardView
-        android:layout_width="369dp"
-        android:layout_height="211dp"
+        android:layout_width="315dp"
+        android:layout_height="209dp"
         android:background="@color/yellowGlovo"
         app:cardBackgroundColor="@color/yellowGlovo">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="221dp"
+            android:layout_width="315dp"
+            android:layout_height="212dp"
             android:background="@drawable/edittext_background"
             android:orientation="vertical">
 
