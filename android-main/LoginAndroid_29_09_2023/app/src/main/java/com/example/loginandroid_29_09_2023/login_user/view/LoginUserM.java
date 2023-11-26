@@ -64,7 +64,7 @@ public class LoginUserM extends AppCompatActivity implements ContractLoginUser.V
     @Override
     public void successLogin(User user) {
             Toast.makeText(mainActivity, user.getUsername(), Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(this, LstProductsActivity.class);
+            Intent intent = new Intent(this, LstProductsViewUser.class);
             startActivity(intent);
     }
 

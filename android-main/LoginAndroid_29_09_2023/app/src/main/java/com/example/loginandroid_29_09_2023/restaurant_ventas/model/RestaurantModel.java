@@ -30,7 +30,7 @@ public class RestaurantModel implements ContractProductUser.Model {
         ApiService apiService = RetrofitCliente.getClient("http://" + IP_BASE + "/untitled/").
                 create(ApiService.class);
         // Realizar la solicitud al Servlet
-        Call<ArrayList<ProductRestaurant>> calls = apiService.getDataRestaurantVentas ("SELECT_RESTAURANT_VENTAS");
+        Call<ArrayList<ProductRestaurant>> calls = apiService.getDataRestaurantVentas ("SELECTRESTAURANTVENTAS");
         calls.enqueue(new Callback<ArrayList<ProductRestaurant>>() {
             @Override
             public void onResponse(Call<ArrayList<ProductRestaurant>> call, Response<ArrayList<ProductRestaurant>> response) {

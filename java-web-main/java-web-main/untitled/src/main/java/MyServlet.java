@@ -37,7 +37,7 @@ public class MyServlet  extends HttpServlet {
                 case "INSERT_PRODUCT":
                     out.println(insertProduct(request , response));
                     break;
-                case "SELECT_RESTAURANT_VENTAS":
+                case "SELECTRESTAURANTVENTAS":
                     out.println(selectRestaurantVentas(request , response));
                     break;
 
