@@ -7,7 +7,8 @@
     android:layout_height="wrap_content"
     android:background="@color/yellowGlovo"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:gravity="center">
 
     <!-- Contenido del CardView para cada producto -->
     <androidx.cardview.widget.CardView
@@ -20,7 +21,8 @@
             android:layout_width="315dp"
             android:layout_height="212dp"
             android:background="@drawable/edittext_background"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:gravity="center">
 
             <!-- Elementos de diseño para cada producto -->
             <TextView
