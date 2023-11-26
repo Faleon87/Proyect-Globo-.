@@ -12,8 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.loginandroid_29_09_2023.beans.ProductRestaurant;
 import com.example.loginandroid_29_09_2023.login_user.view.LoginUserM;
 import com.example.loginandroid_29_09_2023.R;
-import com.example.loginandroid_29_09_2023.beans.User;
-import com.example.loginandroid_29_09_2023.lst_products.presenter.LstProductsPresenter;
+import com.example.loginandroid_29_09_2023.lst_products.view.ProductoAdapter;
 import com.example.loginandroid_29_09_2023.restaurant_ventas.ContractProductUser;
 import com.example.loginandroid_29_09_2023.restaurant_ventas.presenter.LstRestVentasPresenter;
 
@@ -21,57 +20,59 @@ import java.util.ArrayList;
 
 public class LstProductsViewUser extends AppCompatActivity implements ContractProductUser.View {
 
-    private LstRestVentasPresenter  lstProductsPresenter;
+    private LstRestVentasPresenter lstProductsPresenter;
     private ImageButton volver;
-    /* PATRÓN SINGLETON*/
 
+    // RecyclerView and Adapter
+    private RecyclerView recyclerView;
+    private ProductoVentasAdapter productoAdapter;
     private ArrayList<ProductRestaurant> ProductoRestaurantes = new ArrayList<>();
+
+    // Singleton instance
     private static LstProductsViewUser mainActivity = null;
-
-
-    /* FIN PATRÓN SINGLETON*/
-
 
     private LstRestVentasPresenter presenter =
             new LstRestVentasPresenter(this);
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_products_user);
+        setContentView(R.layout.activity_products_user);  // Use the correct XML layout file name
         mainActivity = this;
         initComponents();
-        setupRecyclerView();
     }
 
     private void initComponents() {
         volver = findViewById(R.id.volver);
-        volver.setOnClickListener(v -> {
-            Intent intent = new Intent(this, LoginUserM.class);
-            startActivity(intent);
+        volver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LstProductsViewUser.this, LoginUserM.class);
+                startActivity(intent);
+            }
         });
-      presenter.lstProductosRest("");
 
+        recyclerView = findViewById(R.id.recyclerView3);  // Use the correct RecyclerView ID from your XML
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        recyclerView.setLayoutManager(layoutManager);
+
+        presenter.lstProductosRest("Ayuda");
     }
-
-    private void setupRecyclerView() {
-        RecyclerView recyclerView = findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-        ProductoVentasAdapter productoVentasAdapter = new ProductoVentasAdapter(); // Asegúrate de tener un constructor adecuado para tu adaptador
-        recyclerView.setAdapter(productoVentasAdapter);
-    }
-
 
     @Override
     public void success(ArrayList<ProductRestaurant> ProductoRestaurantes) {
+        this.ProductoRestaurantes = ProductoRestaurantes;
+        initRecyclerView();
+    }
 
+    private void initRecyclerView() {
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        productoAdapter = new ProductoVentasAdapter(ProductoRestaurantes, this);
+        recyclerView.setAdapter(productoAdapter);
     }
 
     @Override
     public void failure(String err) {
-        // Lógica de fallo
+        // Logic for failure
     }
-
-
 }

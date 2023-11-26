@@ -15,7 +15,7 @@
     </ImageButton>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/recyclerView2"
         android:layout_width="match_parent"
         android:layout_height="686dp"
         android:layout_below="@id/imageButton"

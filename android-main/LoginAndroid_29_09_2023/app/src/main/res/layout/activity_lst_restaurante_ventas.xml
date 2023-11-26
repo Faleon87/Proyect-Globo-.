@@ -45,8 +45,4 @@
             android:textStyle="bold" />
     </LinearLayout>
 
-    <!-- Imagen -->
-
-    <!-- Ventas -->
-
 </androidx.constraintlayout.widget.ConstraintLayout>
