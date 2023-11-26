@@ -38,7 +38,7 @@ public interface ApiService {
 
 
 
-       @GET("MYServlet")
+       @GET("MyServlet")
         Call<ArrayList<ProductRestaurant>> getDataRestaurantVentas (@Query("ACTION") String action);
 
 

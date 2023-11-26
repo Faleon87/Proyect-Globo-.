@@ -20,8 +20,13 @@ public class ProductoVentasAdapter extends RecyclerView.Adapter<ProductoVentasAd
 
     private List<ProductRestaurant> productoVentasList;
     private Context context;
+
+    public ImageButton imageButtonImagen;
+    public TextView textViewNombre;
+    public TextView textViewVentas;
+
     public ProductoVentasAdapter(List<ProductRestaurant> productos, Context context) {
-            this.productoVentasList = productoVentasList;
+            this.productoVentasList = productos;
             this.context = context;
     }
 
@@ -29,7 +34,7 @@ public class ProductoVentasAdapter extends RecyclerView.Adapter<ProductoVentasAd
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_lst_products, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_lst_restaurante_ventas, parent, false);
         return new ViewHolder(view);
     }
 
@@ -38,11 +43,15 @@ public class ProductoVentasAdapter extends RecyclerView.Adapter<ProductoVentasAd
         ProductRestaurant ProductRestaurant = productoVentasList.get(position);
 
         // Establecer valores para cada producto
-        holder.textViewNombre.setText(ProductRestaurant.getProducto().getNombre());
+        try {
+            holder.textViewNombre.setText(ProductRestaurant.getRestaurante().getNombre());
+        }catch (Exception e){
+            System.out.println("Error: " + e.getMessage());
+        }
         holder.textViewVentas.setText("Ventas: " + ProductRestaurant.getRestaurante().getVentas());
 
         // Cargar la imagen desde la URL usando Glide (o Picasso)
-        String urlImagen = ProductRestaurant.getProducto().getImagen();
+        String urlImagen = ProductRestaurant.getRestaurante().getImagen();
         Glide.with(context).load(urlImagen).into(holder.imageButtonImagen);
     }
 

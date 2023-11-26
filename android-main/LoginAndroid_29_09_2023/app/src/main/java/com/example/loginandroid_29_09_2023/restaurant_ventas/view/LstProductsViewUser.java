@@ -20,24 +20,27 @@ import java.util.ArrayList;
 
 public class LstProductsViewUser extends AppCompatActivity implements ContractProductUser.View {
 
-    private LstRestVentasPresenter lstProductsPresenter;
+    private LstRestVentasPresenter  lstProductsPresenter;
     private ImageButton volver;
+    /* PATRÓN SINGLETON*/
 
-    // RecyclerView and Adapter
     private RecyclerView recyclerView;
     private ProductoVentasAdapter productoAdapter;
     private ArrayList<ProductRestaurant> ProductoRestaurantes = new ArrayList<>();
-
-    // Singleton instance
     private static LstProductsViewUser mainActivity = null;
+
+
+    /* FIN PATRÓN SINGLETON*/
+
 
     private LstRestVentasPresenter presenter =
             new LstRestVentasPresenter(this);
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_products_user);  // Use the correct XML layout file name
+        setContentView(R.layout.activity_products_user);
         mainActivity = this;
         initComponents();
     }
@@ -51,13 +54,14 @@ public class LstProductsViewUser extends AppCompatActivity implements ContractPr
                 startActivity(intent);
             }
         });
-
-        recyclerView = findViewById(R.id.recyclerView3);  // Use the correct RecyclerView ID from your XML
+        recyclerView = findViewById(R.id.recyclerView3);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(layoutManager);
-
         presenter.lstProductosRest("Ayuda");
     }
+
+
+
 
     @Override
     public void success(ArrayList<ProductRestaurant> ProductoRestaurantes) {
@@ -67,12 +71,15 @@ public class LstProductsViewUser extends AppCompatActivity implements ContractPr
 
     private void initRecyclerView() {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        productoAdapter = new ProductoVentasAdapter(ProductoRestaurantes, this);
+        productoAdapter = new ProductoVentasAdapter (ProductoRestaurantes, this);
         recyclerView.setAdapter(productoAdapter);
+
     }
 
     @Override
     public void failure(String err) {
-        // Logic for failure
+        // Lógica de fallo
     }
+
+
 }
