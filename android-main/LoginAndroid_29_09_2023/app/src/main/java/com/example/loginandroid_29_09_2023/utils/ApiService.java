@@ -26,6 +26,7 @@ public interface ApiService {
                                       @Query("USERNAME") String username,
                                       @Query("TOKEN") String token);
 
+
         @GET("MyServlet")
         Call<ArrayList<ProductRestaurant>> getDataProducts(@Query("ACTION") String action);
 

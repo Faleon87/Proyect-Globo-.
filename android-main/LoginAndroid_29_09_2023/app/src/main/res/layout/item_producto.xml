@@ -2,6 +2,7 @@
 
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/yellowGlovo"
@@ -10,12 +11,14 @@
 
     <!-- Contenido del CardView para cada producto -->
     <androidx.cardview.widget.CardView
-        android:layout_width="384dp"
-        android:layout_height="215dp">
+        android:layout_width="369dp"
+        android:layout_height="211dp"
+        android:background="@color/yellowGlovo"
+        app:cardBackgroundColor="@color/yellowGlovo">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="221dp"
             android:background="@drawable/edittext_background"
             android:orientation="vertical">
 
