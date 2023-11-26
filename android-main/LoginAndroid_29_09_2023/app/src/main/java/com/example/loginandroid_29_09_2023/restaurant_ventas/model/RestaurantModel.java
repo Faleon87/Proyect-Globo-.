@@ -5,6 +5,8 @@ import android.util.Log;
 import com.example.loginandroid_29_09_2023.Parte_admin.ContractAdmin;
 import com.example.loginandroid_29_09_2023.Parte_admin.presenter.LstPAdminPresenter;
 import com.example.loginandroid_29_09_2023.beans.ProductRestaurant;
+import com.example.loginandroid_29_09_2023.restaurant_ventas.ContractProductUser;
+import com.example.loginandroid_29_09_2023.restaurant_ventas.presenter.LstRestVentasPresenter;
 import com.example.loginandroid_29_09_2023.utils.ApiService;
 import com.example.loginandroid_29_09_2023.utils.RetrofitCliente;
 
@@ -15,15 +17,15 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class RestaurantModel implements ContractAdmin.Model {
+public class RestaurantModel implements ContractProductUser.Model {
     private static final String IP_BASE = "192.168.0.22:8080";
-    private LstPAdminPresenter presenter;
-    public RestaurantModel(LstPAdminPresenter presenter){
+    private LstRestVentasPresenter presenter;
+    public RestaurantModel(LstRestVentasPresenter presenter){
         this.presenter = presenter;
     }
 
     @Override
-    public void loginAPI(ProductRestaurant infopr, final OnLoginUserListener onLoginUserListener) {
+    public void loginAPI(String filtro, LstRestVentasPresenter respuestaLstRestVentasPresenter) {
         // Crear una instancia de ApiService
         ApiService apiService = RetrofitCliente.getClient("http://" + IP_BASE + "/untitled/").
                 create(ApiService.class);
@@ -36,7 +38,7 @@ public class RestaurantModel implements ContractAdmin.Model {
                     // Procesar la respuesta aquí
                     try {
                         ArrayList<ProductRestaurant> myData = response.body();
-                        onLoginUserListener.onFinished(myData);
+                        respuestaLstRestVentasPresenter.onFinished(myData);
                     }catch (Exception ex){
                         System.out.println("error: " + ex);
                     }
@@ -60,8 +62,5 @@ public class RestaurantModel implements ContractAdmin.Model {
             }
         });
     }
-
-
-
 }
 

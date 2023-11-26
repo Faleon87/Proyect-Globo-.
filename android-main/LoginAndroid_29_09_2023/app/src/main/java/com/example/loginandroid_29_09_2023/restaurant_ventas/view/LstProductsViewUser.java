@@ -1,49 +1,76 @@
 package com.example.loginandroid_29_09_2023.restaurant_ventas.view;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
+import android.view.View;
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.loginandroid_29_09_2023.beans.ProductRestaurant;
+import com.example.loginandroid_29_09_2023.login_user.view.LoginUserM;
 import com.example.loginandroid_29_09_2023.R;
 import com.example.loginandroid_29_09_2023.beans.User;
+import com.example.loginandroid_29_09_2023.lst_products.presenter.LstProductsPresenter;
 import com.example.loginandroid_29_09_2023.restaurant_ventas.ContractProductUser;
+import com.example.loginandroid_29_09_2023.restaurant_ventas.presenter.LstRestVentasPresenter;
 
-public class LstProductsViewUser extends AppCompatActivity implements ContractProductUser.View{
+import java.util.ArrayList;
 
-    private EditText edtEmail;
-    private EditText edtPassword;
-    private Button btnLogin;
+public class LstProductsViewUser extends AppCompatActivity implements ContractProductUser.View {
 
-    private String message;
-
-
-
+    private LstRestVentasPresenter  lstProductsPresenter;
+    private ImageButton volver;
     /* PATRÓN SINGLETON*/
+
+    private ArrayList<ProductRestaurant> ProductoRestaurantes = new ArrayList<>();
     private static LstProductsViewUser mainActivity = null;
-    public static LstProductsViewUser getInstance(){
-        return mainActivity; //0x457845AF
-    }
+
+
     /* FIN PATRÓN SINGLETON*/
+
+
+    private LstRestVentasPresenter presenter =
+            new LstRestVentasPresenter(this);
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_products_user);
         mainActivity = this;
+        initComponents();
+        setupRecyclerView();
+    }
 
+    private void initComponents() {
+        volver = findViewById(R.id.volver);
+        volver.setOnClickListener(v -> {
+            Intent intent = new Intent(this, LoginUserM.class);
+            startActivity(intent);
+        });
+      presenter.lstProductosRest("");
+
+    }
+
+    private void setupRecyclerView() {
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        ProductoVentasAdapter productoVentasAdapter = new ProductoVentasAdapter(); // Asegúrate de tener un constructor adecuado para tu adaptador
+        recyclerView.setAdapter(productoVentasAdapter);
     }
 
 
     @Override
-    public void successLogin(User user) {
+    public void success(ArrayList<ProductRestaurant> ProductoRestaurantes) {
 
     }
 
     @Override
-    public void failureLogin(String err) {
-        Toast.makeText(mainActivity, err, Toast.LENGTH_SHORT).show();
+    public void failure(String err) {
+        // Lógica de fallo
     }
 
 

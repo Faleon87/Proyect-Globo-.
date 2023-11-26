@@ -1,8 +1,24 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<!-- activity_main.xml -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".restaurant_ventas.view.LstProductsViewUser">
+    android:background="@color/yellowGlovo">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="415dp"
+        android:orientation="horizontal"
+        android:padding="16dp" />
+
+    <ImageButton
+        android:id="@+id/volver"
+        android:layout_width="56dp"
+        android:layout_height="55dp"
+        android:background="@drawable/baseline_arrow_back_24" />
+</RelativeLayout>

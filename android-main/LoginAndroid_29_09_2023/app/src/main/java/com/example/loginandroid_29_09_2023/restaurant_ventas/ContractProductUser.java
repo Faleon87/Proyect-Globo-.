@@ -1,28 +1,31 @@
 package com.example.loginandroid_29_09_2023.restaurant_ventas;
 
+import com.example.loginandroid_29_09_2023.beans.ProductRestaurant;
 import com.example.loginandroid_29_09_2023.beans.User;
+import com.example.loginandroid_29_09_2023.restaurant_ventas.presenter.LstRestVentasPresenter;
+
+import java.util.ArrayList;
 
 public interface ContractProductUser {
     public interface View{
-        public void successLogin(User user);
-        void failureLogin(String err);
+        public void success(ArrayList<ProductRestaurant> ProductoRestaurantes);
+        void failure(String err);
+
 
     }
     public interface Presenter{
-        // void login(String email, String pass);
-        void login(User user);
-        // void login(ViewUser viewUser);
-        // VIEW-ORM
-        // BEANS-ENTITIES
-        // MVP - MVVM
+
+        void lstProductosRest( String filtro);
+
+
     }
     public interface Model{
         interface OnLoginUserListener{
-            void onFinished(User user);
+            void onFinished(ArrayList<ProductRestaurant> lstRestVentasModel);
             void onFailure(String err);
 
         }
-        void loginAPI(User user,
-                      OnLoginUserListener onLoginUserListener);
+        void loginAPI(String filtro,
+                      LstRestVentasPresenter respuestaLstRestVentasPresenter);
     }
 }

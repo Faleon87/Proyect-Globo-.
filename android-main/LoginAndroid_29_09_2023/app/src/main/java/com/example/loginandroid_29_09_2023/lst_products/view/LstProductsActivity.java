@@ -49,11 +49,7 @@ public class LstProductsActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        try {
-            setContentView(R.layout.activity_lst_products);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        setContentView(R.layout.activity_lst_products);
         lstProductsActivity = this;
         initComponents();
     }

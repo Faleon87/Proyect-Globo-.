@@ -13,16 +13,16 @@
     <!-- Contenido del CardView para cada producto -->
     <androidx.cardview.widget.CardView
         android:layout_width="315dp"
-        android:layout_height="209dp"
+        android:layout_height="244dp"
         android:background="@color/yellowGlovo"
         app:cardBackgroundColor="@color/yellowGlovo">
 
         <LinearLayout
             android:layout_width="315dp"
-            android:layout_height="212dp"
+            android:layout_height="match_parent"
             android:background="@drawable/edittext_background"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="vertical">
 
             <!-- Elementos de diseño para cada producto -->
             <TextView
@@ -31,13 +31,14 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="Nombre del Producto"
+                android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
 
             <ImageButton
                 android:id="@+id/imageButtonProducto"
                 android:layout_width="200dp"
-                android:layout_height="140dp"
+                android:layout_height="131dp"
                 android:layout_gravity="center"
                 android:background="@color/greenGlovo" />
 
