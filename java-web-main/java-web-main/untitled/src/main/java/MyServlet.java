@@ -56,10 +56,12 @@ public class MyServlet extends HttpServlet {
         }
     }
 
-    private boolean insertComent(Puntuacion puntuacion) {
+    private Puntuacion insertComent(Puntuacion puntuacion) {
       String comentario= puntuacion.getComentario();
+      int valorPuntuacion = puntuacion.getPuntuacion();
       int valorIdRest = puntuacion.getId_restaurante();
-        return false;
+      SqlAction sql = new SqlAction();
+      return sql.insertComent(puntuacion);
     }
 
     // Métodos restantes

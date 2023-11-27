@@ -10,11 +10,13 @@ import java.util.ArrayList;
 public class SqlAction {
    private final String SQL_PRODUCT_RESTAURANTE = "select R.NOMBRE  , P.NOMBRE , " +
            "P.DESCRIPCION, P.IMAGEN, P.PRECIO , R.ID_RESTAURANTE FROM RESTAURANTE R JOIN PRODUCTO P ON R.ID_RESTAURANTE = P.ID_RESTAURANTE";
-    private final String SQL_LOGIN = "select USERNAME , password from usuario where ";
+    private final String SQL_LOGIN = "select  USERNAME , password from usuario where ";
 
     private final String SQL_INSERT_PRODUCTO= " INSERT INTO RESTAURANTE(ID_RESTAURANTE ,NOMBRE) VALUES";
 
     private final String SQL_SELECT_RESTAURANT_VENTAS = "SELECT ID_RESTAURANTE, NOMBRE, DESCRIPCION, IMAGEN, VENTAS FROM RESTAURANTE ORDER BY VENTAS DESC";
+
+    private final String SQL_CLIENTE = "select id_cliente from cliente";
     private motorsql motorsql;
     private ResultSet rs;
 
@@ -22,10 +24,26 @@ public class SqlAction {
         this.motorsql = new motorsql();
     }
 
-//    public  ArrayList<Producto> selectProduct(){
-//
-//    }
-    public String insertComent(Puntuacion puntacion){
+    public Puntuacion insertComent(Puntuacion puntacion){
+        String sql = SQL_CLIENTE;
+        try {
+            this.motorsql.connect();
+            rs = this.motorsql.executeQuery(sql);
+            while (rs.next()){
+                Puntuacion puntuacion = new Puntuacion();
+                puntuacion.setId_cliente(rs.getInt(1));
+                return puntuacion;
+//                sql = "INSERT INTO PUNTUACION (ID_RESTAURANTE, ID_CLIENTE, PUNTUACION, COMENTARIO) VALUES";
+//                sql += "(" + puntacion.getId_restaurante() + ", ";
+//                sql += puntacion.getId_cliente() + ", ";
+//                sql += puntacion.getPuntuacion() + ", ";
+//                sql += "'" + puntacion.getComentario() + "')";
+//                this.motorsql.execute(sql);
+//                return puntuacion;
+            }
+        }catch (Exception ex){
+            System.out.println("Error: " + ex);
+        }
         return null;
     }
     public  User findUsername(User infouser) { //SELECT * FROM usuario WHERE USERNAME = 'admin' AND password = 'admin'

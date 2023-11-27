@@ -8,13 +8,17 @@ public class ProductRestaurant {
     private Producto producto;
     private Restaurante restaurante;
 
-    public ProductRestaurant(Producto producto, Restaurante restaurante) {
+    private Cliente cliente;
+
+    public ProductRestaurant(Producto producto, Restaurante restaurante , Cliente cliente) {
         this.producto = producto;
         this.restaurante = restaurante;
+        this.cliente = cliente;
     }
     public  ProductRestaurant(){
 
     }
+
 
     public Producto getProducto() {
         return producto;
@@ -32,11 +36,20 @@ public class ProductRestaurant {
         this.restaurante = restaurante;
     }
 
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
     @Override
     public String toString() {
         return "ProductRestaurant{" +
                 "producto=" + producto +
                 ", restaurante=" + restaurante +
+                ", cliente=" + cliente +
                 '}';
     }
 

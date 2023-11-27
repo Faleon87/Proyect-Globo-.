@@ -3,7 +3,7 @@ package beans;
 public class User {
     private String username;
     private String token; //
-
+    
     //Constructor
     public User(String username, String token) {
         this.username = username;
