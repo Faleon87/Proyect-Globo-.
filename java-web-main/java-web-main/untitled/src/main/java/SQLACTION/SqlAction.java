@@ -1,9 +1,6 @@
 package SQLACTION;
 
-import beans.ProductRestaurant;
-import beans.Producto;
-import beans.Restaurante;
-import beans.User;
+import beans.*;
 import motorsql.motorsql;
 
 import java.sql.ResultSet;
@@ -28,7 +25,9 @@ public class SqlAction {
 //    public  ArrayList<Producto> selectProduct(){
 //
 //    }
-
+    public String insertComent(Puntuacion puntacion){
+        return null;
+    }
     public  User findUsername(User infouser) { //SELECT * FROM usuario WHERE USERNAME = 'admin' AND password = 'admin'
         String sql = SQL_LOGIN;
         sql+= "USERNAME = '" + infouser.getUsername() + "' AND password= '" + infouser.getToken() + "'";

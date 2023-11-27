@@ -4,6 +4,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="yellowGlovo">#FFC700</color>
     <color name="greenGlovo">#00a082</color>
-    <color name="colorCuandoMarcado">#00FF00</color> <!-- Cambia a tu color deseado cuando está marcado -->
-    <color name="colorCuandoNoMarcado">#FF0000</color>
+    <color name="tu_color_seleccionado">@color/greenGlovo</color> <!-- Puedes cambiar este color -->
+    <color name="tu_color_no_seleccionado">@color/yellowGlovo</color> <!-- Puedes cambiar este color -->
 </resources>

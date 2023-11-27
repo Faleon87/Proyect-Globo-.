@@ -63,108 +63,51 @@
                 android:text="Evaluar Restaurante"
                 android:textColor="@color/black"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                />
 
             <!-- Email Address -->
 
             <!-- Password -->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:alpha="0.7"
-                android:text="Nombre Producto"
-                android:textColor="@color/black"
-                android:textStyle="bold" />
-
             <!-- Remember Me and Forgot Password -->
 
             <!-- Login Button -->
 
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="match_parent"
+            <RatingBar
+                android:id="@+id/ratingBar"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:alpha="0.7"
-                android:text="Descripcion Producto"
-                android:textColor="@color/black"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/Descripcion"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:autofillHints="emailAddress"
-                android:background="@drawable/edittext_rounded_corners"
-                android:contentDescription="@string/email_address"
-                android:inputType="textEmailAddress"
-                android:textAlignment="center"
-                android:textColor="@color/black" />
-
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:alpha="0.7"
-                android:text="URL Imagen"
-                android:textColor="@color/black"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/ImagenUrl"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:autofillHints="emailAddress"
-                android:background="@drawable/edittext_rounded_corners"
-                android:contentDescription="@string/email_address"
-                android:inputType="textEmailAddress"
-                android:textAlignment="center"
-                android:textColor="@color/black" />
-
-            <TextView
-                android:id="@+id/textView6"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:alpha="0.7"
-                android:text="Precio Producto"
-                android:textColor="@color/black"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/PrecioProducto"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:autofillHints="emailAddress"
-                android:background="@drawable/edittext_rounded_corners"
-                android:contentDescription="@string/email_address"
-                android:inputType="textEmailAddress"
-                android:textAlignment="center"
-                android:textColor="@color/black" />
+                android:numStars="5"
+                android:rating="0"
+                android:stepSize="1"
+                android:max="5"
+                android:layout_gravity="center"
+                android:progressTint="@color/tu_color_seleccionado"
+                android:progressBackgroundTint="@color/tu_color_no_seleccionado"
+                />
 
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:alpha="0.7"
-                android:text="ID Restaurante"
+                android:text="Comentario"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/Restauranteid"
+                android:id="@+id/comentario"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
+                android:layout_height="254dp"
                 android:background="@drawable/edittext_rounded_corners"
                 android:ems="10"
-                android:inputType="number" />
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:inputType="textLongMessage" />
 
             <!-- Or Login With Text -->
             <Button
-                android:id="@+id/btnEnviarProduct"
+                android:id="@+id/btnEnviarComent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/greenGlovo"

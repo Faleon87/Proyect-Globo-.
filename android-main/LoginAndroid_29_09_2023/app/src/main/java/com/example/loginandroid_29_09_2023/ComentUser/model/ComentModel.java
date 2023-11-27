@@ -5,6 +5,7 @@ import android.util.Log;
 import com.example.loginandroid_29_09_2023.ComentUser.ContractUserComent;
 import com.example.loginandroid_29_09_2023.ComentUser.presenter.ComentPresenter;
 import com.example.loginandroid_29_09_2023.beans.ProductRestaurant;
+import com.example.loginandroid_29_09_2023.beans.Producto;
 import com.example.loginandroid_29_09_2023.beans.Puntuacion;
 import com.example.loginandroid_29_09_2023.utils.ApiService;
 import com.example.loginandroid_29_09_2023.utils.RetrofitCliente;
@@ -28,15 +29,15 @@ public class ComentModel implements ContractUserComent.Model{
     }
 
     @Override
-    public void loginAPI(String coment, ComentPresenter comentPresenter) {
+    public void loginAPI(Puntuacion puntuacion, ComentPresenter comentPresenter) {
         // Crear una instancia de ApiService
         ApiService apiService = RetrofitCliente.getClient("http://" + IP_BASE + "/untitled/").
                 create(ApiService.class);
         // Realizar la solicitud al Servlet
-        Call<Void> calls = apiService.sendData("INSERTCOMENT", puntuacion );
-        calls.enqueue(new Callback<Void>() {
+        Call<Puntuacion> calls = apiService.sendData("INSERTCOMENT", puntuacion );
+        calls.enqueue(new Callback<Puntuacion>() {
             @Override
-            public void onResponse(Call<Void> call, Response<Void> response) {
+            public void onResponse(Call<Puntuacion> call, Response<Puntuacion> response) {
                 if (response.isSuccessful()) {
                     // Procesar la respuesta aquí
                     try {
@@ -59,10 +60,12 @@ public class ComentModel implements ContractUserComent.Model{
             }
 
             @Override
-            public void onFailure(Call<Void> call, Throwable t) {
+            public void onFailure(Call<Puntuacion> call, Throwable t) {
                 // Manejar errores de red o del servidor
                 Log.e("Response Error", "Cuerpo de error: " + t.getMessage());
             }
         });
     }
+
+
 }

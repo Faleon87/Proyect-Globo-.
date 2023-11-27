@@ -1,4 +1,4 @@
-package com.example.loginandroid_29_09_2023.beans;
+package beans;
 
 import com.google.gson.Gson;
 

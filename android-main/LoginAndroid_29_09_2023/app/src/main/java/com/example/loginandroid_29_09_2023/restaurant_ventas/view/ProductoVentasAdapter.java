@@ -1,6 +1,9 @@
 package com.example.loginandroid_29_09_2023.restaurant_ventas.view;
 
+import static androidx.core.content.ContextCompat.startActivity;
+
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,8 +14,10 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.loginandroid_29_09_2023.ComentUser.view.ComentView;
 import com.example.loginandroid_29_09_2023.R;
 import com.example.loginandroid_29_09_2023.beans.ProductRestaurant;
+import com.example.loginandroid_29_09_2023.beans.User;
 
 import java.util.List;
 
@@ -53,6 +58,15 @@ public class ProductoVentasAdapter extends RecyclerView.Adapter<ProductoVentasAd
         // Cargar la imagen desde la URL usando Glide (o Picasso)
         String urlImagen = ProductRestaurant.getRestaurante().getImagen();
         Glide.with(context).load(urlImagen).centerCrop().into(holder.imageButtonImagen);
+        holder.imageButtonImagen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Acción a realizar cuando se hace clic en el ImageButton
+                // Por ejemplo, iniciar una nueva actividad
+                Intent intent = new Intent(context, ComentView.class);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -71,5 +85,7 @@ public class ProductoVentasAdapter extends RecyclerView.Adapter<ProductoVentasAd
             imageButtonImagen = itemView.findViewById(R.id.imageButtonImagen);
             textViewVentas = itemView.findViewById(R.id.textViewVentas);
         }
+
     }
+
 }

@@ -2,6 +2,7 @@ package com.example.loginandroid_29_09_2023.ComentUser.presenter;
 
 import com.example.loginandroid_29_09_2023.ComentUser.ContractUserComent;
 import com.example.loginandroid_29_09_2023.ComentUser.model.ComentModel;
+import com.example.loginandroid_29_09_2023.beans.Puntuacion;
 
 public class ComentPresenter implements ContractUserComent.Presenter ,  ContractUserComent.Model.OnLoginUserListener{
 
@@ -15,8 +16,8 @@ public class ComentPresenter implements ContractUserComent.Presenter ,  Contract
     }
 
     @Override
-    public void addComent(String coment) {
-        comentModel.loginAPI(coment, this);
+    public void addComent(Puntuacion puntuacion) {
+        comentModel.loginAPI(puntuacion, this);
     }
 
     @Override

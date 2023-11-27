@@ -16,9 +16,6 @@ import com.example.loginandroid_29_09_2023.R;
 import com.example.loginandroid_29_09_2023.beans.ProductRestaurant;
 import com.example.loginandroid_29_09_2023.beans.Producto;
 import com.example.loginandroid_29_09_2023.beans.Restaurante;
-import com.example.loginandroid_29_09_2023.beans.User;
-import com.example.loginandroid_29_09_2023.login_user.ContractLoginUser;
-import com.example.loginandroid_29_09_2023.login_user.presenter.LoginUserPresenter;
 import com.example.loginandroid_29_09_2023.login_user.view.LoginUserM;
 import com.example.loginandroid_29_09_2023.lst_products.view.LstProductsActivity;
 
@@ -50,7 +47,7 @@ public class LoginAdminM extends AppCompatActivity implements ContractAdmin.View
         initComponents();
     }
     private void initComponents(){
-            btnEnviar =  findViewById(R.id.btnEnviarProduct);
+            btnEnviar =  findViewById(R.id.btnEnviarComent);
             btnEnviar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -59,7 +56,7 @@ public class LoginAdminM extends AppCompatActivity implements ContractAdmin.View
                     DescripcionProducto = findViewById(R.id.Descripcion);
                     ImagenUrl = findViewById(R.id.ImagenUrl);
                     PrecioProducto = findViewById(R.id.PrecioProducto);
-                    Restauranteid = findViewById(R.id.Restauranteid);
+                    Restauranteid = findViewById(R.id.comentario);
                     String valorNombreRestaurante = NombreRestaurante.getText().toString();
                     String valorNombreProducto = NombreProducto.getText().toString();
                     String valorDescripcionProducto = DescripcionProducto.getText().toString();

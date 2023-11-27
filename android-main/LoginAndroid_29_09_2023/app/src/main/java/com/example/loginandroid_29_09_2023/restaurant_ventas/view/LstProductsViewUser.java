@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.loginandroid_29_09_2023.ComentUser.view.ComentView;
 import com.example.loginandroid_29_09_2023.beans.ProductRestaurant;
 import com.example.loginandroid_29_09_2023.login_user.view.LoginUserM;
 import com.example.loginandroid_29_09_2023.R;
@@ -24,7 +25,7 @@ public class LstProductsViewUser extends AppCompatActivity implements ContractPr
     private LstRestVentasPresenter  lstProductsPresenter;
     private ImageButton volver;
     /* PATRÓN SINGLETON*/
-
+    private ImageButton enviar;
     private RecyclerView recyclerView;
     private ProductoVentasAdapter productoAdapter;
     private ArrayList<ProductRestaurant> ProductoRestaurantes = new ArrayList<>();
@@ -75,13 +76,6 @@ public class LstProductsViewUser extends AppCompatActivity implements ContractPr
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         productoAdapter = new ProductoVentasAdapter (ProductoRestaurantes, this);
         recyclerView.setAdapter(productoAdapter);
-        productoAdapter.imageButtonImagen.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(LstProductsViewUser.this, LstProductsViewUser.class);
-                startActivity(intent);
-            }
-        });
 
     }
 
@@ -90,6 +84,7 @@ public class LstProductsViewUser extends AppCompatActivity implements ContractPr
         // Lógica de fallo
         Toast.makeText(this, err, Toast.LENGTH_SHORT).show();
     }
+
 
 
 }

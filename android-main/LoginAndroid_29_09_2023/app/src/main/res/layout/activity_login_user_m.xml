@@ -117,9 +117,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:alpha="0.7"
-                android:shadowColor="@color/colorCuandoMarcado"
                 android:text="@string/remember_me"
-                android:textColor="@color/colorCuandoNoMarcado" />
+                />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -135,7 +134,7 @@
         </RelativeLayout>
 
         <Button
-            android:id="@+id/btnEnviarProduct"
+            android:id="@+id/btnEnviarComent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/yellowGlovo"

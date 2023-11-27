@@ -179,7 +179,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/Restauranteid"
+            android:id="@+id/comentario"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:background="@drawable/edittext_rounded_corners"
@@ -192,7 +192,7 @@
 
         <!-- Or Login With Text -->
         <Button
-            android:id="@+id/btnEnviarProduct"
+            android:id="@+id/btnEnviarComent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/greenGlovo"
