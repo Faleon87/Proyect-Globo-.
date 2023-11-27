@@ -1,6 +1,7 @@
 package com.example.loginandroid_29_09_2023.utils;
 
 import com.example.loginandroid_29_09_2023.beans.ProductRestaurant;
+import com.example.loginandroid_29_09_2023.beans.Puntuacion;
 import com.example.loginandroid_29_09_2023.login_user.data.MyLoginData;
 import com.example.loginandroid_29_09_2023.lst_products.DataProduct;
 
@@ -40,6 +41,9 @@ public interface ApiService {
 
        @GET("MyServlet")
         Call<ArrayList<ProductRestaurant>> getDataRestaurantVentas (@Query("ACTION") String action);
+
+       @GET("MyServlet")
+        Call<Puntuacion> getComment(@Query("ACTION"));
 
 
         /*

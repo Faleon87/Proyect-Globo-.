@@ -34,7 +34,7 @@ public class LstRestVentasPresenter implements ContractProductUser.Presenter,
 
     @Override
     public void onFailure(String err) {
-
+        vista.failure(err);
     }
 
 

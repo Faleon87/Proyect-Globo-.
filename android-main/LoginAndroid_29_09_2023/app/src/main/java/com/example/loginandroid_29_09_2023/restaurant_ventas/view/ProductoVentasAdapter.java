@@ -52,7 +52,7 @@ public class ProductoVentasAdapter extends RecyclerView.Adapter<ProductoVentasAd
 
         // Cargar la imagen desde la URL usando Glide (o Picasso)
         String urlImagen = ProductRestaurant.getRestaurante().getImagen();
-        Glide.with(context).load(urlImagen).into(holder.imageButtonImagen);
+        Glide.with(context).load(urlImagen).centerCrop().into(holder.imageButtonImagen);
     }
 
     @Override

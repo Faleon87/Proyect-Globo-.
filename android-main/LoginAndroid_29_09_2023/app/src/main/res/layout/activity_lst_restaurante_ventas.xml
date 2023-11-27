@@ -1,21 +1,17 @@
 <!-- item_lista.xml -->
 
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="@color/yellowGlovo"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:layout_marginTop="-100dp">
+    >
 
-    <!-- Nombre -->
     <LinearLayout
-        android:layout_width="433dp"
-        android:layout_height="298dp"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="11dp"
-        tools:layout_editor_absoluteY="59dp">
+        android:layout_width="410dp"
+        android:layout_height="419dp"
+        android:gravity="center"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/textViewNombre"
@@ -30,9 +26,8 @@
             android:id="@+id/imageButtonImagen"
             android:layout_width="324dp"
             android:layout_height="142dp"
-            android:background="@drawable/edittext_background"
-            android:scaleType="fitCenter"
-            android:src="@drawable/glovo_logo" />
+            android:background="@drawable/edittext_rounded_corners"
+            android:scaleType="centerCrop" />
 
         <TextView
             android:id="@+id/textViewVentas"

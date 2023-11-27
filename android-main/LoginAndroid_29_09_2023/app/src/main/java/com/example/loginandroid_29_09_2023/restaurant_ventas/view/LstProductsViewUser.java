@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -54,8 +55,9 @@ public class LstProductsViewUser extends AppCompatActivity implements ContractPr
                 startActivity(intent);
             }
         });
+
         recyclerView = findViewById(R.id.recyclerView3);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, true);
         recyclerView.setLayoutManager(layoutManager);
         presenter.lstProductosRest("Ayuda");
     }
@@ -73,12 +75,20 @@ public class LstProductsViewUser extends AppCompatActivity implements ContractPr
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         productoAdapter = new ProductoVentasAdapter (ProductoRestaurantes, this);
         recyclerView.setAdapter(productoAdapter);
+        productoAdapter.imageButtonImagen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LstProductsViewUser.this, LstProductsViewUser.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
     @Override
     public void failure(String err) {
         // Lógica de fallo
+        Toast.makeText(this, err, Toast.LENGTH_SHORT).show();
     }
 
 
