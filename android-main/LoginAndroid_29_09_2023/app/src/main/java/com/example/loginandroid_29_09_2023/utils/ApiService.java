@@ -40,7 +40,6 @@ public interface ApiService {
                                                    @Query("NOMBRE_REST") String name_rest);
 
 
-
        @GET("MyServlet")
         Call<ArrayList<ProductRestaurant>> getDataRestaurantVentas (@Query("ACTION") String action);
 

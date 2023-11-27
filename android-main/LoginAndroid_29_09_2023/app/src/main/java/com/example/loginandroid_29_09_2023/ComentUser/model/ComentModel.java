@@ -34,7 +34,7 @@ public class ComentModel implements ContractUserComent.Model{
         ApiService apiService = RetrofitCliente.getClient("http://" + IP_BASE + "/untitled/").
                 create(ApiService.class);
         // Realizar la solicitud al Servlet
-        Call<Puntuacion> calls = apiService.sendData("INSERTCOMENT", puntuacion );
+        Call<Puntuacion> calls = apiService.sendData("INSERTCOMENT", puntuacion);
         calls.enqueue(new Callback<Puntuacion>() {
             @Override
             public void onResponse(Call<Puntuacion> call, Response<Puntuacion> response) {

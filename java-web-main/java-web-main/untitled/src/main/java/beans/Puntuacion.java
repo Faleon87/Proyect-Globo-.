@@ -68,4 +68,8 @@ public class Puntuacion {
         Gson gson = new Gson();
         return gson.toJson(info);
     }
+    public static Puntuacion convertJsonToPuntuacion(String json) {
+        Gson gson = new Gson();
+        return gson.fromJson(json, Puntuacion.class);
+    }
 }

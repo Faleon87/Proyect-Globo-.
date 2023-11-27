@@ -37,6 +37,7 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         ProductRestaurant productoRestaurante = productos.get(position);
 
+
         // Establecer valores para cada producto
         holder.textViewNombreProducto.setText(productoRestaurante.getProducto().getNombre());
         holder.textViewNombreRestaurante.setText(productoRestaurante.getRestaurante().getNombre());

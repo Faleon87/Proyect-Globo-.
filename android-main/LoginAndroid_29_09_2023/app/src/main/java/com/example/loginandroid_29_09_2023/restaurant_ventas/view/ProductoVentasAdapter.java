@@ -43,31 +43,39 @@ public class ProductoVentasAdapter extends RecyclerView.Adapter<ProductoVentasAd
         return new ViewHolder(view);
     }
 
-    @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        ProductRestaurant ProductRestaurant = productoVentasList.get(position);
+        ProductRestaurant productRestaurant = productoVentasList.get(position);
+         int idRestaurante = productRestaurant.getRestaurante().getId_restaurante();
 
         // Establecer valores para cada producto
         try {
-            holder.textViewNombre.setText(ProductRestaurant.getRestaurante().getNombre());
-        }catch (Exception e){
+            holder.textViewNombre.setText(productRestaurant.getRestaurante().getNombre());
+        } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
-        holder.textViewVentas.setText("Ventas: " + ProductRestaurant.getRestaurante().getVentas());
+        holder.textViewVentas.setText("Ventas: " + productRestaurant.getRestaurante().getVentas());
 
         // Cargar la imagen desde la URL usando Glide (o Picasso)
-        String urlImagen = ProductRestaurant.getRestaurante().getImagen();
+        String urlImagen = productRestaurant.getRestaurante().getImagen();
         Glide.with(context).load(urlImagen).centerCrop().into(holder.imageButtonImagen);
+
+        // Guardar el id_restaurante como una etiqueta en el ImageButton
+        holder.imageButtonImagen.setTag(idRestaurante);
+
         holder.imageButtonImagen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Recuperar el id_restaurante cuando se hace clic en el ImageButton
+                int  restauranteId = (int) view.getTag();
                 // Acción a realizar cuando se hace clic en el ImageButton
-                // Por ejemplo, iniciar una nueva actividad
+                // Por ejemplo, iniciar una nueva actividad pasando el id_restaurante
                 Intent intent = new Intent(context, ComentView.class);
+                intent.putExtra("restauranteId", restauranteId);
                 context.startActivity(intent);
             }
         });
     }
+
 
     @Override
     public int getItemCount() {

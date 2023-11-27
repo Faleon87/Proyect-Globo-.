@@ -9,8 +9,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 import static beans.ProductRestaurant.convertToJson;
+import static beans.Puntuacion.convertJsonToPuntuacion;
 
 @WebServlet("/MyServlet")
 public class MyServlet extends HttpServlet {
@@ -47,20 +49,21 @@ public class MyServlet extends HttpServlet {
                 out.println(selectRestaurantVentas(request, response));
                 break;
             case "INSERTCOMENT":
-                out.println(insertComent(request, response));
+                String requestBody = request.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
+                Puntuacion puntuacion = convertJsonToPuntuacion(requestBody);
+                out.println(insertComent(puntuacion));
                 break;
         }
     }
 
-    // Métodos restantes
-    public String insertComent(HttpServletRequest request, HttpServletResponse response){
-        SqlAction sql = new SqlAction();
-        Puntuacion puntuacion = new Puntuacion();
-        Restaurante r1 = new Restaurante();
-        r1.setId_restaurante(Integer.parseInt(request.getParameter("ID_REST")));
-        puntuacion.setId_restaurante(r1.getId_restaurante());
-        return sql.insertComent(puntuacion);
+    private boolean insertComent(Puntuacion puntuacion) {
+      String comentario= puntuacion.getComentario();
+      int valorIdRest = puntuacion.getId_restaurante();
+        return false;
     }
+
+    // Métodos restantes
+
     public String selectRestaurantVentas(HttpServletRequest request, HttpServletResponse response){
         SqlAction sql = new SqlAction();
         ArrayList<ProductRestaurant> r1 = sql.findRestaurantVentas();

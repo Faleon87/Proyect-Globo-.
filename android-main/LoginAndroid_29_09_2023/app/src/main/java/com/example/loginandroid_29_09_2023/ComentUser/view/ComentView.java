@@ -61,11 +61,19 @@ public class ComentView extends AppCompatActivity implements ContractUserComent.
              public void onClick(View v) {
                  String valorcomentario= comentario.getText().toString();
                  int valorestrellas = (int) ratingBar.getRating();
-                 Puntuacion puntuacion = new Puntuacion();
-                 puntuacion.setComentario(valorcomentario);
-                 puntuacion.setPuntuacion(valorestrellas);
-                 
-                 presenter.addComent(puntuacion);
+                 // Obtener el Intent que inició esta actividad
+                 Intent intent = getIntent();
+
+                 // Verificar si el Intent contiene la clave "restauranteId"
+                 if (intent.hasExtra("restauranteId")) {
+                     // Obtener el valor asociado con la clave "restauranteId"
+                     int restauranteId = intent.getIntExtra("restauranteId", -1); // -1 es un valor predeterminado si no se encuentra el extra
+                     Puntuacion puntuacion = new Puntuacion();
+                     puntuacion.setId_restaurante(restauranteId);
+                     puntuacion.setComentario(valorcomentario);
+                     puntuacion.setPuntuacion(valorestrellas);
+                     presenter.addComent(puntuacion);
+                 }
              }
          });
     }
