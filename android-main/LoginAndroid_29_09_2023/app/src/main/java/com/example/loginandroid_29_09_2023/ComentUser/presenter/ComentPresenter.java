@@ -16,7 +16,7 @@ public class ComentPresenter implements ContractUserComent.Presenter ,  Contract
 
     @Override
     public void addComent(String coment) {
-        ComentModel.loginAPI(coment, this);
+        comentModel.loginAPI(coment, this);
     }
 
     @Override

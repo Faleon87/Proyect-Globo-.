@@ -5,6 +5,7 @@ import android.util.Log;
 import com.example.loginandroid_29_09_2023.ComentUser.ContractUserComent;
 import com.example.loginandroid_29_09_2023.ComentUser.presenter.ComentPresenter;
 import com.example.loginandroid_29_09_2023.beans.ProductRestaurant;
+import com.example.loginandroid_29_09_2023.beans.Puntuacion;
 import com.example.loginandroid_29_09_2023.utils.ApiService;
 import com.example.loginandroid_29_09_2023.utils.RetrofitCliente;
 
@@ -20,6 +21,8 @@ public class ComentModel implements ContractUserComent.Model{
     private  static final String IP_BASE = "192.168.0.22:8080";
     private ComentPresenter presenter;
 
+    private Puntuacion puntuacion = new Puntuacion();
+
     public ComentModel(ComentPresenter presenter){
         this.presenter = presenter;
     }
@@ -30,16 +33,16 @@ public class ComentModel implements ContractUserComent.Model{
         ApiService apiService = RetrofitCliente.getClient("http://" + IP_BASE + "/untitled/").
                 create(ApiService.class);
         // Realizar la solicitud al Servlet
-        Call<ArrayList<ProductRestaurant>> calls = apiService.getDataRestaurantVentas ("INSERTCOMENT");
-        calls.enqueue(new Callback<ArrayList<ProductRestaurant>>() {
+        Call<Void> calls = apiService.sendData("INSERTCOMENT", puntuacion );
+        calls.enqueue(new Callback<Void>() {
             @Override
-            public void onResponse(Call<ArrayList<ProductRestaurant>> call, Response<ArrayList<ProductRestaurant>> response) {
+            public void onResponse(Call<Void> call, Response<Void> response) {
                 if (response.isSuccessful()) {
                     // Procesar la respuesta aquí
                     try {
-                        ArrayList<ProductRestaurant> myData = response.body();
+                        presenter.onFinished();
 //                        respuestaLstRestVentasPresenter.onFinished(myData);
-                    }catch (Exception ex){
+                    } catch (Exception ex) {
                         System.out.println("error: " + ex);
                     }
                     // Actualizar la interfaz de usuario con el mensaje recibido
@@ -56,11 +59,10 @@ public class ComentModel implements ContractUserComent.Model{
             }
 
             @Override
-            public void onFailure(Call<ArrayList<ProductRestaurant>> call, Throwable t) {
+            public void onFailure(Call<Void> call, Throwable t) {
                 // Manejar errores de red o del servidor
                 Log.e("Response Error", "Cuerpo de error: " + t.getMessage());
             }
-        }
-
-
+        });
+    }
 }

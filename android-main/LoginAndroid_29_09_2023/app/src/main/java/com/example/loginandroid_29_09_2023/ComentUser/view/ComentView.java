@@ -2,6 +2,7 @@ package com.example.loginandroid_29_09_2023.ComentUser.view;
 
 import android.os.Bundle;
 import android.os.PersistableBundle;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,15 +21,19 @@ public class ComentView extends AppCompatActivity implements ContractUserComent.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coment_user);
         mainActivity = this;
+        initComponents();
+    }
+    private  void initComponents(){
+        btn
     }
 
     @Override
     public void success() {
-
+        Toast.makeText(mainActivity, "Enviados correctamente", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void failure(String err) {
-
+        Toast.makeText(mainActivity, "Error al enviar", Toast.LENGTH_SHORT).show();
     }
 }

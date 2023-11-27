@@ -8,6 +8,7 @@ import com.example.loginandroid_29_09_2023.lst_products.DataProduct;
 import java.util.ArrayList;
 
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
@@ -42,9 +43,12 @@ public interface ApiService {
        @GET("MyServlet")
         Call<ArrayList<ProductRestaurant>> getDataRestaurantVentas (@Query("ACTION") String action);
 
-       @GET("MyServlet")
-        Call<Puntuacion> getComment(@Query("ACTION"));
 
+         @POST("MyServlet")
+         Call<Void> sendData(
+            @Query("ACTION") String action,
+            @Body Puntuacion puntuacion
+        );
 
         /*
         @FormUrlEncoded

@@ -1,5 +1,7 @@
 package com.example.loginandroid_29_09_2023.beans;
 
+import com.google.gson.Gson;
+
 public class Puntuacion {
 
     private int getId_restaurante;
@@ -59,5 +61,10 @@ public class Puntuacion {
     public void setComentario(String comentario) {
         this.comentario = comentario;
     }
-    
+
+    public static String convertoJson(Puntuacion info){
+        Gson gson = new Gson();
+        return gson.toJson(info);
+    }
+
 }
