@@ -18,7 +18,7 @@ public interface ContractAdmin {
     }
     public interface Model{
         interface OnLoginUserListener{
-            void onFinished(ArrayList<ProductRestaurant> user);
+            void onFinished(ProductRestaurant user);
             void onFailure(String err);
 
         }

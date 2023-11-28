@@ -23,8 +23,10 @@ public class LstPAdminPresenter implements ContractAdmin.Presenter,
     }
 
 
+
+
     @Override
-    public void onFinished(ArrayList<ProductRestaurant> user) {
+    public void onFinished(ProductRestaurant user) {
 
     }
 

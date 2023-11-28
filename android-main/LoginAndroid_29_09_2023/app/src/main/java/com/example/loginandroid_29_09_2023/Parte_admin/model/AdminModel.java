@@ -28,16 +28,16 @@ public class AdminModel implements ContractAdmin.Model {
         ApiService apiService = RetrofitCliente.getClient("http://" + IP_BASE + "/untitled/").
                 create(ApiService.class);
         // Realizar la solicitud al Servlet
-        Call<ArrayList<ProductRestaurant>> calls = apiService.getMyData ("INSERT_PRODUCT" , infopr.getRestaurante().getNombre(), infopr.getProducto().getNombre(),
+        Call<ProductRestaurant> calls = apiService.getMyData ("INSERT_PRODUCT" , infopr.getRestaurante().getNombre(), infopr.getProducto().getNombre(),
                 infopr.getProducto().getDescripcion(), infopr.getProducto().getImagen(), infopr.getProducto().getPrecio(), infopr.getRestaurante().getId_restaurante() ,
                 infopr.getRestaurante().getNombre());
-        calls.enqueue(new Callback<ArrayList<ProductRestaurant>>() {
+        calls.enqueue(new Callback<ProductRestaurant>() {
             @Override
-            public void onResponse(Call<ArrayList<ProductRestaurant>> call, Response<ArrayList<ProductRestaurant>> response) {
+            public void onResponse(Call<ProductRestaurant> call, Response<ProductRestaurant> response) {
                 if (response.isSuccessful()) {
                     // Procesar la respuesta aquí
                     try {
-                        ArrayList<ProductRestaurant> myData = response.body();
+                        ProductRestaurant myData = response.body();
                         onLoginUserListener.onFinished(myData);
                     }catch (Exception ex){
                         System.out.println("error: " + ex);
@@ -56,7 +56,7 @@ public class AdminModel implements ContractAdmin.Model {
             }
 
             @Override
-            public void onFailure(Call<ArrayList<ProductRestaurant>> call, Throwable t) {
+            public void onFailure(Call<ProductRestaurant> call, Throwable t) {
                 // Manejar errores de red o del servidor
                 Log.e("Response Error", "Cuerpo de error: " + t.getMessage());
             }
