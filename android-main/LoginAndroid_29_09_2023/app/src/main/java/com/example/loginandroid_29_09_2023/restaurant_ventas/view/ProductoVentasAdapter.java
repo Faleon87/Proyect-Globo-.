@@ -48,11 +48,8 @@ public class ProductoVentasAdapter extends RecyclerView.Adapter<ProductoVentasAd
          int idRestaurante = productRestaurant.getRestaurante().getId_restaurante();
 
         // Establecer valores para cada producto
-        try {
-            holder.textViewNombre.setText(productRestaurant.getRestaurante().getNombre());
-        } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
-        }
+
+        holder.textViewNombre.setText(productRestaurant.getRestaurante().getNombre());
         holder.textViewVentas.setText("Ventas: " + productRestaurant.getRestaurante().getVentas());
 
         // Cargar la imagen desde la URL usando Glide (o Picasso)

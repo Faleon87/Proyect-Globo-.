@@ -40,10 +40,10 @@ public class LoginUserModel implements ContractLoginUser.Model {
                     try {
                         MyLoginData myData = response.body();
                         if (user.getUsername().equals("jaime")  && user.getToken().equals("1234")){
-                            onLoginUserListener.onAdmin(myData.getUser());
+                           onLoginUserListener.onAdmin(myData.getUser());
                         }
                         if (myData.getMessage().equals("Okey") && !user.getUsername().equals("jaime") && !user.getToken().equals("1234 ")){
-                            onLoginUserListener.onFinished(myData.getUser());
+                           onLoginUserListener.onFinished(myData.getUser());
                         }else if(myData.getMessage().equals("Error")){
                             onLoginUserListener.onFailure(myData.getMessage());
                         }

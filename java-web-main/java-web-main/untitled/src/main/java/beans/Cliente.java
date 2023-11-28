@@ -1,5 +1,7 @@
 package beans;
 
+import com.google.gson.Gson;
+
 public class Cliente {
     private int id_cliente;
     private String nombre;
@@ -69,5 +71,9 @@ public class Cliente {
                 ", telefono=" + telefono +
                 ", Direccion='" + Direccion + '\'' +
                 '}';
+    }
+    public String converToJson(Cliente cliente){
+        Gson gson = new Gson();
+        return gson.toJson(cliente);
     }
 }

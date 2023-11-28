@@ -1,31 +1,50 @@
 package beans;
 
+import com.google.gson.Gson;
+
 public class MyLoginData {
-        private String message;
-        private User user;
+    private String message;
+    private User user;
+
+    private Cliente cliente;
 
 
-        public String getMessage() {
-            return message;
-        }
-
-      public void setMessage(String message) {
+    public MyLoginData(String message, User user, Cliente cliente) {
         this.message = message;
-        }
+        this.user = user;
+        this.cliente = cliente;
+    }
 
-        public User getUser() {
-            return user;
-        }
+    public MyLoginData(){
 
-        public void setUser(User user) {
-            this.user = user;
-        }
+    }
+    public Cliente getCliente() {
+        return cliente;
+    }
 
-    @Override
-    public String toString() {
-        return "{" +
-                "\"message\":\"" + message + '\"' +
-                ", \"user\":" + user +
-                '}';
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+
+    public String convertToJson(MyLoginData info) {
+        Gson gson = new Gson();
+        return gson.toJson(info);
     }
 }

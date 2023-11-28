@@ -37,7 +37,7 @@ public class MyServlet extends HttpServlet {
 
         switch (keepaction[0]) {
             case "LOGIN":
-                out.print(selectUsers(request, response).toString());
+                out.print(selectUsers(request, response));
                 break;
             case "PRODUCTREST":
                 out.print(selectProductRest(request, response).toString());
@@ -72,19 +72,20 @@ public class MyServlet extends HttpServlet {
         String json = convertToJson(r1);
         return json;
     }
-    public MyLoginData selectUsers(HttpServletRequest request, HttpServletResponse response){
+    public String selectUsers(HttpServletRequest request, HttpServletResponse response){
         User usuario = new User();
         usuario.setUsername(request.getParameter("USERNAME"));
         usuario.setToken(request.getParameter("TOKEN"));
         SqlAction sql = new SqlAction();
         MyLoginData myloginData = new MyLoginData();
         myloginData.setUser(sql.findUsername(usuario));
-        if (sql.findUsername(usuario) != null){
+        if (sql.findUsername(usuario) != null) {
             myloginData.setMessage("Okey");
-        }else {
+        } else {
             myloginData.setMessage("Error");
         }
-        return  myloginData;
+        String json = myloginData.convertToJson(myloginData);
+        return  json;
     }
     public String selectProductRest(HttpServletRequest request, HttpServletResponse response){
         SqlAction sql = new SqlAction();

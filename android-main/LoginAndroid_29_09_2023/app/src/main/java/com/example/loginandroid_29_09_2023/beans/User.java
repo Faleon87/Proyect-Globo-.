@@ -2,14 +2,18 @@ package com.example.loginandroid_29_09_2023.beans;
 
 public class User {
     private String username;
-    private String token; // Puedes agregar otros campos según tus necesidades
+    private String token;
+    private Cliente cliente;
 
-    public User(String username, String token) {
+    public User(String username, String token, Cliente cliente) {
         this.username = username;
         this.token = token;
+        this.cliente = cliente;
     }
-    public User() {
+    public User(){
+
     }
+
     public String getUsername() {
         return username;
     }
@@ -26,6 +30,11 @@ public class User {
         this.token = token;
     }
 
+    public Cliente getCliente() {
+        return cliente;
+    }
 
-    // Getters y setters
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
 }

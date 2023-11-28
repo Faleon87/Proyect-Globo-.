@@ -10,7 +10,8 @@ import java.util.ArrayList;
 public class SqlAction {
    private final String SQL_PRODUCT_RESTAURANTE = "select R.NOMBRE  , P.NOMBRE , " +
            "P.DESCRIPCION, P.IMAGEN, P.PRECIO , R.ID_RESTAURANTE FROM RESTAURANTE R JOIN PRODUCTO P ON R.ID_RESTAURANTE = P.ID_RESTAURANTE";
-    private final String SQL_LOGIN = "select  USERNAME , password from usuario where ";
+    private final String SQL_LOGIN = "SELECT " + "    U.ID_CLIENTE, " + " U.USERNAME, " + " U.PASSWORD " + " FROM " + " USUARIO U " +
+            "JOIN " + " CLIENTE C ON U.ID_CLIENTE = C.ID_CLIENTE  where ";
 
     private final String SQL_INSERT_PRODUCTO= " INSERT INTO RESTAURANTE(ID_RESTAURANTE ,NOMBRE) VALUES";
 
@@ -47,22 +48,26 @@ public class SqlAction {
         return null;
     }
     public  User findUsername(User infouser) { //SELECT * FROM usuario WHERE USERNAME = 'admin' AND password = 'admin'
-        String sql = SQL_LOGIN;
-        sql+= "USERNAME = '" + infouser.getUsername() + "' AND password= '" + infouser.getToken() + "'";
+        String sql = SQL_LOGIN + "U.USERNAME = '" + infouser.getUsername() + "' AND U.password= '" + infouser.getToken() + "'";
         try {
             this.motorsql.connect();
             rs = this.motorsql.executeQuery(sql);
-            while (rs.next()) {
+            if (rs.next()) {
                 User usuario = new User();
-                usuario.setUsername(rs.getString(1));
-                usuario.setToken(rs.getString(2));
+                Cliente cliente = new Cliente();
+                cliente.setId_cliente(rs.getInt(1));
+                usuario.setUsername(rs.getString(2));
+                usuario.setToken(rs.getString(3));
+                usuario.setCliente(cliente);
                 return usuario;
+            } else {
+                return null;
             }
-        } catch (Exception ex) {
+        } catch (SQLException ex) {
             System.out.println("Error: " + ex);
-
-        }
             return null;
+        }
+
     }
     public ArrayList<ProductRestaurant> findProduct_Restaurant(){
         String sql = SQL_PRODUCT_RESTAURANTE;
