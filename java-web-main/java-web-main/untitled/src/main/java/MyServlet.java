@@ -53,9 +53,18 @@ public class MyServlet extends HttpServlet {
                 Puntuacion puntuacion = convertJsonToPuntuacion(requestBody);
                 out.println(insertComent(puntuacion));
                 break;
+            case "SELECTRESTAURANTPUNTUACION":
+                out.println(selectRestaurantPuntuacion(request, response));
+                break;
         }
     }
 
+    private String selectRestaurantPuntuacion(HttpServletRequest request , HttpServletResponse response){
+        SqlAction sql = new SqlAction();
+        ArrayList<ProductRestaurant> r1 = sql.findRestaurantPuntuacion();
+        return convertToJson(r1);
+
+    }
     private String insertComent(Puntuacion puntuacion) {
       String comentario= puntuacion.getComentario();
       int valorPuntuacion = puntuacion.getPuntuacion();

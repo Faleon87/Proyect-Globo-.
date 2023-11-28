@@ -17,6 +17,7 @@ public class SqlAction {
 
     private final String SQL_SELECT_RESTAURANT_VENTAS = "SELECT ID_RESTAURANTE, NOMBRE, DESCRIPCION, IMAGEN, VENTAS FROM RESTAURANTE ORDER BY VENTAS DESC";
 
+    private final String SQL_SELECT_RESTAURANT_PUNTUACION="SELECT R.ID_RESTAURANTE, R.NOMBRE, R.IMAGEN, R.DESCRIPCION, ROUND(AVG(P.puntuacion)) AS PUNTUACION_PROMEDIO FROM RESTAURANTE R LEFT JOIN PUNTUACION P ON R.ID_RESTAURANTE = P.ID_RESTAURANTE GROUP BY R.ID_RESTAURANTE, R.NOMBRE, R.IMAGEN, R.DESCRIPCION ORDER BY PUNTUACION_PROMEDIO DESC LIMIT 10;";
 
     private motorsql motorsql;
     private ResultSet rs;
@@ -25,6 +26,34 @@ public class SqlAction {
         this.motorsql = new motorsql();
     }
 
+    public ArrayList<ProductRestaurant> findRestaurantPuntuacion() {
+        String sql = SQL_SELECT_RESTAURANT_PUNTUACION;
+        ArrayList<ProductRestaurant> restaurantList = new ArrayList<>();
+        try {
+            this.motorsql.connect();
+            rs = this.motorsql.executeQuery(sql);
+            while (rs.next()) {
+                Restaurante restaurante = new Restaurante();
+                Puntuacion puntuacion = new Puntuacion();
+                restaurante.setId_restaurante(rs.getInt(1));
+                restaurante.setNombre(rs.getString(2));
+                restaurante.setImagen(rs.getString(3));
+                restaurante.setDescripcion(rs.getString(4));
+                puntuacion.setPuntuacion(rs.getInt(5));
+                ProductRestaurant productRestaurant = new ProductRestaurant();
+                productRestaurant.setPuntuacion(puntuacion);
+                productRestaurant.setRestaurante(restaurante);
+                restaurantList.add(productRestaurant);
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error de sql: " + ex);
+        } catch (Exception ex) {
+            System.out.println("Error: " + ex);
+        }finally {
+            this.motorsql.disconnect();
+        }
+        return restaurantList;
+    }
     public Puntuacion insertComent(Puntuacion puntacion){
         String sql = SQL_INSERT_PRODUCTO;
         try {

@@ -10,14 +10,25 @@ public class ProductRestaurant {
 
     private Cliente cliente;
 
-    public ProductRestaurant(Producto producto, Restaurante restaurante, Cliente cliente) {
+    private Puntuacion puntuacion;
+
+    public ProductRestaurant(Producto producto, Restaurante restaurante, Cliente cliente, Puntuacion puntuacion) {
         this.producto = producto;
         this.restaurante = restaurante;
         this.cliente = cliente;
+        this.puntuacion = puntuacion;
     }
 
     public  ProductRestaurant(){
 
+    }
+
+    public Puntuacion getPuntuacion() {
+        return puntuacion;
+    }
+
+    public void setPuntuacion(Puntuacion puntuacion) {
+        this.puntuacion = puntuacion;
     }
 
     public Producto getProducto() {
