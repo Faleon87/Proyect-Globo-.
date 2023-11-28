@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 
 import static beans.ProductRestaurant.convertToJson;
 import static beans.Puntuacion.convertJsonToPuntuacion;
+import static beans.RestaurantePuntuacion.convertToJsonRestaurantePuntuacion;
 
 @WebServlet("/MyServlet")
 public class MyServlet extends HttpServlet {
@@ -61,8 +62,8 @@ public class MyServlet extends HttpServlet {
 
     private String selectRestaurantPuntuacion(HttpServletRequest request , HttpServletResponse response){
         SqlAction sql = new SqlAction();
-        ArrayList<ProductRestaurant> r1 = sql.findRestaurantPuntuacion();
-        return convertToJson(r1);
+        ArrayList<RestaurantePuntuacion> r1 = sql.findRestaurantPuntuacion();
+        return convertToJsonRestaurantePuntuacion(r1);
 
     }
     private String insertComent(Puntuacion puntuacion) {

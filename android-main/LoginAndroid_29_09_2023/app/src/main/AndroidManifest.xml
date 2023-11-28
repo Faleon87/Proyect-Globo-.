@@ -26,6 +26,9 @@
         <activity android:name=".ComentUser.view.ComentView">
 
         </activity>
+        <activity android:name=".restaurant_puntuacion.view.RestaurantOrderRatingView">
+
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true"

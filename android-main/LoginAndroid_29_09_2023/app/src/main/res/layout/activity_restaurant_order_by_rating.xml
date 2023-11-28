@@ -9,9 +9,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-90dp">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -29,10 +27,10 @@
 
                     <TextView
                         android:id="@+id/textView8"
-                        android:layout_width="320dp"
-                        android:layout_height="23dp"
+                        android:layout_width="333dp"
+                        android:layout_height="48dp"
                         android:fontFamily="@font/roboto_medium"
-                        android:text="Restaurantes con más ventas"
+                        android:text="Restaurantes con mejores puntuaciones"
                         android:textSize="18dp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -49,26 +47,14 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </LinearLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clipToPadding="false"
-                android:foregroundGravity="center"
-                android:padding="3dp"
-                android:paddingStart="24dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
-
-            <Button
-                android:id="@+id/order_restaurants_rating_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Mostrar los 10 puntuados" />
-
         </LinearLayout>
     </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/lst_restaurants_rating"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"></LinearLayout>
 
     <!-- RecyclerView -->
 

@@ -28,9 +28,9 @@ public class SqlAction {
         this.motorsql = new motorsql();
     }
 
-    public ArrayList<ProductRestaurant> findRestaurantPuntuacion() {
+    public ArrayList<RestaurantePuntuacion> findRestaurantPuntuacion() {
         String sql = SQL_SELECT_RESTAURANT_PUNTUACION;
-        ArrayList<ProductRestaurant> restaurantList = new ArrayList<>();
+        ArrayList<RestaurantePuntuacion> restaurantList = new ArrayList<>();
         try {
             this.motorsql.connect();
             rs = this.motorsql.executeQuery(sql);
@@ -42,7 +42,7 @@ public class SqlAction {
                 restaurante.setImagen(rs.getString(3));
                 restaurante.setDescripcion(rs.getString(4));
                 puntuacion.setPuntuacion(rs.getInt(5));
-                ProductRestaurant productRestaurant = new ProductRestaurant();
+                RestaurantePuntuacion productRestaurant = new RestaurantePuntuacion();
                 productRestaurant.setPuntuacion(puntuacion);
                 productRestaurant.setRestaurante(restaurante);
                 restaurantList.add(productRestaurant);

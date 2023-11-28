@@ -1,26 +1,27 @@
 package com.example.loginandroid_29_09_2023.restaurant_puntuacion;
 
 import com.example.loginandroid_29_09_2023.beans.ProductRestaurant;
+import com.example.loginandroid_29_09_2023.beans.Restaurante;
+import com.example.loginandroid_29_09_2023.beans.RestaurantePuntuacion;
 
 import java.util.ArrayList;
 
 public interface ContractRestaurantPuntuacion {
     public interface View{
-        public void successLogin(ProductRestaurant productRestaurant);
+        public void successLogin(ArrayList<RestaurantePuntuacion> lstRestaurantsPuntuacion);
         void failureLogin(String err);
 
     }
     public interface Presenter{
         // void login(String email, String pass);
-            void login(ProductRestaurant infopr);
+            void login();
     }
     public interface Model{
         interface OnLoginUserListener{
-            void onFinished(ArrayList<ProductRestaurant> user);
+            void onFinished(ArrayList<RestaurantePuntuacion> lstRestaurantsPuntuacion);
             void onFailure(String err);
 
         }
-        void loginAPI(ProductRestaurant infopr,
-                      OnLoginUserListener onLoginUserListener);
+        void loginAPI(OnLoginUserListener onLoginUserListener);
     }
 }
