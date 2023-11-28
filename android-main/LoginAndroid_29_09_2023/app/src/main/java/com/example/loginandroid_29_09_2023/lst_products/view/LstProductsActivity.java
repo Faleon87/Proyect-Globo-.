@@ -54,7 +54,7 @@ public class LstProductsActivity extends AppCompatActivity
             }
         });
         recyclerView = findViewById(R.id.recyclerView2);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
         presenter.lstProductos("Ayuda");
 
@@ -68,7 +68,6 @@ public class LstProductsActivity extends AppCompatActivity
     }
 
     private void  initRecyclerView() {
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
         productoAdapter = new ProductoAdapter(ProductoRestaurantes, this);
         recyclerView.setAdapter(productoAdapter);
 

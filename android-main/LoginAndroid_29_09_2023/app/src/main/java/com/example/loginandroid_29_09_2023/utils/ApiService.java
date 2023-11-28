@@ -49,7 +49,8 @@ public interface ApiService {
             @Query("ACTION") String action,
             @Body Puntuacion puntuacion
         );
-
+         @GET("MyServlet")
+         Call<ArrayList<Puntuacion>> getDataRestaurantPuntuacion(@Query("ACTION") String action);
         /*
         @FormUrlEncoded
         @POST("/login")

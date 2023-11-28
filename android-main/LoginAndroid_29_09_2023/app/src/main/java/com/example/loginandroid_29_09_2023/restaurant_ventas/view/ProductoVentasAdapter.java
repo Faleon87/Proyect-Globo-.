@@ -2,6 +2,8 @@ package com.example.loginandroid_29_09_2023.restaurant_ventas.view;
 
 import static androidx.core.content.ContextCompat.startActivity;
 
+import static com.bumptech.glide.load.resource.bitmap.TransformationUtils.centerCrop;
+
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -11,9 +13,11 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import androidx.appcompat.view.ActionBarPolicy;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.GranularRoundedCorners;
 import com.example.loginandroid_29_09_2023.ComentUser.view.ComentView;
 import com.example.loginandroid_29_09_2023.R;
 import com.example.loginandroid_29_09_2023.beans.Cliente;
@@ -31,6 +35,7 @@ public class ProductoVentasAdapter extends RecyclerView.Adapter<ProductoVentasAd
     public TextView textViewNombre;
     public TextView textViewVentas;
     Cliente cliente = new Cliente();
+    private ActionBarPolicy items;
 
     public ProductoVentasAdapter(List<ProductRestaurant> productos, Context context) {
             this.productoVentasList = productos;
@@ -42,6 +47,7 @@ public class ProductoVentasAdapter extends RecyclerView.Adapter<ProductoVentasAd
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_lst_restaurante_ventas, parent, false);
+        context = parent.getContext();
         return new ViewHolder(view);
     }
 
@@ -50,13 +56,19 @@ public class ProductoVentasAdapter extends RecyclerView.Adapter<ProductoVentasAd
          int idRestaurante = productRestaurant.getRestaurante().getId_restaurante();
 
         // Establecer valores para cada producto
+        
+
 
         holder.textViewNombre.setText(productRestaurant.getRestaurante().getNombre());
         holder.textViewVentas.setText("Ventas: " + productRestaurant.getRestaurante().getVentas());
 
         // Cargar la imagen desde la URL usando Glide (o Picasso)
         String urlImagen = productRestaurant.getRestaurante().getImagen();
-        Glide.with(context).load(urlImagen).centerCrop().into(holder.imageButtonImagen);
+        Glide.with(context)
+                .load(urlImagen)
+                .transform(new GranularRoundedCorners(30, 30, 0, 0))
+                .into(holder.imageButtonImagen);
+
 
         // Guardar el id_restaurante como una etiqueta en el ImageButton
         holder.imageButtonImagen.setTag(idRestaurante);

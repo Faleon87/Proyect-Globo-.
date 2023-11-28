@@ -27,6 +27,8 @@ public class LstProductsViewUser extends AppCompatActivity implements ContractPr
     /* PATRÓN SINGLETON*/
     private ImageButton enviar;
     private RecyclerView recyclerView;
+
+
     private ProductoVentasAdapter productoAdapter;
     private ArrayList<ProductRestaurant> ProductoRestaurantes = new ArrayList<>();
     private static LstProductsViewUser mainActivity = null;
@@ -58,8 +60,7 @@ public class LstProductsViewUser extends AppCompatActivity implements ContractPr
         });
 
         recyclerView = findViewById(R.id.recyclerView3);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, true);
-        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this , LinearLayoutManager.HORIZONTAL, false));
         presenter.lstProductosRest("Ayuda");
     }
 
@@ -73,8 +74,7 @@ public class LstProductsViewUser extends AppCompatActivity implements ContractPr
     }
 
     private void initRecyclerView() {
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        productoAdapter = new ProductoVentasAdapter (ProductoRestaurantes, this);
+        productoAdapter = new ProductoVentasAdapter(ProductoRestaurantes, this);
         recyclerView.setAdapter(productoAdapter);
 
     }
