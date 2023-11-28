@@ -103,7 +103,7 @@ public class MyServlet extends HttpServlet {
         return convertToJson(p1);
     }
 
-    public ArrayList<ProductRestaurant> insertProduct(HttpServletRequest request, HttpServletResponse response){
+    public String insertProduct(HttpServletRequest request, HttpServletResponse response){
         SqlAction sql = new SqlAction();
         ProductRestaurant productRestaurant = new ProductRestaurant();
         Restaurante r1 = new Restaurante();
@@ -112,10 +112,12 @@ public class MyServlet extends HttpServlet {
         p1.setNombre(request.getParameter("NOMBRE_PRODUCTO"));
         p1.setDescripcion(request.getParameter("DESCRIPCION"));
         p1.setImagen(request.getParameter("IMAGEN"));
+        p1.setPrecio(0);
         p1.setPrecio(Integer.parseInt(request.getParameter("PRECIO")));
         r1.setId_restaurante(Integer.parseInt(request.getParameter("ID_REST")));
         productRestaurant.setRestaurante(r1);
         productRestaurant.setProducto(p1);
-        return sql.insertProductRestaurant(productRestaurant);
+        ArrayList<ProductRestaurant> lst= sql.insertProductRestaurant(productRestaurant);
+        return convertToJson(lst);
     }
 }

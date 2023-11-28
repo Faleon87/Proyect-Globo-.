@@ -30,7 +30,7 @@
                         android:layout_width="320dp"
                         android:layout_height="23dp"
                         android:fontFamily="@font/roboto_medium"
-                        android:text="Top 10 de Restaurantes con más ventas"
+                        android:text="Restaurantes con más ventas"
                         android:textSize="18dp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
