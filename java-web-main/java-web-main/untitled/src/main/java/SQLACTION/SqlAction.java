@@ -15,6 +15,8 @@ public class SqlAction {
 
     private final String SQL_INSERT_PRODUCTO= " INSERT INTO PUNTUACION (ID_RESTAURANTE, ID_CLIENTE, PUNTUACION, COMENTARIO) VALUES ";
 
+    private final String SQL_INSERT_RESTAURANTE = "INSERT INTO RESTAURANTE (ID_RESTAURANTE,NOMBRE) VALUES ";
+
     private final String SQL_SELECT_RESTAURANT_VENTAS = "SELECT ID_RESTAURANTE, NOMBRE, DESCRIPCION, IMAGEN, VENTAS FROM RESTAURANTE ORDER BY VENTAS DESC";
 
     private final String SQL_SELECT_RESTAURANT_PUNTUACION="SELECT R.ID_RESTAURANTE, R.NOMBRE, R.IMAGEN, R.DESCRIPCION, ROUND(AVG(P.puntuacion)) AS PUNTUACION_PROMEDIO FROM RESTAURANTE R LEFT JOIN PUNTUACION P ON R.ID_RESTAURANTE = P.ID_RESTAURANTE GROUP BY R.ID_RESTAURANTE, R.NOMBRE, R.IMAGEN, R.DESCRIPCION ORDER BY PUNTUACION_PROMEDIO DESC LIMIT 10;";
@@ -156,7 +158,7 @@ public class SqlAction {
 
     public ArrayList<ProductRestaurant> insertProductRestaurant(ProductRestaurant productRestaurant) {
         ArrayList<ProductRestaurant> productList = new ArrayList<>();
-        String sql = SQL_INSERT_PRODUCTO;
+        String sql = SQL_INSERT_RESTAURANTE;
         this.motorsql.connect();
         sql+="(" + productRestaurant.getRestaurante().getId_restaurante() + ", ";
         sql+= "'" + productRestaurant.getRestaurante().getNombre()+ "');";
