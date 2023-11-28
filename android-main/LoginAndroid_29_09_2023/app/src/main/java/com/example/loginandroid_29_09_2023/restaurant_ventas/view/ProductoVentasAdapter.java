@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.loginandroid_29_09_2023.ComentUser.view.ComentView;
 import com.example.loginandroid_29_09_2023.R;
+import com.example.loginandroid_29_09_2023.beans.Cliente;
 import com.example.loginandroid_29_09_2023.beans.ProductRestaurant;
 import com.example.loginandroid_29_09_2023.beans.User;
 
@@ -29,6 +30,7 @@ public class ProductoVentasAdapter extends RecyclerView.Adapter<ProductoVentasAd
     public ImageButton imageButtonImagen;
     public TextView textViewNombre;
     public TextView textViewVentas;
+    Cliente cliente = new Cliente();
 
     public ProductoVentasAdapter(List<ProductRestaurant> productos, Context context) {
             this.productoVentasList = productos;
@@ -63,12 +65,18 @@ public class ProductoVentasAdapter extends RecyclerView.Adapter<ProductoVentasAd
             @Override
             public void onClick(View view) {
                 // Recuperar el id_restaurante cuando se hace clic en el ImageButton
-                int  restauranteId = (int) view.getTag();
-                // Acción a realizar cuando se hace clic en el ImageButton
-                // Por ejemplo, iniciar una nueva actividad pasando el id_restaurante
+
+              // Suponiendo que el método para obtener el ID del cliente sea getIdCliente()
+                int restauranteId = (int) view.getTag();
+                int clienteId = (int)view.getTag(); // Obtener el ID del cliente
+
+    // Acción a realizar cuando se hace clic en el ImageButton
+    // Por ejemplo, iniciar una nueva actividad pasando tanto el id_restaurante como el id_cliente
                 Intent intent = new Intent(context, ComentView.class);
                 intent.putExtra("restauranteId", restauranteId);
+                intent.putExtra("clienteId", clienteId); // Agregar el ID del cliente
                 context.startActivity(intent);
+
             }
         });
     }

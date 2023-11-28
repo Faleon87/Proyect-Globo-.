@@ -13,11 +13,11 @@ public class SqlAction {
     private final String SQL_LOGIN = "SELECT " + "    U.ID_CLIENTE, " + " U.USERNAME, " + " U.PASSWORD " + " FROM " + " USUARIO U " +
             "JOIN " + " CLIENTE C ON U.ID_CLIENTE = C.ID_CLIENTE  where ";
 
-    private final String SQL_INSERT_PRODUCTO= " INSERT INTO RESTAURANTE(ID_RESTAURANTE ,NOMBRE) VALUES";
+    private final String SQL_INSERT_PRODUCTO= " INSERT INTO PUNTUACION (ID_RESTAURANTE, ID_CLIENTE, PUNTUACION, COMENTARIO) VALUES ";
 
     private final String SQL_SELECT_RESTAURANT_VENTAS = "SELECT ID_RESTAURANTE, NOMBRE, DESCRIPCION, IMAGEN, VENTAS FROM RESTAURANTE ORDER BY VENTAS DESC";
 
-    private final String SQL_CLIENTE = "select id_cliente from cliente";
+
     private motorsql motorsql;
     private ResultSet rs;
 
@@ -26,24 +26,21 @@ public class SqlAction {
     }
 
     public Puntuacion insertComent(Puntuacion puntacion){
-        String sql = SQL_CLIENTE;
+        String sql = SQL_INSERT_PRODUCTO;
         try {
-            this.motorsql.connect();
-            rs = this.motorsql.executeQuery(sql);
-            while (rs.next()){
+                 this.motorsql.connect();
                 Puntuacion puntuacion = new Puntuacion();
-                puntuacion.setId_cliente(rs.getInt(1));
+                sql += "(" + puntacion.getId_restaurante() + ", ";
+                sql += puntacion.getId_cliente() + ", ";
+                sql += puntacion.getPuntuacion() + ", ";
+                sql += "'" + puntacion.getComentario() + "')";
+                this.motorsql.execute(sql);
                 return puntuacion;
-//                sql = "INSERT INTO PUNTUACION (ID_RESTAURANTE, ID_CLIENTE, PUNTUACION, COMENTARIO) VALUES";
-//                sql += "(" + puntacion.getId_restaurante() + ", ";
-//                sql += puntacion.getId_cliente() + ", ";
-//                sql += puntacion.getPuntuacion() + ", ";
-//                sql += "'" + puntacion.getComentario() + "')";
-//                this.motorsql.execute(sql);
-//                return puntuacion;
-            }
+
         }catch (Exception ex){
             System.out.println("Error: " + ex);
+        }finally {
+            this.motorsql.disconnect();
         }
         return null;
     }
@@ -66,6 +63,8 @@ public class SqlAction {
         } catch (SQLException ex) {
             System.out.println("Error: " + ex);
             return null;
+        }finally {
+            this.motorsql.disconnect();
         }
 
     }
@@ -93,6 +92,8 @@ public class SqlAction {
             System.out.println("Error de sql: " + ex);
         } catch (Exception ex){
             System.out.println("Error: " + ex);
+        }finally {
+            this.motorsql.disconnect();
         }
         return listproductRestaurants;
    }
@@ -118,6 +119,8 @@ public class SqlAction {
             System.out.println("Error de sql: " + ex);
         } catch (Exception ex) {
             System.out.println("Error: " + ex);
+        }finally {
+            this.motorsql.disconnect();
         }
         return restaurantList;
     }
@@ -138,10 +141,10 @@ public class SqlAction {
         sql2 += "'" + productRestaurant.getProducto().getDescripcion() + "', ";
         sql2 += "'" + productRestaurant.getProducto().getImagen() + "', ";
         sql2 += productRestaurant.getProducto().getPrecio() + ")";
-
         // Ejecuta la inserción
         this.motorsql.execute(sql2);
         productList.add(productRestaurant);
+        this.motorsql.disconnect();
         // Devuelve la lista actualizada
         return productList;
     }

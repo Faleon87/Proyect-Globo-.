@@ -68,8 +68,10 @@ public class ComentView extends AppCompatActivity implements ContractUserComent.
                  if (intent.hasExtra("restauranteId")) {
                      // Obtener el valor asociado con la clave "restauranteId"
                      int restauranteId = intent.getIntExtra("restauranteId", -1); // -1 es un valor predeterminado si no se encuentra el extra
+                     int clienteId = intent.getIntExtra("clienteId", -1); // -1 es un valor predeterminado si no se encuentra el extra
                      Puntuacion puntuacion = new Puntuacion();
                      puntuacion.setId_restaurante(restauranteId);
+                     puntuacion.setId_cliente(clienteId);
                      puntuacion.setComentario(valorcomentario);
                      puntuacion.setPuntuacion(valorestrellas);
                      presenter.addComent(puntuacion);

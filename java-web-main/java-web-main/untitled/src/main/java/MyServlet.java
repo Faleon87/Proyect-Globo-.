@@ -56,12 +56,15 @@ public class MyServlet extends HttpServlet {
         }
     }
 
-    private Puntuacion insertComent(Puntuacion puntuacion) {
+    private String insertComent(Puntuacion puntuacion) {
       String comentario= puntuacion.getComentario();
       int valorPuntuacion = puntuacion.getPuntuacion();
       int valorIdRest = puntuacion.getId_restaurante();
+      int valorIdCliente = puntuacion.getId_cliente();
       SqlAction sql = new SqlAction();
-      return sql.insertComent(puntuacion);
+      sql.insertComent(puntuacion);
+      return Puntuacion.convertoJson(puntuacion);
+
     }
 
     // Métodos restantes
@@ -69,8 +72,7 @@ public class MyServlet extends HttpServlet {
     public String selectRestaurantVentas(HttpServletRequest request, HttpServletResponse response){
         SqlAction sql = new SqlAction();
         ArrayList<ProductRestaurant> r1 = sql.findRestaurantVentas();
-        String json = convertToJson(r1);
-        return json;
+        return  convertToJson(r1);
     }
     public String selectUsers(HttpServletRequest request, HttpServletResponse response){
         User usuario = new User();
@@ -84,14 +86,12 @@ public class MyServlet extends HttpServlet {
         } else {
             myloginData.setMessage("Error");
         }
-        String json = myloginData.convertToJson(myloginData);
-        return  json;
+       return myloginData.convertToJson(myloginData);
     }
     public String selectProductRest(HttpServletRequest request, HttpServletResponse response){
         SqlAction sql = new SqlAction();
         ArrayList<ProductRestaurant> p1 = sql.findProduct_Restaurant();
-        String json = convertToJson(p1);
-        return json;
+        return convertToJson(p1);
     }
 
     public ArrayList<ProductRestaurant> insertProduct(HttpServletRequest request, HttpServletResponse response){
