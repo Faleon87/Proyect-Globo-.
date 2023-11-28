@@ -1,6 +1,7 @@
 package com.example.loginandroid_29_09_2023.restaurant_puntuacion.view;
 
 import android.os.Bundle;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -57,9 +58,15 @@ public class RestaurantOrderRatingView extends AppCompatActivity implements Cont
             Restaurante restaurante = restaurantePuntuacion.getRestaurante();
             TextView textView = new TextView(this);
             textView.setText(restaurante.getNombre());
+            TextView textView2 = new TextView(this);
+           String prueba = String.valueOf(restaurantePuntuacion.getPuntuacion().getPuntuacion());
+            textView2.setText(prueba);
             textView.setTextSize(20);
             textView.setHeight(100);
+            textView2.setTextSize(20);
+            textView2.setHeight(100);
             linearLayout.addView(textView);
+            linearLayout.addView(textView2);
         }
     }
     private void initRecyclerView() {
