@@ -65,7 +65,6 @@ public class ComentView extends AppCompatActivity implements ContractUserComent.
                  Intent intent = getIntent();
 
                  // Verificar si el Intent contiene la clave "restauranteId"
-                 if (intent.hasExtra("restauranteId")) {
                      // Obtener el valor asociado con la clave "restauranteId"
                      int restauranteId = intent.getIntExtra("restauranteId", -1); // -1 es un valor predeterminado si no se encuentra el extra
                      int clienteId = intent.getIntExtra("clienteId", -1); // -1 es un valor predeterminado si no se encuentra el extra
@@ -75,7 +74,7 @@ public class ComentView extends AppCompatActivity implements ContractUserComent.
                      puntuacion.setComentario(valorcomentario);
                      puntuacion.setPuntuacion(valorestrellas);
                      presenter.addComent(puntuacion);
-                 }
+
              }
          });
     }
@@ -83,6 +82,7 @@ public class ComentView extends AppCompatActivity implements ContractUserComent.
     @Override
     public void success() {
         Toast.makeText(mainActivity, "Enviados correctamente", Toast.LENGTH_SHORT).show();
+        mainActivity.finish();
     }
 
     @Override

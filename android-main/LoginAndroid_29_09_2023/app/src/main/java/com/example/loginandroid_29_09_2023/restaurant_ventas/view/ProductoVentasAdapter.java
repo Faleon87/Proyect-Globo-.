@@ -4,6 +4,7 @@ import static androidx.core.content.ContextCompat.startActivity;
 
 import static com.bumptech.glide.load.resource.bitmap.TransformationUtils.centerCrop;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -24,6 +25,7 @@ import com.example.loginandroid_29_09_2023.beans.Cliente;
 import com.example.loginandroid_29_09_2023.beans.ProductRestaurant;
 import com.example.loginandroid_29_09_2023.beans.User;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class ProductoVentasAdapter extends RecyclerView.Adapter<ProductoVentasAdapter.ViewHolder>{
@@ -34,7 +36,7 @@ public class ProductoVentasAdapter extends RecyclerView.Adapter<ProductoVentasAd
     public ImageButton imageButtonImagen;
     public TextView textViewNombre;
     public TextView textViewVentas;
-    Cliente cliente = new Cliente();
+
     private ActionBarPolicy items;
 
     public ProductoVentasAdapter(List<ProductRestaurant> productos, Context context) {
@@ -71,7 +73,11 @@ public class ProductoVentasAdapter extends RecyclerView.Adapter<ProductoVentasAd
 
 
         // Guardar el id_restaurante como una etiqueta en el ImageButton
-        holder.imageButtonImagen.setTag(idRestaurante);
+        HashMap<String , Integer> map = new HashMap<>();
+        map.put("idRestaurante", idRestaurante);
+        Intent intent = ((Activity) context).getIntent();
+        map.put("idCliente", intent.getIntExtra("clienteId", 0 ));
+        holder.imageButtonImagen.setTag(map);
 
         holder.imageButtonImagen.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,16 +85,17 @@ public class ProductoVentasAdapter extends RecyclerView.Adapter<ProductoVentasAd
                 // Recuperar el id_restaurante cuando se hace clic en el ImageButton
 
               // Suponiendo que el método para obtener el ID del cliente sea getIdCliente()
-                int restauranteId = (int) view.getTag();
-                int clienteId = (int)view.getTag(); // Obtener el ID del cliente
+                HashMap<String , Integer> map = (HashMap<String, Integer>) view.getTag();
 
-    // Acción a realizar cuando se hace clic en el ImageButton
-    // Por ejemplo, iniciar una nueva actividad pasando tanto el id_restaurante como el id_cliente
-                Intent intent = new Intent(context, ComentView.class);
-                intent.putExtra("restauranteId", restauranteId);
-                intent.putExtra("clienteId", clienteId); // Agregar el ID del cliente
-                context.startActivity(intent);
 
+                if (map.containsKey("idRestaurante") && map.containsKey("idCliente")) {
+                    int restauranteId =Integer.parseInt(map.get("idRestaurante").toString());
+                    int clienteId = map.get("idCliente"); // Obtener el ID del cliente
+                    Intent intent = new Intent(context, ComentView.class);
+                    intent.putExtra("restauranteId", restauranteId);
+                    intent.putExtra("clienteId", clienteId); // Agregar el ID del cliente
+                    context.startActivity(intent);
+                }
             }
         });
     }

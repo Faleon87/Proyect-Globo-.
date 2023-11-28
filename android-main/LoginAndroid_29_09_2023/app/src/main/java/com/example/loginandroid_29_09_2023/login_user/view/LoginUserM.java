@@ -65,6 +65,7 @@ public class LoginUserM extends AppCompatActivity implements ContractLoginUser.V
     public void successLogin(User user) {
             Toast.makeText(mainActivity, user.getUsername(), Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, LstProductsViewUser.class);
+            intent.putExtra("clienteId", user.getCliente().getId_cliente()); // Agregar el ID del cliente
             startActivity(intent);
     }
 
