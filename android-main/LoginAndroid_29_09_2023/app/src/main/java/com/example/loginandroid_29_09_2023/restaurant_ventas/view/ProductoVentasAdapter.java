@@ -1,9 +1,5 @@
 package com.example.loginandroid_29_09_2023.restaurant_ventas.view;
 
-import static androidx.core.content.ContextCompat.startActivity;
-
-import static com.bumptech.glide.load.resource.bitmap.TransformationUtils.centerCrop;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -21,9 +17,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.GranularRoundedCorners;
 import com.example.loginandroid_29_09_2023.ComentUser.view.ComentView;
 import com.example.loginandroid_29_09_2023.R;
-import com.example.loginandroid_29_09_2023.beans.Cliente;
 import com.example.loginandroid_29_09_2023.beans.ProductRestaurant;
-import com.example.loginandroid_29_09_2023.beans.User;
 
 import java.util.HashMap;
 import java.util.List;
@@ -113,9 +107,9 @@ public class ProductoVentasAdapter extends RecyclerView.Adapter<ProductoVentasAd
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            textViewNombre = itemView.findViewById(R.id.textViewNombre);
-            imageButtonImagen = itemView.findViewById(R.id.imageButtonImagen);
-            textViewVentas = itemView.findViewById(R.id.textViewVentas);
+            textViewNombre = itemView.findViewById(R.id.Nombre);
+            imageButtonImagen = itemView.findViewById(R.id.imageButtonPunt);
+            textViewVentas = itemView.findViewById(R.id.Puntuacion);
         }
 
     }

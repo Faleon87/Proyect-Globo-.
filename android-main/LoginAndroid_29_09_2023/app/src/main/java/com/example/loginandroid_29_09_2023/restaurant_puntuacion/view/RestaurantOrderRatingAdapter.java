@@ -29,14 +29,14 @@ public class RestaurantOrderRatingAdapter  extends RecyclerView.Adapter<Restaura
 
     @NonNull
     @Override
-    public RestaurantOrderRatingAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_lst_restaurante_ventas, parent, false);
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_lst_restaurante_puntuacion, parent, false);
         context = parent.getContext();
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RestaurantOrderRatingAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         RestaurantePuntuacion restaurantOrderRatingView = lstRestaurantsPuntuacion.get(position);
         holder.textViewNombre.setText(restaurantOrderRatingView.getRestaurante().getNombre());
         holder.textViewVentas.setText("Puntuacion: " + restaurantOrderRatingView.getPuntuacion().getPuntuacion());
@@ -50,7 +50,7 @@ public class RestaurantOrderRatingAdapter  extends RecyclerView.Adapter<Restaura
 
     @Override
     public int getItemCount() {
-        return 0;
+        return lstRestaurantsPuntuacion.size();
     }
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView textViewNombre;
@@ -59,9 +59,9 @@ public class RestaurantOrderRatingAdapter  extends RecyclerView.Adapter<Restaura
 
         public ViewHolder(@android.support.annotation.NonNull View itemView) {
             super(itemView);
-            textViewNombre = itemView.findViewById(R.id.textViewNombre);
-            imageButtonImagen = itemView.findViewById(R.id.imageButtonImagen);
-            textViewVentas = itemView.findViewById(R.id.textViewVentas);
+            textViewNombre = itemView.findViewById(R.id.Nombre);
+            imageButtonImagen = itemView.findViewById(R.id.imageButtonPunt);
+            textViewVentas = itemView.findViewById(R.id.Puntuacion);
         }
     }
 }

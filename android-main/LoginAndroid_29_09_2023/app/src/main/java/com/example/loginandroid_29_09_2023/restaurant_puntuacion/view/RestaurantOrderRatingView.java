@@ -1,20 +1,18 @@
 package com.example.loginandroid_29_09_2023.restaurant_puntuacion.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.loginandroid_29_09_2023.R;
-import com.example.loginandroid_29_09_2023.beans.ProductRestaurant;
-import com.example.loginandroid_29_09_2023.beans.Restaurante;
 import com.example.loginandroid_29_09_2023.beans.RestaurantePuntuacion;
 import com.example.loginandroid_29_09_2023.restaurant_puntuacion.ContractRestaurantPuntuacion;
 import com.example.loginandroid_29_09_2023.restaurant_puntuacion.presenter.RestaurantOrderRatingPresenter;
+import com.example.loginandroid_29_09_2023.restaurant_ventas.view.LstProductsViewUser;
 
 import java.util.ArrayList;
 
@@ -23,6 +21,10 @@ public class RestaurantOrderRatingView extends AppCompatActivity implements Cont
     public static RestaurantOrderRatingView mainActivity = null;
 
     private RecyclerView recyclerView;
+
+    private RestaurantOrderRatingAdapter restaurantOrderRatingAdapter;
+
+    private ImageButton volver;
 
     private ContractRestaurantPuntuacion.Presenter presenter =
             new RestaurantOrderRatingPresenter(this);
@@ -41,9 +43,17 @@ public class RestaurantOrderRatingView extends AppCompatActivity implements Cont
     }
 
     private void initComponents() {
-        recyclerView = findViewById(R.id.recyclerView3);
-//        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-//        recyclerView.setLayoutManager(layoutManager);
+        volver = findViewById(R.id.volver);
+        volver.setOnClickListener(new android.view.View.OnClickListener() {
+            @Override
+            public void onClick(android.view.View view) {
+                Intent intent = new Intent(RestaurantOrderRatingView.this, LstProductsViewUser.class);
+                startActivity(intent);
+            }
+        });
+        recyclerView = findViewById(R.id.recyclerView4);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        recyclerView.setLayoutManager(layoutManager);
         presenter.login();
     }
 
@@ -51,27 +61,29 @@ public class RestaurantOrderRatingView extends AppCompatActivity implements Cont
     @Override
     public void successLogin(ArrayList<RestaurantePuntuacion> lstRestaurantsPuntuacion) {
         this.lstRestaurantsPuntuacion = lstRestaurantsPuntuacion;
-        //initRecyclerView();
+        initRecyclerView();
 
-        LinearLayout linearLayout = findViewById(R.id.lst_restaurants_rating);
-        for (RestaurantePuntuacion restaurantePuntuacion : lstRestaurantsPuntuacion) {
-            Restaurante restaurante = restaurantePuntuacion.getRestaurante();
-            TextView textView = new TextView(this);
-            textView.setText(restaurante.getNombre());
-            TextView textView2 = new TextView(this);
-           String prueba = String.valueOf(restaurantePuntuacion.getPuntuacion().getPuntuacion());
-            textView2.setText(prueba);
-            textView.setTextSize(20);
-            textView.setHeight(100);
-            textView2.setTextSize(20);
-            textView2.setHeight(100);
-            linearLayout.addView(textView);
-            linearLayout.addView(textView2);
-        }
+//        LinearLayout linearLayout = findViewById(R.id.lst_restaurants_rating);
+//        for (RestaurantePuntuacion restaurantePuntuacion : lstRestaurantsPuntuacion) {
+//            Restaurante restaurante = restaurantePuntuacion.getRestaurante();
+//            TextView textView = new TextView(this);
+//            textView.setText(restaurante.getNombre());
+//            TextView textView2 = new TextView(this);
+//           String prueba = String.valueOf(restaurantePuntuacion.getPuntuacion().getPuntuacion());
+//            textView2.setText(prueba);
+//            textView.setTextSize(20);
+//            textView.setHeight(100);
+//            textView2.setTextSize(20);
+//            textView2.setHeight(100);
+//            linearLayout.addView(textView);
+//            linearLayout.addView(textView2);
+//        }
     }
     private void initRecyclerView() {
-        RestaurantOrderRatingAdapter restaurantOrderRatingAdapter = new RestaurantOrderRatingAdapter(lstRestaurantsPuntuacion, this);
-        recyclerView.setAdapter(restaurantOrderRatingAdapter);
+        restaurantOrderRatingAdapter = new RestaurantOrderRatingAdapter(lstRestaurantsPuntuacion, this);
+        if (restaurantOrderRatingAdapter != null && lstRestaurantsPuntuacion != null){
+            recyclerView.setAdapter(restaurantOrderRatingAdapter);
+        }
     }
 
     @Override

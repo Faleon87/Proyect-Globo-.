@@ -11,11 +11,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.loginandroid_29_09_2023.ComentUser.view.ComentView;
 import com.example.loginandroid_29_09_2023.beans.ProductRestaurant;
 import com.example.loginandroid_29_09_2023.login_user.view.LoginUserM;
 import com.example.loginandroid_29_09_2023.R;
-import com.example.loginandroid_29_09_2023.lst_products.view.ProductoAdapter;
 import com.example.loginandroid_29_09_2023.restaurant_puntuacion.view.RestaurantOrderRatingView;
 import com.example.loginandroid_29_09_2023.restaurant_ventas.ContractProductUser;
 import com.example.loginandroid_29_09_2023.restaurant_ventas.presenter.LstRestVentasPresenter;
@@ -70,7 +68,7 @@ public class LstProductsViewUser extends AppCompatActivity implements ContractPr
         });
 
 
-        recyclerView = findViewById(R.id.recyclerView3);
+        recyclerView = findViewById(R.id.recyclerView4);
         recyclerView.setLayoutManager(new LinearLayoutManager(this , LinearLayoutManager.HORIZONTAL, false));
         presenter.lstProductosRest("Ayuda");
     }
