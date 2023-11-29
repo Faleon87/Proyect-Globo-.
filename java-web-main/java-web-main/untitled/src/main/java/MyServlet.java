@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 import static beans.ProductRestaurant.convertToJson;
+import static beans.ProductRestaurant.convertToJsonToProductRest;
 import static beans.Puntuacion.convertJsonToPuntuacion;
 import static beans.RestaurantePuntuacion.convertToJsonRestaurantePuntuacion;
 
@@ -44,7 +45,9 @@ public class MyServlet extends HttpServlet {
                 out.print(selectProductRest(request, response).toString());
                 break;
             case "INSERT_PRODUCT":
-                out.println(insertProduct(request, response));
+                String requestBody1 = request.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
+                ProductRestaurant productRestaurant =  convertToJsonToProductRest(requestBody1);
+                out.println(insertProduct(productRestaurant));
                 break;
             case "SELECTRESTAURANTVENTAS":
                 out.println(selectRestaurantVentas(request, response));
@@ -104,21 +107,14 @@ public class MyServlet extends HttpServlet {
         return convertToJson(p1);
     }
 
-    public String insertProduct(HttpServletRequest request, HttpServletResponse response){
+    public String insertProduct(ProductRestaurant productRestaurant){
+       String nombreRestaurante = productRestaurant.getRestaurante().getNombre();
+       String nombreProducto = productRestaurant.getProducto().getNombre();
+       String descripcionProducto = productRestaurant.getProducto().getDescripcion();
+         int precioProducto = productRestaurant.getProducto().getPrecio();
+         int idRestaurante = productRestaurant.getRestaurante().getId_restaurante();
         SqlAction sql = new SqlAction();
-        ProductRestaurant productRestaurant = new ProductRestaurant();
-        Restaurante r1 = new Restaurante();
-        Producto p1 = new Producto();
-        r1.setNombre(request.getParameter("NOMBRE_REST"));
-        p1.setNombre(request.getParameter("NOMBRE_PRODUCTO"));
-        p1.setDescripcion(request.getParameter("DESCRIPCION"));
-        p1.setImagen(request.getParameter("IMAGEN"));
-        p1.setPrecio(0);
-        p1.setPrecio(Integer.parseInt(request.getParameter("PRECIO")));
-        r1.setId_restaurante(Integer.parseInt(request.getParameter("ID_REST")));
-        productRestaurant.setRestaurante(r1);
-        productRestaurant.setProducto(p1);
-        ArrayList<ProductRestaurant> lst= sql.insertProductRestaurant(productRestaurant);
-        return convertToJson(lst);
+        sql.insertProductRestaurant(productRestaurant);
+        return ProductRestaurant.convertToJsonString(productRestaurant);
     }
 }

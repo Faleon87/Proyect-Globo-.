@@ -70,4 +70,18 @@ public class ProductRestaurant {
         // Convertir el ArrayList de ProductRestaurant a JSON
         return gson.toJson(info);
     }
+
+    public static String convertToJsonString(ProductRestaurant info) {
+        // Crear una instancia de Gson
+        Gson gson = new Gson();
+        // Convertir el ArrayList de ProductRestaurant a JSON
+        return gson.toJson(info);
+    }
+
+    public static ProductRestaurant convertToJsonToProductRest(String json){
+        // Crear una instancia de Gson
+        Gson gson = new Gson();
+        // Convertir el ArrayList de ProductRestaurant a JSON
+        return gson.fromJson(json , ProductRestaurant.class);
+    }
 }

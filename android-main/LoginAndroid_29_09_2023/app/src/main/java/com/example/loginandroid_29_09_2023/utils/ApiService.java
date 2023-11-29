@@ -35,10 +35,11 @@ public interface ApiService {
         Call<ArrayList<ProductRestaurant>> getDataProducts(@Query("ACTION") String action);
 
 
-       @GET("MyServlet")
-       Call<ProductRestaurant> getMyData(@Query("ACTION") String action, @Query("NOMBRE_REST") String rname,@Query("NOMBRE_PRODUCTO")String pname ,
-                                                   @Query("DESCRIPCION") String description,@Query("IMAGEN") String image, @Query("PRECIO") int precio , @Query("ID_REST") int idrest ,
-                                                   @Query("NOMBRE_REST") String name_rest);
+       @POST("MyServlet")
+       Call<ProductRestaurant> sendDataProductRest(
+               @Query("ACTION") String action,
+               @Body ProductRestaurant productRestaurant
+       );
 
 
        @GET("MyServlet")

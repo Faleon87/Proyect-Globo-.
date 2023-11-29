@@ -61,8 +61,7 @@ public class LoginAdminM extends AppCompatActivity implements ContractAdmin.View
                     String valorNombreProducto = NombreProducto.getText().toString();
                     String valorDescripcionProducto = DescripcionProducto.getText().toString();
                     String valorImagenUrl = ImagenUrl.getText().toString();
-                    int valorPrecioProducto = 0;
-                    valorPrecioProducto = Integer.parseInt(PrecioProducto.getText().toString());
+                    int valorPrecioProducto = Integer.parseInt(PrecioProducto.getText().toString());
                     int valorRestauranteid = Integer.parseInt(Restauranteid.getText().toString());
                     Restaurante restauranted = new Restaurante();
                     Producto producto = new Producto();

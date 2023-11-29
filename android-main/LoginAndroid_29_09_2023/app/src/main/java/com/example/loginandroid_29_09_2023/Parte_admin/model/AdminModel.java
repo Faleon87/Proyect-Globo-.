@@ -28,15 +28,14 @@ public class AdminModel implements ContractAdmin.Model {
         ApiService apiService = RetrofitCliente.getClient("http://" + IP_BASE + "/untitled/").
                 create(ApiService.class);
         // Realizar la solicitud al Servlet
-        Call<ProductRestaurant> calls = apiService.getMyData ("INSERT_PRODUCT" , infopr.getRestaurante().getNombre(), infopr.getProducto().getNombre(),
-                infopr.getProducto().getDescripcion(), infopr.getProducto().getImagen(), infopr.getProducto().getPrecio(), infopr.getRestaurante().getId_restaurante() ,
-                infopr.getRestaurante().getNombre());
+        Call<ProductRestaurant> calls = apiService.sendDataProductRest("INSERT_PRODUCT" , infopr);
         calls.enqueue(new Callback<ProductRestaurant>() {
             @Override
             public void onResponse(Call<ProductRestaurant> call, Response<ProductRestaurant> response) {
                 if (response.isSuccessful()) {
                     // Procesar la respuesta aquí
                     try {;
+                        ProductRestaurant myData = response.body();
                         presenter.onFinished();
 
                     }catch (Exception ex){
