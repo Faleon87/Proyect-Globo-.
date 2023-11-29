@@ -165,7 +165,7 @@
             android:autofillHints="emailAddress"
             android:background="@drawable/edittext_rounded_corners"
             android:contentDescription="@string/email_address"
-            android:inputType="textEmailAddress"
+            android:inputType="number"
             android:textAlignment="center"
             android:textColor="@color/black" />
 
