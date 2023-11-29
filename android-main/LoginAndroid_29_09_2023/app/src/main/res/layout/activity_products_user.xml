@@ -65,7 +65,7 @@
                 android:id="@+id/order_restaurants_rating_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Mostrar los 10 puntuados" />
+                android:text="Mostrar los mejores puntuados" />
 
         </LinearLayout>
     </ScrollView>
