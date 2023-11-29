@@ -3,6 +3,7 @@ package com.example.loginandroid_29_09_2023.restaurant_puntuacion.view;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageButton;
+import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -23,6 +24,7 @@ public class RestaurantOrderRatingView extends AppCompatActivity implements Cont
     private RecyclerView recyclerView;
 
     private RestaurantOrderRatingAdapter restaurantOrderRatingAdapter;
+
 
     private ImageButton volver;
 

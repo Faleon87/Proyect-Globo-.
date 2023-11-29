@@ -67,6 +67,12 @@
                 android:layout_height="wrap_content"
                 android:text="Mostrar los mejores puntuados" />
 
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white" />
+
         </LinearLayout>
     </ScrollView>
 
