@@ -62,22 +62,6 @@ public class RestaurantOrderRatingView extends AppCompatActivity implements Cont
     public void successLogin(ArrayList<RestaurantePuntuacion> lstRestaurantsPuntuacion) {
         this.lstRestaurantsPuntuacion = lstRestaurantsPuntuacion;
         initRecyclerView();
-
-//        LinearLayout linearLayout = findViewById(R.id.lst_restaurants_rating);
-//        for (RestaurantePuntuacion restaurantePuntuacion : lstRestaurantsPuntuacion) {
-//            Restaurante restaurante = restaurantePuntuacion.getRestaurante();
-//            TextView textView = new TextView(this);
-//            textView.setText(restaurante.getNombre());
-//            TextView textView2 = new TextView(this);
-//           String prueba = String.valueOf(restaurantePuntuacion.getPuntuacion().getPuntuacion());
-//            textView2.setText(prueba);
-//            textView.setTextSize(20);
-//            textView.setHeight(100);
-//            textView2.setTextSize(20);
-//            textView2.setHeight(100);
-//            linearLayout.addView(textView);
-//            linearLayout.addView(textView2);
-//        }
     }
     private void initRecyclerView() {
         restaurantOrderRatingAdapter = new RestaurantOrderRatingAdapter(lstRestaurantsPuntuacion, this);

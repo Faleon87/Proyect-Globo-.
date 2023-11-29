@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public interface ContractAdmin {
     public interface View{
-        public void successLogin(ProductRestaurant productRestaurant);
+        public void successLogin();
         void failureLogin(String err);
 
     }
@@ -18,7 +18,7 @@ public interface ContractAdmin {
     }
     public interface Model{
         interface OnLoginUserListener{
-            void onFinished(ProductRestaurant user);
+            void onFinished();
             void onFailure(String err);
 
         }

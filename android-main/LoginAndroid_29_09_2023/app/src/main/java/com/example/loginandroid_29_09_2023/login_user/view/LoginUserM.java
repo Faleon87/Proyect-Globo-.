@@ -72,6 +72,7 @@ public class LoginUserM extends AppCompatActivity implements ContractLoginUser.V
     @Override
     public void failureLogin(String err) {
         Toast.makeText(mainActivity, err, Toast.LENGTH_SHORT).show();
+        mainActivity.finish();
     }
 
     @Override

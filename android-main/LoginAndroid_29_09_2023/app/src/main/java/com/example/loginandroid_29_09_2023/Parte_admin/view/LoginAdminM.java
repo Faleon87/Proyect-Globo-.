@@ -95,9 +95,9 @@ public class LoginAdminM extends AppCompatActivity implements ContractAdmin.View
 
 
     @Override
-    public void successLogin(ProductRestaurant productRestaurant) {
-        Toast.makeText(mainActivity, productRestaurant.getProducto().getNombre(), Toast.LENGTH_SHORT).show();
-
+    public void successLogin() {
+        Toast.makeText(mainActivity, "Creado correctamente", Toast.LENGTH_SHORT).show();
+       mainActivity.finish();
     }
 
     @Override

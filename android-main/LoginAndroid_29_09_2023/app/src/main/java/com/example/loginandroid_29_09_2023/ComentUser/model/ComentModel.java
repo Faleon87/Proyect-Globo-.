@@ -29,7 +29,7 @@ public class ComentModel implements ContractUserComent.Model{
     }
 
     @Override
-    public void loginAPI(Puntuacion puntuacion, ComentPresenter comentPresenter) {
+    public void loginAPI(Puntuacion puntuacion, OnLoginUserListener respuestaLstRestVentasPresenter) {
         // Crear una instancia de ApiService
         ApiService apiService = RetrofitCliente.getClient("http://" + IP_BASE + "/untitled/").
                 create(ApiService.class);

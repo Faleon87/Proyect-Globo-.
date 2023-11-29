@@ -26,8 +26,8 @@ public class LstPAdminPresenter implements ContractAdmin.Presenter,
 
 
     @Override
-    public void onFinished(ProductRestaurant user) {
-
+    public void onFinished() {
+        view.successLogin();
     }
 
     @Override

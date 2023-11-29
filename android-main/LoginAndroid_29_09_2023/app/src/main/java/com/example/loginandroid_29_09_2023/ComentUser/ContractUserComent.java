@@ -18,6 +18,6 @@ public interface ContractUserComent {
             void onFailure(String err);
         }
         void loginAPI(Puntuacion puntuacion,
-                      ComentPresenter comentPresenter);
+                      OnLoginUserListener respuestaLstRestVentasPresenter);
     }
 }
