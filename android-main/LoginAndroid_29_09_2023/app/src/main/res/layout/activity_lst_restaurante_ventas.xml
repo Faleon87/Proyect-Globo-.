@@ -14,23 +14,22 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="20dp">
 
         <ImageButton
             android:id="@+id/imageButtonPunt"
-            android:layout_width="205dp"
-            android:layout_height="160dp"
+            android:layout_width="264dp"
+            android:layout_height="172dp"
             android:background="@drawable/edittext_rounded_corners"
             android:scaleType="centerCrop" />
 
         <TextView
             android:id="@+id/Nombre"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_width="261dp"
+            android:layout_height="62dp"
             android:layout_marginTop="4dp"
-            android:layout_marginEnd="8dp"
-            android:lines="2"
+            android:lines="1"
             android:text="Nombre Restaurante"
             android:textColor="@color/black"
             android:textSize="24sp"

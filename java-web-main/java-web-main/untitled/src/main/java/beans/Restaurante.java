@@ -1,5 +1,7 @@
 package beans;
 
+import com.google.gson.Gson;
+
 public class Restaurante {
 
     private int id_restaurante;
@@ -8,15 +10,26 @@ public class Restaurante {
     private String descripcion;
     private int ventas;
 
-    public Restaurante(int id_restaurante, String nombre, String imagen, String descripcion, int ventas) {
+    private String tematica;
+
+    public Restaurante(int id_restaurante, String nombre, String imagen, String descripcion, int ventas, String tematica) {
         this.id_restaurante = id_restaurante;
         this.nombre = nombre;
         this.imagen = imagen;
         this.descripcion = descripcion;
         this.ventas = ventas;
+        this.tematica = tematica;
     }
     public Restaurante(){
 
+    }
+
+    public String getTematica() {
+        return tematica;
+    }
+
+    public void setTematica(String tematica) {
+        this.tematica = tematica;
     }
 
     public int getId_restaurante() {
@@ -68,6 +81,10 @@ public class Restaurante {
                 ", descripcion='" + descripcion + '\'' +
                 ", ventas=" + ventas +
                 '}';
+    }
+    public static String converToJsonRestaurante(Restaurante restaurante){
+        Gson gson = new Gson();
+        return gson.toJson(restaurante);
     }
 
 }

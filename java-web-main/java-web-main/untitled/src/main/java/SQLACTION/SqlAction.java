@@ -21,13 +21,39 @@ public class SqlAction {
 
     private final String SQL_SELECT_RESTAURANT_PUNTUACION="SELECT R.ID_RESTAURANTE, R.NOMBRE, R.IMAGEN, R.DESCRIPCION, ROUND(AVG(P.puntuacion)) AS PUNTUACION_PROMEDIO FROM RESTAURANTE R LEFT JOIN PUNTUACION P ON R.ID_RESTAURANTE = P.ID_RESTAURANTE GROUP BY R.ID_RESTAURANTE, R.NOMBRE, R.IMAGEN, R.DESCRIPCION ORDER BY PUNTUACION_PROMEDIO DESC LIMIT 10;";
 
+    private final String SQL_SELECT_TEMATICA="SELECT * FROM RESTAURANTE WHERE";
+
     private motorsql motorsql;
     private ResultSet rs;
+
 
     public SqlAction() {
         this.motorsql = new motorsql();
     }
 
+    public Restaurante findRestaurantePorTematica(){
+        Restaurante restaurante = new Restaurante();
+        String sql = SQL_SELECT_TEMATICA + "TEMATICA = " + restaurante.getTematica();
+        try {
+            this.motorsql.connect();
+            rs = this.motorsql.executeQuery(sql);
+            if (rs.next()) {
+                restaurante.setId_restaurante(rs.getInt(1));
+                restaurante.setNombre(rs.getString(2));
+                restaurante.setImagen(rs.getString(3));
+                restaurante.setDescripcion(rs.getString(4));
+                restaurante.setVentas(rs.getInt(5));
+                return restaurante;
+            } else {
+                return null;
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error: " + ex);
+            return null;
+        }finally {
+            this.motorsql.disconnect();
+        }
+    }
     public ArrayList<RestaurantePuntuacion> findRestaurantPuntuacion() {
         String sql = SQL_SELECT_RESTAURANT_PUNTUACION;
         ArrayList<RestaurantePuntuacion> restaurantList = new ArrayList<>();
@@ -97,7 +123,6 @@ public class SqlAction {
         }finally {
             this.motorsql.disconnect();
         }
-
     }
     public ArrayList<ProductRestaurant> findProduct_Restaurant(){
         String sql = SQL_PRODUCT_RESTAURANTE;

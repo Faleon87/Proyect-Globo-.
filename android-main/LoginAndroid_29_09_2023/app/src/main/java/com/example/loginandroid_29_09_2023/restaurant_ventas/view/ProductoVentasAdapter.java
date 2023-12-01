@@ -52,9 +52,6 @@ public class ProductoVentasAdapter extends RecyclerView.Adapter<ProductoVentasAd
          int idRestaurante = productRestaurant.getRestaurante().getId_restaurante();
 
         // Establecer valores para cada producto
-        
-
-
         holder.textViewNombre.setText(productRestaurant.getRestaurante().getNombre());
         holder.textViewVentas.setText("Ventas: " + productRestaurant.getRestaurante().getVentas());
 
@@ -64,15 +61,12 @@ public class ProductoVentasAdapter extends RecyclerView.Adapter<ProductoVentasAd
                 .load(urlImagen)
                 .transform(new GranularRoundedCorners(30, 30, 0, 0))
                 .into(holder.imageButtonImagen);
-
-
         // Guardar el id_restaurante como una etiqueta en el ImageButton
         HashMap<String , Integer> map = new HashMap<>();
         map.put("idRestaurante", idRestaurante);
         Intent intent = ((Activity) context).getIntent();
         map.put("idCliente", intent.getIntExtra("clienteId", 0 ));
         holder.imageButtonImagen.setTag(map);
-
         holder.imageButtonImagen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

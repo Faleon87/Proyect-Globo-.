@@ -67,9 +67,9 @@ public class LstProductsViewUser extends AppCompatActivity implements ContractPr
             }
         });
 
-
         recyclerView = findViewById(R.id.recyclerView4);
         recyclerView.setLayoutManager(new LinearLayoutManager(this , LinearLayoutManager.HORIZONTAL, false));
+
         presenter.lstProductosRest("Ayuda");
     }
 
