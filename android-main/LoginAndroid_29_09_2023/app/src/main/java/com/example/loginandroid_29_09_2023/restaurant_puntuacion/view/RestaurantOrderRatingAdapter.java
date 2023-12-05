@@ -1,6 +1,7 @@
 package com.example.loginandroid_29_09_2023.restaurant_puntuacion.view;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.GranularRoundedCorners;
 import com.example.loginandroid_29_09_2023.R;
 import com.example.loginandroid_29_09_2023.beans.RestaurantePuntuacion;
+import com.example.loginandroid_29_09_2023.descripcion_restaurante.view.DescripcionRestaurantView;
 
 import java.util.ArrayList;
 
@@ -46,6 +48,13 @@ public class RestaurantOrderRatingAdapter  extends RecyclerView.Adapter<Restaura
                 .transform(new GranularRoundedCorners(30, 30, 0, 0))
                 .into(holder.imageButtonImagen);
 
+        holder.imageButtonImagen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, DescripcionRestaurantView.class);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -60,7 +69,7 @@ public class RestaurantOrderRatingAdapter  extends RecyclerView.Adapter<Restaura
         public ViewHolder(@android.support.annotation.NonNull View itemView) {
             super(itemView);
             textViewNombre = itemView.findViewById(R.id.Nombre);
-            imageButtonImagen = itemView.findViewById(R.id.imageButtonPunt);
+            imageButtonImagen = itemView.findViewById(R.id.descripcionRest);
             textViewVentas = itemView.findViewById(R.id.Puntuacion);
         }
     }

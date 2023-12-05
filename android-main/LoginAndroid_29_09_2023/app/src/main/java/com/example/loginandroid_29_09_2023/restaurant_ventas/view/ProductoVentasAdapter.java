@@ -102,7 +102,7 @@ public class ProductoVentasAdapter extends RecyclerView.Adapter<ProductoVentasAd
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             textViewNombre = itemView.findViewById(R.id.Nombre);
-            imageButtonImagen = itemView.findViewById(R.id.imageButtonPunt);
+            imageButtonImagen = itemView.findViewById(R.id.descripcionRest);
             textViewVentas = itemView.findViewById(R.id.Puntuacion);
         }
 

@@ -7,12 +7,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.loginandroid_29_09_2023.R;
 import com.example.loginandroid_29_09_2023.beans.Cliente;
 import com.example.loginandroid_29_09_2023.beans.User;
 import com.example.loginandroid_29_09_2023.Parte_admin.view.LoginAdminM;
+import com.example.loginandroid_29_09_2023.descripcion_restaurante.view.DescripcionRestaurantView;
 import com.example.loginandroid_29_09_2023.login_user.ContractLoginUser;
 import com.example.loginandroid_29_09_2023.login_user.presenter.LoginUserPresenter;
 import com.example.loginandroid_29_09_2023.restaurant_ventas.view.LstProductsViewUser;
@@ -25,13 +27,14 @@ public class LoginUserM extends AppCompatActivity implements ContractLoginUser.V
 
     private String message;
 
+
     private LoginUserPresenter presenter =
             new LoginUserPresenter(this);
 
     /* PATRÓN SINGLETON*/
     private static LoginUserM mainActivity = null;
     public static LoginUserM getInstance(){
-        return mainActivity; //0x457845AF
+        return mainActivity;
     }
     /* FIN PATRÓN SINGLETON*/
     @Override
@@ -58,6 +61,8 @@ public class LoginUserM extends AppCompatActivity implements ContractLoginUser.V
                 presenter.login(user);
             }
         });
+
+
     }
 
 

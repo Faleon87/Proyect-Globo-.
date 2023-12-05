@@ -2,6 +2,7 @@ package com.example.loginandroid_29_09_2023.restaurant_puntuacion.view;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 
@@ -11,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.loginandroid_29_09_2023.R;
 import com.example.loginandroid_29_09_2023.beans.RestaurantePuntuacion;
+import com.example.loginandroid_29_09_2023.descripcion_restaurante.view.DescripcionRestaurantView;
+import com.example.loginandroid_29_09_2023.login_user.view.LoginUserM;
 import com.example.loginandroid_29_09_2023.restaurant_puntuacion.ContractRestaurantPuntuacion;
 import com.example.loginandroid_29_09_2023.restaurant_puntuacion.presenter.RestaurantOrderRatingPresenter;
 import com.example.loginandroid_29_09_2023.restaurant_ventas.view.LstProductsViewUser;
@@ -22,6 +25,9 @@ public class RestaurantOrderRatingView extends AppCompatActivity implements Cont
     public static RestaurantOrderRatingView mainActivity = null;
 
     private RecyclerView recyclerView;
+
+     private ImageButton descripcion_restaurant;
+
 
     private RestaurantOrderRatingAdapter restaurantOrderRatingAdapter;
 
@@ -53,6 +59,10 @@ public class RestaurantOrderRatingView extends AppCompatActivity implements Cont
                 startActivity(intent);
             }
         });
+
+
+
+
         recyclerView = findViewById(R.id.recyclerView4);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(layoutManager);

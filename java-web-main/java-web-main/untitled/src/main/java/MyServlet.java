@@ -15,6 +15,7 @@ import static beans.ProductRestaurant.convertToJson;
 import static beans.ProductRestaurant.convertToJsonToProductRest;
 import static beans.Puntuacion.convertJsonToPuntuacion;
 import static beans.Restaurante.converToJsonRestaurante;
+import static beans.Restaurante.convertToJsonRestauranteArraylist;
 import static beans.RestaurantePuntuacion.convertToJsonRestaurantePuntuacion;
 
 @WebServlet("/MyServlet")
@@ -64,8 +65,17 @@ public class MyServlet extends HttpServlet {
             case "RESTAURANTE_TEMATICA":
                 out.println(selectRestaurantTematica(request, response));
                 break;
+            case "INFO_REST":
+                out.println(selectInfoRest(request, response));
+                break;
 
         }
+    }
+
+    private String selectInfoRest(HttpServletRequest request, HttpServletResponse response) {
+        SqlAction sql = new SqlAction();
+        ArrayList<Restaurante> infoRest = sql.findRestaurant();
+        return convertToJsonRestauranteArraylist(infoRest);
     }
 
     private String selectRestaurantTematica(HttpServletRequest request, HttpServletResponse response) {

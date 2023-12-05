@@ -27,7 +27,7 @@ public class LstProductsViewUser extends AppCompatActivity implements ContractPr
     /* PATRÓN SINGLETON*/
     private ImageButton enviar;
     private RecyclerView recyclerView;
-
+    private ImageButton restaurant;
     private Button order_restaurants_rating_button;
     private ProductoVentasAdapter productoAdapter;
     private ArrayList<ProductRestaurant> ProductoRestaurantes = new ArrayList<>();
@@ -51,18 +51,27 @@ public class LstProductsViewUser extends AppCompatActivity implements ContractPr
 
     private void initComponents() {
         volver = findViewById(R.id.volver);
-        volver.setOnClickListener(new View.OnClickListener() {
+       volver.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(LstProductsViewUser.this, LoginUserM.class);
-                startActivity(intent);
-            }
-        });
+           public void onClick(View view) {
+               Intent intent = new Intent(LstProductsViewUser.this, LoginUserM.class);
+              startActivity(intent);
+           }
+     });
         order_restaurants_rating_button = findViewById(R.id.order_restaurants_rating_button);
         order_restaurants_rating_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(LstProductsViewUser.this, RestaurantOrderRatingView.class);
+                startActivity(intent);
+            }
+        });
+
+        restaurant = findViewById(R.id.restaurant);
+        restaurant.setOnClickListener(new android.view.View.OnClickListener() {
+            @Override
+            public void onClick(android.view.View view) {
+                Intent intent = new Intent(LstProductsViewUser.this, LstProductsViewUser.class);
                 startActivity(intent);
             }
         });

@@ -3,6 +3,7 @@ package com.example.loginandroid_29_09_2023.utils;
 import com.example.loginandroid_29_09_2023.beans.ProductRestaurant;
 import com.example.loginandroid_29_09_2023.beans.Producto;
 import com.example.loginandroid_29_09_2023.beans.Puntuacion;
+import com.example.loginandroid_29_09_2023.beans.Restaurante;
 import com.example.loginandroid_29_09_2023.beans.RestaurantePuntuacion;
 import com.example.loginandroid_29_09_2023.login_user.data.MyLoginData;
 import com.example.loginandroid_29_09_2023.lst_products.DataProduct;
@@ -53,7 +54,10 @@ public interface ApiService {
         );
          @GET("MyServlet")
          Call<ArrayList<RestaurantePuntuacion>> getDataRestaurantPuntuacion(@Query("ACTION") String action);
-        /*
+
+         @GET("MyServlet")
+        Call<ArrayList<Restaurante>> getDescripcionRest(@Query("ACTION")String action);
+         /*
         @FormUrlEncoded
         @POST("/login")
         Call<ApiResponse> login(@Field("username") String username, @Field("password") String password);

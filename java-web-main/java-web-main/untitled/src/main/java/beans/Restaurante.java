@@ -2,6 +2,8 @@ package beans;
 
 import com.google.gson.Gson;
 
+import java.util.ArrayList;
+
 public class Restaurante {
 
     private int id_restaurante;
@@ -83,6 +85,11 @@ public class Restaurante {
                 '}';
     }
     public static String converToJsonRestaurante(Restaurante restaurante){
+        Gson gson = new Gson();
+        return gson.toJson(restaurante);
+    }
+
+    public static String convertToJsonRestauranteArraylist(ArrayList<Restaurante> restaurante){
         Gson gson = new Gson();
         return gson.toJson(restaurante);
     }

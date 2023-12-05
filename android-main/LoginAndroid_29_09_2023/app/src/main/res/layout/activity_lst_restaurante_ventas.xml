@@ -18,7 +18,7 @@
         android:padding="20dp">
 
         <ImageButton
-            android:id="@+id/imageButtonPunt"
+            android:id="@+id/descripcionRest"
             android:layout_width="264dp"
             android:layout_height="172dp"
             android:background="@drawable/edittext_rounded_corners"

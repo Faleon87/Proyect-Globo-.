@@ -23,12 +23,38 @@ public class SqlAction {
 
     private final String SQL_SELECT_TEMATICA="SELECT * FROM RESTAURANTE WHERE";
 
+    private final String SQL_INFO_REST = "SELECT NOMBRE, IMAGEN, DESCRIPCION, TEMATICA, ID_RESTAURANTE " + " FROM RESTAURANTE";
+
     private motorsql motorsql;
     private ResultSet rs;
 
 
     public SqlAction() {
         this.motorsql = new motorsql();
+    }
+
+    public ArrayList<Restaurante> findRestaurant() {
+        Restaurante restaurante = new Restaurante();
+        String sql = SQL_INFO_REST;
+        ArrayList<Restaurante> restaurantList = new ArrayList<>();
+        sql += "WHERE ID_RESTAURANTE = " + restaurante.getId_restaurante() + ";";
+        try {
+            this.motorsql.connect();
+            rs = this.motorsql.executeQuery(sql);
+            while (rs.next()) {
+                restaurante.setNombre(rs.getString(1));
+                restaurante.setImagen(rs.getString(2));
+                restaurante.setDescripcion(rs.getString(3));
+                restaurante.setTematica(rs.getString(4));
+                restaurante.setId_restaurante(rs.getInt(5));
+                restaurantList.add(restaurante);
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error de sql: " + ex);
+        } finally {
+            this.motorsql.disconnect();
+        }
+        return restaurantList;
     }
 
     public Restaurante findRestaurantePorTematica(){
@@ -153,7 +179,6 @@ public class SqlAction {
         }
         return listproductRestaurants;
    }
-
    public ArrayList<ProductRestaurant> findRestaurantVentas() {
         String sql = SQL_SELECT_RESTAURANT_VENTAS;
         ArrayList<ProductRestaurant> restaurantList = new ArrayList<>();
@@ -180,7 +205,6 @@ public class SqlAction {
         }
         return restaurantList;
     }
-
     public ArrayList<ProductRestaurant> insertProductRestaurant(ProductRestaurant productRestaurant) {
         ArrayList<ProductRestaurant> productList = new ArrayList<>();
         String sql = SQL_INSERT_RESTAURANTE;
