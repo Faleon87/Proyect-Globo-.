@@ -94,4 +94,9 @@ public class Restaurante {
         return gson.toJson(restaurante);
     }
 
+    public static String convertToJsonRestauranteFilterArraylist(ArrayList<RestaurantFilter> restaurante){
+        Gson gson = new Gson();
+        return gson.toJson(restaurante);
+    }
+
 }

@@ -14,8 +14,7 @@ import java.util.stream.Collectors;
 import static beans.ProductRestaurant.convertToJson;
 import static beans.ProductRestaurant.convertToJsonToProductRest;
 import static beans.Puntuacion.convertJsonToPuntuacion;
-import static beans.Restaurante.converToJsonRestaurante;
-import static beans.Restaurante.convertToJsonRestauranteArraylist;
+import static beans.Restaurante.*;
 import static beans.RestaurantePuntuacion.convertToJsonRestaurantePuntuacion;
 
 @WebServlet("/MyServlet")
@@ -62,7 +61,7 @@ public class MyServlet extends HttpServlet {
             case "SELECTRESTAURANTPUNTUACION":
                 out.println(selectRestaurantPuntuacion(request, response));
                 break;
-            case "RESTAURANTE_TEMATICA":
+            case "RESTAURANTE_FILTER":
                 out.println(selectRestaurantTematica(request, response));
                 break;
             case "INFO_REST":
@@ -80,8 +79,13 @@ public class MyServlet extends HttpServlet {
 
     private String selectRestaurantTematica(HttpServletRequest request, HttpServletResponse response) {
         SqlAction sql = new SqlAction();
-        Restaurante r1 = sql.findRestaurantePorTematica();
-        return converToJsonRestaurante(r1);
+        RestaurantFilter restaurantFilter = new RestaurantFilter();
+        Restaurante restaurante = new Restaurante();
+        restaurante.setTematica(request.getParameter("TEMATICA"));
+        restaurantFilter.setRestaurante(restaurante);
+        restaurantFilter.setPuntuacion(Double.parseDouble(request.getParameter("PUNTUACION")));
+        ArrayList<RestaurantFilter> r1 = sql.findRestaurantePorTematica(restaurantFilter);
+        return convertToJsonRestauranteFilterArraylist(r1);
     }
 
     private String selectRestaurantPuntuacion(HttpServletRequest request , HttpServletResponse response){

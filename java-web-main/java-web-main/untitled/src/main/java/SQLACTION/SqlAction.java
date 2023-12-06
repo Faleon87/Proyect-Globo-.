@@ -21,8 +21,27 @@ public class SqlAction {
 
     private final String SQL_SELECT_RESTAURANT_PUNTUACION="SELECT R.ID_RESTAURANTE, R.NOMBRE, R.IMAGEN, R.DESCRIPCION, ROUND(AVG(P.puntuacion)) AS PUNTUACION_PROMEDIO FROM RESTAURANTE R LEFT JOIN PUNTUACION P ON R.ID_RESTAURANTE = P.ID_RESTAURANTE GROUP BY R.ID_RESTAURANTE, R.NOMBRE, R.IMAGEN, R.DESCRIPCION ORDER BY PUNTUACION_PROMEDIO DESC LIMIT 10;";
 
-    private final String SQL_SELECT_TEMATICA="SELECT * FROM RESTAURANTE WHERE";
-
+    private final String SQL_SELECT_FILTROAVANZADO_1="SELECT " +
+            "    R.ID_RESTAURANTE,\n" +
+            "    R.NOMBRE,\n" +
+            "    R.IMAGEN,\n" +
+            "    R.DESCRIPCION,\n" +
+            "    R.TEMATICA,\n" +
+            "    AVG(P.puntuacion) AS PUNTUACION_PROMEDIO\n" +
+            "FROM\n" +
+            "    RESTAURANTE R\n" +
+            "LEFT JOIN\n" +
+            "    PUNTUACION P ON R.ID_RESTAURANTE = P.ID_RESTAURANTE\n" ;
+    private final String SQL_SELECT_FILTROAVANZADO_2=
+            "GROUP BY\n" +
+            "    R.ID_RESTAURANTE,\n" +
+            "    R.NOMBRE,\n" +
+            "    R.IMAGEN,\n" +
+            "    R.DESCRIPCION,\n" +
+            "    R.TEMATICA\n";
+    private final String SQL_SELECT_FILTROAVANZADO_3=
+                    "ORDER BY\n" +
+                    "    PUNTUACION_PROMEDIO;\n";
     private final String SQL_INFO_REST = "SELECT NOMBRE, IMAGEN, DESCRIPCION, TEMATICA, " + " FROM RESTAURANTE";
 
 
@@ -59,21 +78,27 @@ public class SqlAction {
         return restaurantList;
     }
 
-    public Restaurante findRestaurantePorTematica(){
-        Restaurante restaurante = new Restaurante();
-        String sql = SQL_SELECT_TEMATICA + "TEMATICA = " + restaurante.getTematica();
+    public ArrayList<RestaurantFilter >findRestaurantePorTematica(RestaurantFilter restaurantFilter){
+        ArrayList<RestaurantFilter> listrestaurant = new ArrayList<>();
+        String sql = SQL_SELECT_FILTROAVANZADO_1;
+        sql+= " WHERE R.TEMATICA = '" + restaurantFilter.getRestaurante().getTematica() + "' ";
+        sql+= SQL_SELECT_FILTROAVANZADO_2;
+        sql+= " HAVING PUNTUACION_PROMEDIO >= " + restaurantFilter.getPuntuacion() + " ";
+        sql+= SQL_SELECT_FILTROAVANZADO_3;
         try {
             this.motorsql.connect();
             rs = this.motorsql.executeQuery(sql);
-            if (rs.next()) {
+            while (rs.next()) {
+                RestaurantFilter restaurantePuntuacion = new RestaurantFilter();
+                Restaurante restaurante = new Restaurante();
                 restaurante.setId_restaurante(rs.getInt(1));
                 restaurante.setNombre(rs.getString(2));
                 restaurante.setImagen(rs.getString(3));
                 restaurante.setDescripcion(rs.getString(4));
-                restaurante.setVentas(rs.getInt(5));
-                return restaurante;
-            } else {
-                return null;
+                restaurante.setTematica(rs.getString(5));
+                restaurantePuntuacion.setPuntuacion(rs.getDouble(6));
+                restaurantePuntuacion.setRestaurante(restaurante);
+                listrestaurant.add(restaurantePuntuacion);
             }
         } catch (Exception ex) {
             System.out.println("Error: " + ex);
@@ -81,6 +106,7 @@ public class SqlAction {
         }finally {
             this.motorsql.disconnect();
         }
+        return  listrestaurant;
     }
     public ArrayList<RestaurantePuntuacion> findRestaurantPuntuacion() {
         String sql = SQL_SELECT_RESTAURANT_PUNTUACION;

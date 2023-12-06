@@ -3,6 +3,7 @@ package com.example.loginandroid_29_09_2023.utils;
 import com.example.loginandroid_29_09_2023.beans.ProductRestaurant;
 import com.example.loginandroid_29_09_2023.beans.Producto;
 import com.example.loginandroid_29_09_2023.beans.Puntuacion;
+import com.example.loginandroid_29_09_2023.beans.RestaurantFilter;
 import com.example.loginandroid_29_09_2023.beans.Restaurante;
 import com.example.loginandroid_29_09_2023.beans.RestaurantePuntuacion;
 import com.example.loginandroid_29_09_2023.login_user.data.MyLoginData;
@@ -57,6 +58,9 @@ public interface ApiService {
 
          @GET("MyServlet")
         Call<ArrayList<Restaurante>> getDescripcionRest(@Query("ACTION")String action);
+
+            @GET("MyServlet")
+            Call<ArrayList<RestaurantFilter>> getFilterAvanzado(@Query("ACTION") String action, @Query("PUNTUACION") double puntuacion, @Query("TEMATICA") String tematica);
          /*
         @FormUrlEncoded
         @POST("/login")

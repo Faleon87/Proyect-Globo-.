@@ -1,6 +1,5 @@
 package com.example.loginandroid_29_09_2023.restaurant_puntuacion.view;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -75,7 +74,7 @@ public class RestaurantOrderRatingAdapter  extends RecyclerView.Adapter<Restaura
 
         public ViewHolder(@android.support.annotation.NonNull View itemView) {
             super(itemView);
-            textViewNombre = itemView.findViewById(R.id.Nombre);
+            textViewNombre = itemView.findViewById(R.id.restauranteFilterNombre);
             imageButtonImagen = itemView.findViewById(R.id.descripcionRest);
             textViewVentas = itemView.findViewById(R.id.Puntuacion);
         }

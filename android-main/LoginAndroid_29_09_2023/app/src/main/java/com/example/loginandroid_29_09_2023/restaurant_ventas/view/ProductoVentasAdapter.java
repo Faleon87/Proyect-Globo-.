@@ -101,7 +101,7 @@ public class ProductoVentasAdapter extends RecyclerView.Adapter<ProductoVentasAd
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            textViewNombre = itemView.findViewById(R.id.Nombre);
+            textViewNombre = itemView.findViewById(R.id.restauranteFilterNombre);
             imageButtonImagen = itemView.findViewById(R.id.descripcionRest);
             textViewVentas = itemView.findViewById(R.id.Puntuacion);
         }

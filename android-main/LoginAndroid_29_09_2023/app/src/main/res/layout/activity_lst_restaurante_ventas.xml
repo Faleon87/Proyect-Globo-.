@@ -25,7 +25,7 @@
             android:scaleType="centerCrop" />
 
         <TextView
-            android:id="@+id/Nombre"
+            android:id="@+id/restauranteFilterNombre"
             android:layout_width="261dp"
             android:layout_height="62dp"
             android:layout_marginTop="4dp"

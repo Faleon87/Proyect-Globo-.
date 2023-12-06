@@ -2,6 +2,7 @@ package com.example.loginandroid_29_09_2023.restaurant_ventas.presenter;
 
 
 import com.example.loginandroid_29_09_2023.beans.ProductRestaurant;
+import com.example.loginandroid_29_09_2023.beans.RestaurantFilter;
 import com.example.loginandroid_29_09_2023.beans.User;
 import com.example.loginandroid_29_09_2023.lst_products.ContractListMovies;
 import com.example.loginandroid_29_09_2023.lst_products.model.LstProductsModel;
@@ -17,6 +18,8 @@ public class LstRestVentasPresenter implements ContractProductUser.Presenter,
     private RestaurantModel RestaurantModel;
 
     private ArrayList<ProductRestaurant> ProductoRestaurantes = new ArrayList<>();
+
+    private ArrayList<RestaurantFilter> filterRestaurants = new ArrayList<>();
    public LstRestVentasPresenter(ContractProductUser.View vista){
         this.vista = vista;
        RestaurantModel= new RestaurantModel(this);
@@ -27,9 +30,21 @@ public class LstRestVentasPresenter implements ContractProductUser.Presenter,
     }
 
     @Override
+    public void lstRestaurantesFiltro(RestaurantFilter restaurantFilter) {
+        RestaurantModel.filterAPI(restaurantFilter, this);
+    }
+
+
+    @Override
     public void onFinished(ArrayList<ProductRestaurant> lstRestVentasModel) {
         ProductoRestaurantes = lstRestVentasModel;
         vista.success(ProductoRestaurantes);
+    }
+
+    @Override
+    public void onFinishedFilter(ArrayList<RestaurantFilter> lstRestFilter) {
+        filterRestaurants = lstRestFilter;
+        vista.successFilter(filterRestaurants);
     }
 
     @Override
