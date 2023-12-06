@@ -25,6 +25,8 @@ public class SqlAction {
 
     private final String SQL_INFO_REST = "SELECT NOMBRE, IMAGEN, DESCRIPCION, TEMATICA, " + " FROM RESTAURANTE";
 
+
+
     private motorsql motorsql;
     private ResultSet rs;
 
@@ -49,7 +51,7 @@ public class SqlAction {
                 restaurante.setId_restaurante(rs.getInt(5));
                 restaurantList.add(restaurante);
             }
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
             System.out.println("Error de sql: " + ex);
         } finally {
             this.motorsql.disconnect();
@@ -73,7 +75,7 @@ public class SqlAction {
             } else {
                 return null;
             }
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
             System.out.println("Error: " + ex);
             return null;
         }finally {
@@ -99,8 +101,6 @@ public class SqlAction {
                 productRestaurant.setRestaurante(restaurante);
                 restaurantList.add(productRestaurant);
             }
-        } catch (SQLException ex) {
-            System.out.println("Error de sql: " + ex);
         } catch (Exception ex) {
             System.out.println("Error: " + ex);
         }finally {
@@ -143,7 +143,7 @@ public class SqlAction {
             } else {
                 return null;
             }
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
             System.out.println("Error: " + ex);
             return null;
         }finally {
@@ -170,8 +170,6 @@ public class SqlAction {
                 productRestaurant.setProducto(p1);
                listproductRestaurants.add(productRestaurant);
             }
-        } catch (SQLException ex){
-            System.out.println("Error de sql: " + ex);
         } catch (Exception ex){
             System.out.println("Error: " + ex);
         }finally {
@@ -196,8 +194,6 @@ public class SqlAction {
                 productRestaurant.setRestaurante(restaurante);
                 restaurantList.add(productRestaurant);
             }
-        } catch (SQLException ex) {
-            System.out.println("Error de sql: " + ex);
         } catch (Exception ex) {
             System.out.println("Error: " + ex);
         }finally {
