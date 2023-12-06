@@ -23,7 +23,7 @@ public class SqlAction {
 
     private final String SQL_SELECT_TEMATICA="SELECT * FROM RESTAURANTE WHERE";
 
-    private final String SQL_INFO_REST = "SELECT NOMBRE, IMAGEN, DESCRIPCION, TEMATICA, ID_RESTAURANTE " + " FROM RESTAURANTE";
+    private final String SQL_INFO_REST = "SELECT NOMBRE, IMAGEN, DESCRIPCION, TEMATICA, " + " FROM RESTAURANTE";
 
     private motorsql motorsql;
     private ResultSet rs;

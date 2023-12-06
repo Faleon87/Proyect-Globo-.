@@ -1,5 +1,6 @@
 package com.example.loginandroid_29_09_2023.restaurant_puntuacion.view;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -40,6 +41,7 @@ public class RestaurantOrderRatingAdapter  extends RecyclerView.Adapter<Restaura
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         RestaurantePuntuacion restaurantOrderRatingView = lstRestaurantsPuntuacion.get(position);
+        int idRestaurante = restaurantOrderRatingView.getRestaurante().getId_restaurante();
         holder.textViewNombre.setText(restaurantOrderRatingView.getRestaurante().getNombre());
         holder.textViewVentas.setText("Puntuacion: " + restaurantOrderRatingView.getPuntuacion().getPuntuacion());
         String urlImagen = restaurantOrderRatingView.getRestaurante().getImagen();
@@ -48,10 +50,15 @@ public class RestaurantOrderRatingAdapter  extends RecyclerView.Adapter<Restaura
                 .transform(new GranularRoundedCorners(30, 30, 0, 0))
                 .into(holder.imageButtonImagen);
 
+
+        holder.imageButtonImagen.setTag(idRestaurante);
+
         holder.imageButtonImagen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int idRestauranteGuardado = (int) view.getTag();
                 Intent intent = new Intent(context, DescripcionRestaurantView.class);
+                intent.putExtra("idRestaurante", idRestauranteGuardado);
                 context.startActivity(intent);
             }
         });

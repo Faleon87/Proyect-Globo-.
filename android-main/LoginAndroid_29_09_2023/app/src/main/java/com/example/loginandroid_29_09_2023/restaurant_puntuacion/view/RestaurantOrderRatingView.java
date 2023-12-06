@@ -59,10 +59,7 @@ public class RestaurantOrderRatingView extends AppCompatActivity implements Cont
                 startActivity(intent);
             }
         });
-
-
-
-
+        
         recyclerView = findViewById(R.id.recyclerView4);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(layoutManager);
