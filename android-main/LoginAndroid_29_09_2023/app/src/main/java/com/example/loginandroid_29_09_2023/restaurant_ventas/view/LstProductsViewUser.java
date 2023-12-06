@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,8 +31,18 @@ public class LstProductsViewUser extends AppCompatActivity implements ContractPr
     private ImageButton restaurant;
     private Button order_restaurants_rating_button;
     private ProductoVentasAdapter productoAdapter;
+
     private ArrayList<ProductRestaurant> ProductoRestaurantes = new ArrayList<>();
+
+    private ArrayList<ProductRestaurant> filterProductRestaurants = new ArrayList<>();
+
     private static LstProductsViewUser mainActivity = null;
+
+
+    private TextView american;
+    private TextView asian;
+    private TextView spain ;
+    private TextView italian;
 
 
     /* FIN PATRÓN SINGLETON*/
@@ -76,6 +87,47 @@ public class LstProductsViewUser extends AppCompatActivity implements ContractPr
             }
         });
 
+        american = findViewById(R.id.americano);
+        american.setOnClickListener(new android.view.View.OnClickListener() {
+            @Override
+            public void onClick(android.view.View view) {
+                //filterProductRestaurants = ProductoRestaurantes;
+                for (int i = 0; i < ProductoRestaurantes.size() ; i++) {
+                    if(ProductoRestaurantes.get(i).getRestaurante().getTematica().equals("Americano")){
+                        filterProductRestaurants.add(ProductoRestaurantes.get(i));
+                    }
+                }
+                initRecyclerView(filterProductRestaurants);
+            }
+        });
+
+        italian = findViewById(R.id.italiano);
+        italian.setOnClickListener(new android.view.View.OnClickListener() {
+            @Override
+            public void onClick(android.view.View view) {
+
+            }
+        });
+
+        asian = findViewById(R.id.chino);
+        asian.setOnClickListener(new android.view.View.OnClickListener() {
+            @Override
+            public void onClick(android.view.View view) {
+
+            }
+        });
+
+        spain = findViewById(R.id.espanol);
+        spain.setOnClickListener(new android.view.View.OnClickListener() {
+            @Override
+            public void onClick(android.view.View view) {
+
+            }
+        });
+
+
+
+
         recyclerView = findViewById(R.id.recyclerView4);
         recyclerView.setLayoutManager(new LinearLayoutManager(this , LinearLayoutManager.HORIZONTAL, false));
 
@@ -88,10 +140,10 @@ public class LstProductsViewUser extends AppCompatActivity implements ContractPr
     @Override
     public void success(ArrayList<ProductRestaurant> ProductoRestaurantes) {
         this.ProductoRestaurantes = ProductoRestaurantes;
-        initRecyclerView();
+        initRecyclerView(this.ProductoRestaurantes);
     }
 
-    private void initRecyclerView() {
+    private void initRecyclerView(ArrayList<ProductRestaurant> ProductoRestaurantes) {
         productoAdapter = new ProductoVentasAdapter(ProductoRestaurantes, this);
         recyclerView.setAdapter(productoAdapter);
 

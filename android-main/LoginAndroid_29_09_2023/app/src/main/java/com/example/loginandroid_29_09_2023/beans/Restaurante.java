@@ -7,12 +7,15 @@ public class Restaurante {
     private String descripcion;
     private int ventas;
 
-    public Restaurante(int id_restaurante, String nombre, String imagen, String descripcion, int ventas) {
+    private String tematica;
+
+    public Restaurante(int id_restaurante, String nombre, String imagen, String descripcion, int ventas , String tematica) {
         this.id_restaurante = id_restaurante;
         this.nombre = nombre;
         this.imagen = imagen;
         this.descripcion = descripcion;
         this.ventas = ventas;
+        this.tematica = tematica;
     }
     public Restaurante(){
 
@@ -58,6 +61,14 @@ public class Restaurante {
         this.ventas = ventas;
     }
 
+    public String getTematica() {
+        return tematica;
+    }
+
+    public void setTematica(String tematica) {
+        this.tematica = tematica;
+    }
+
     @Override
     public String toString() {
         return "Restaurante{" +
@@ -66,6 +77,7 @@ public class Restaurante {
                 ", imagen='" + imagen + '\'' +
                 ", descripcion='" + descripcion + '\'' +
                 ", ventas=" + ventas +
+                ", tematica='" + tematica + '\'' +
                 '}';
     }
 }

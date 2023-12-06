@@ -17,7 +17,7 @@ public class SqlAction {
 
     private final String SQL_INSERT_RESTAURANTE = "INSERT INTO RESTAURANTE (ID_RESTAURANTE,NOMBRE) VALUES ";
 
-    private final String SQL_SELECT_RESTAURANT_VENTAS = "SELECT ID_RESTAURANTE, NOMBRE, DESCRIPCION, IMAGEN, VENTAS FROM RESTAURANTE ORDER BY VENTAS DESC";
+    private final String SQL_SELECT_RESTAURANT_VENTAS = "SELECT ID_RESTAURANTE, NOMBRE, DESCRIPCION, IMAGEN, VENTAS , TEMATICA FROM RESTAURANTE ORDER BY VENTAS DESC";
 
     private final String SQL_SELECT_RESTAURANT_PUNTUACION="SELECT R.ID_RESTAURANTE, R.NOMBRE, R.IMAGEN, R.DESCRIPCION, ROUND(AVG(P.puntuacion)) AS PUNTUACION_PROMEDIO FROM RESTAURANTE R LEFT JOIN PUNTUACION P ON R.ID_RESTAURANTE = P.ID_RESTAURANTE GROUP BY R.ID_RESTAURANTE, R.NOMBRE, R.IMAGEN, R.DESCRIPCION ORDER BY PUNTUACION_PROMEDIO DESC LIMIT 10;";
 
@@ -190,6 +190,7 @@ public class SqlAction {
                 restaurante.setDescripcion(rs.getString(3));
                 restaurante.setImagen(rs.getString(4));
                 restaurante.setVentas(rs.getInt(5));
+                restaurante.setTematica(rs.getString(6));
                 ProductRestaurant productRestaurant = new ProductRestaurant();
                 productRestaurant.setRestaurante(restaurante);
                 restaurantList.add(productRestaurant);
