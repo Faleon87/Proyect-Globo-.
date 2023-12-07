@@ -59,7 +59,10 @@
                         android:layout_width="103dp"
                         android:layout_height="41dp"
                         android:background="@drawable/pill_bg"
-                        android:text="Americano" />
+                        android:backgroundTint="@android:color/holo_red_dark"
+                        android:text="Americano"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/system_accent1_700" />
 
                     <TextView
                         android:id="@+id/italiano"
@@ -67,7 +70,10 @@
                         android:layout_height="41dp"
                         android:layout_weight="1"
                         android:background="@drawable/pill_bg"
-                        android:text="Italiano" />
+                        android:backgroundTint="@color/material_dynamic_primary60"
+                        android:text="Italiano"
+                        android:textAlignment="center"
+                        android:textColor="@color/tu_color_no_seleccionado" />
 
                     <TextView
                         android:id="@+id/chino"
@@ -75,7 +81,10 @@
                         android:layout_height="41dp"
                         android:layout_weight="1"
                         android:background="@drawable/pill_bg"
-                        android:text="Chino" />
+                        android:backgroundTint="@color/material_dynamic_tertiary60"
+                        android:text="Chino"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black" />
 
                     <TextView
                         android:id="@+id/espanol"
@@ -83,7 +92,10 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:background="@drawable/pill_bg"
-                        android:text="Español" />
+                        android:backgroundTint="@android:color/system_accent2_100"
+                        android:text="Español"
+                        android:textAlignment="center"
+                        android:textColor="@color/design_default_color_error" />
 
                 </LinearLayout>
             </LinearLayout>

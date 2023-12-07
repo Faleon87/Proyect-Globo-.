@@ -10,6 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.GranularRoundedCorners;
 import com.example.loginandroid_29_09_2023.R;
 import com.example.loginandroid_29_09_2023.beans.ProductRestaurant;
 import com.example.loginandroid_29_09_2023.beans.RestaurantFilter;
@@ -22,7 +24,6 @@ public class FilterRestaurantAdapter extends RecyclerView.Adapter<FilterRestaura
 
     private Context context;
 
-    private TextView textViewNombre;
 
     public FilterRestaurantAdapter(List<RestaurantFilter> restaurantFilterList , Context context) {
         this.restaurantFilterList = restaurantFilterList;
@@ -40,10 +41,14 @@ public class FilterRestaurantAdapter extends RecyclerView.Adapter<FilterRestaura
     @Override
     public void onBindViewHolder(@NonNull FilterRestaurantAdapter.ViewHolder holder, int position) {
         RestaurantFilter productRestaurant = restaurantFilterList.get(position);
-
-
         // Establecer valores para cada producto
         holder.textViewNombre.setText(productRestaurant.getRestaurante().getNombre());
+        holder.textViewTematica.setText("Tematica: " + productRestaurant.getRestaurante().getTematica());
+        String urlImagen = productRestaurant.getRestaurante().getImagen();
+        Glide.with(context)
+                .load(urlImagen)
+                .transform(new GranularRoundedCorners(30, 30, 0, 0))
+                .into(holder.imageButtonImagen);
     }
 
     @Override
@@ -55,13 +60,13 @@ public class FilterRestaurantAdapter extends RecyclerView.Adapter<FilterRestaura
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView textViewNombre;
         ImageButton imageButtonImagen;
-        TextView textViewVentas;
+        TextView textViewTematica;
 
         public ViewHolder(@android.support.annotation.NonNull View itemView) {
             super(itemView);
             textViewNombre = itemView.findViewById(R.id.restauranteFilterNombre);
-//            imageButtonImagen = itemView.findViewById(R.id.descripcionRest);
-//            textViewVentas = itemView.findViewById(R.id.Puntuacion);
+            imageButtonImagen = itemView.findViewById(R.id.ImgTematica);
+            textViewTematica = itemView.findViewById(R.id.Tematica);
         }
 
     }

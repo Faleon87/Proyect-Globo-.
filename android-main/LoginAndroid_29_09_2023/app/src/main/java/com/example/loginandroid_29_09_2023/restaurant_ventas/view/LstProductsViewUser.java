@@ -107,7 +107,6 @@ public class LstProductsViewUser extends AppCompatActivity implements ContractPr
         american.setOnClickListener(new android.view.View.OnClickListener() {
             @Override
             public void onClick(android.view.View view) {
-                //filterProductRestaurants = ProductoRestaurantes;
                 for (int i = 0; i < ProductoRestaurantes.size() ; i++) {
                     if(ProductoRestaurantes.get(i).getRestaurante().getTematica().equals("Americano")){
                         filterProductRestaurants.add(ProductoRestaurantes.get(i));
@@ -121,7 +120,12 @@ public class LstProductsViewUser extends AppCompatActivity implements ContractPr
         italian.setOnClickListener(new android.view.View.OnClickListener() {
             @Override
             public void onClick(android.view.View view) {
-
+                for (int i = 0; i < ProductoRestaurantes.size(); i++) {
+                    if (ProductoRestaurantes.get(i).getRestaurante().getTematica().equals("Italiano")) {
+                        filterProductRestaurants.add(ProductoRestaurantes.get(i));
+                    }
+                }
+                initRecyclerView(filterProductRestaurants);
             }
         });
 
@@ -129,7 +133,12 @@ public class LstProductsViewUser extends AppCompatActivity implements ContractPr
         asian.setOnClickListener(new android.view.View.OnClickListener() {
             @Override
             public void onClick(android.view.View view) {
-
+                for (int i = 0; i < ProductoRestaurantes.size(); i++) {
+                    if (ProductoRestaurantes.get(i).getRestaurante().getTematica().equals("Chino")) {
+                        filterProductRestaurants.add(ProductoRestaurantes.get(i));
+                    }
+                }
+                initRecyclerView(filterProductRestaurants);
             }
         });
 
@@ -137,7 +146,12 @@ public class LstProductsViewUser extends AppCompatActivity implements ContractPr
         spain.setOnClickListener(new android.view.View.OnClickListener() {
             @Override
             public void onClick(android.view.View view) {
-
+                for (int i = 0; i < ProductoRestaurantes.size(); i++) {
+                    if (ProductoRestaurantes.get(i).getRestaurante().getTematica().equals("Espanol")) {
+                        filterProductRestaurants.add(ProductoRestaurantes.get(i));
+                    }
+                }
+                initRecyclerView(filterProductRestaurants);
             }
         });
 

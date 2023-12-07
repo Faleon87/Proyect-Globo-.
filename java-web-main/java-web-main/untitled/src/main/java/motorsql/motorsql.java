@@ -20,7 +20,7 @@ public class motorsql implements MotorSql {
     @Override
     public void connect() {
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             conn = DriverManager.getConnection(JDBC_URL, "root", "");
             st = conn.createStatement();
         }catch (SQLException ex){

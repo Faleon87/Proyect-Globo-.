@@ -18,6 +18,7 @@
         android:padding="20dp">
 
         <ImageButton
+            android:id="@+id/ImgTematica"
             android:layout_width="205dp"
             android:layout_height="160dp"
             android:background="@drawable/edittext_rounded_corners"
@@ -36,9 +37,10 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/Tematica"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Puntuacion: 0"
+            android:text="Tematica"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold" />
