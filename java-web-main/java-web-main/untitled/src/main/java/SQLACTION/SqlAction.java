@@ -42,7 +42,7 @@ public class SqlAction {
     private final String SQL_SELECT_FILTROAVANZADO_3=
                     "ORDER BY\n" +
                     "    PUNTUACION_PROMEDIO;\n";
-    private final String SQL_INFO_REST = "SELECT NOMBRE, IMAGEN, DESCRIPCION, TEMATICA, " + " FROM RESTAURANTE";
+    private final String SQL_INFO_REST = "SELECT NOMBRE, IMAGEN, DESCRIPCION, TEMATICA " + " FROM RESTAURANTE ";
 
 
 
@@ -54,10 +54,8 @@ public class SqlAction {
         this.motorsql = new motorsql();
     }
 
-    public ArrayList<Restaurante> findRestaurant() {
-        Restaurante restaurante = new Restaurante();
+    public Restaurante findRestaurant(Restaurante restaurante) {
         String sql = SQL_INFO_REST;
-        ArrayList<Restaurante> restaurantList = new ArrayList<>();
         sql += "WHERE ID_RESTAURANTE = " + restaurante.getId_restaurante() + ";";
         try {
             this.motorsql.connect();
@@ -67,15 +65,13 @@ public class SqlAction {
                 restaurante.setImagen(rs.getString(2));
                 restaurante.setDescripcion(rs.getString(3));
                 restaurante.setTematica(rs.getString(4));
-                restaurante.setId_restaurante(rs.getInt(5));
-                restaurantList.add(restaurante);
             }
         } catch (Exception ex) {
             System.out.println("Error de sql: " + ex);
         } finally {
             this.motorsql.disconnect();
         }
-        return restaurantList;
+        return restaurante;
     }
 
     public ArrayList<RestaurantFilter >findRestaurantePorTematica(RestaurantFilter restaurantFilter){

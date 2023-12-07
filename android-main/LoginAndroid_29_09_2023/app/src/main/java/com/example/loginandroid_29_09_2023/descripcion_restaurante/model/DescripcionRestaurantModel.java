@@ -23,24 +23,26 @@ public class DescripcionRestaurantModel implements ContractDescripcionRest.Model
 
     private DescripcionRestaurantPresenter  presenter;
 
+
+
     public DescripcionRestaurantModel(DescripcionRestaurantPresenter presenter){
         this.presenter = presenter;
     }
 
     @Override
-    public void loginAPI(User user, ContractLoginUser.Model.OnLoginUserListener onLoginUserListener) {
+    public void loginAPI(Restaurante restaurante) {
         ApiService apiService = RetrofitCliente.getClient("http://" + IP_BASE + "/untitled/").
                 create(ApiService.class);
 
-        Call<ArrayList<Restaurante>> calls = apiService.getDescripcionRest("INFO_REST)");
-        calls.enqueue(new Callback<ArrayList<Restaurante>>() {
+        Call<Restaurante> calls = apiService.getDescripcionRest("INFO_REST" , restaurante.getId_restaurante());
+        calls.enqueue(new Callback<Restaurante>() {
             @Override
-            public void onResponse(Call<ArrayList<Restaurante>> call, Response<ArrayList<Restaurante>> response) {
+            public void onResponse(Call<Restaurante> call, Response<Restaurante> response) {
                 if (response.isSuccessful()) {
                     // Procesar la respuesta aquí
                     try {
-                        ArrayList<Restaurante> myData = response.body();
-
+                        Restaurante myData = response.body();
+                        presenter.onFinished(myData);
                     }catch (Exception ex){
                         System.out.println("error: " + ex);
                     }
@@ -58,8 +60,8 @@ public class DescripcionRestaurantModel implements ContractDescripcionRest.Model
             }
 
             @Override
-            public void onFailure(Call<ArrayList<Restaurante>> call, Throwable t) {
-
+            public void onFailure(Call<Restaurante> call, Throwable t) {
+                Log.e("Response Error", "Cuerpo de error: " + t.getMessage());
             }
         });
     }

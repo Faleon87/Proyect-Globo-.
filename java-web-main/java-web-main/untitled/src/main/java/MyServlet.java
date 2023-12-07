@@ -73,8 +73,12 @@ public class MyServlet extends HttpServlet {
 
     private String selectInfoRest(HttpServletRequest request, HttpServletResponse response) {
         SqlAction sql = new SqlAction();
-        ArrayList<Restaurante> infoRest = sql.findRestaurant();
-        return convertToJsonRestauranteArraylist(infoRest);
+        Restaurante restaurante = new Restaurante();
+        restaurante.setId_restaurante(Integer.parseInt(request.getParameter("IDRESTAURANTE")));
+        Restaurante restaurant = sql.findRestaurant(restaurante);
+        return converToJsonRestaurante(restaurant);
+
+
     }
 
     private String selectRestaurantTematica(HttpServletRequest request, HttpServletResponse response) {

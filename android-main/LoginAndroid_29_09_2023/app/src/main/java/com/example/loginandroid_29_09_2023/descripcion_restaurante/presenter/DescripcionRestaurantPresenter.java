@@ -1,8 +1,12 @@
 package com.example.loginandroid_29_09_2023.descripcion_restaurante.presenter;
 
+import com.example.loginandroid_29_09_2023.beans.Restaurante;
 import com.example.loginandroid_29_09_2023.beans.User;
 import com.example.loginandroid_29_09_2023.descripcion_restaurante.ContractDescripcionRest;
 import com.example.loginandroid_29_09_2023.descripcion_restaurante.model.DescripcionRestaurantModel;
+import com.example.loginandroid_29_09_2023.login_user.ContractLoginUser;
+
+import java.util.ArrayList;
 
 public class DescripcionRestaurantPresenter implements ContractDescripcionRest.Presenter, ContractDescripcionRest.Model.OnLoginUserListener {
 
@@ -14,14 +18,11 @@ public class DescripcionRestaurantPresenter implements ContractDescripcionRest.P
         model = new DescripcionRestaurantModel(this);
     }
 
-    @Override
-    public void login(User user) {
 
-    }
 
     @Override
-    public void onFinished(User user) {
-
+    public void onFinished(Restaurante restaurante) {
+        view.successLogin(restaurante);
     }
 
     @Override
@@ -29,6 +30,10 @@ public class DescripcionRestaurantPresenter implements ContractDescripcionRest.P
 
     }
 
+    @Override
+    public void login(Restaurante restaurante) {
+        model.loginAPI(restaurante);
+    }
 }
 
 

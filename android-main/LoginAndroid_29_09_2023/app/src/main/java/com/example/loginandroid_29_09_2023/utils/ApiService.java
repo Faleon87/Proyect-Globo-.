@@ -57,7 +57,7 @@ public interface ApiService {
          Call<ArrayList<RestaurantePuntuacion>> getDataRestaurantPuntuacion(@Query("ACTION") String action);
 
          @GET("MyServlet")
-        Call<ArrayList<Restaurante>> getDescripcionRest(@Query("ACTION")String action);
+        Call<Restaurante> getDescripcionRest(@Query("ACTION")String action , @Query("IDRESTAURANTE") int idRestaurante);
 
             @GET("MyServlet")
             Call<ArrayList<RestaurantFilter>> getFilterAvanzado(@Query("ACTION") String action, @Query("PUNTUACION") double puntuacion, @Query("TEMATICA") String tematica);

@@ -34,6 +34,7 @@
                         app:layout_constraintTop_toTopOf="parent"></ImageButton>
 
                     <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/listardescripcionRestaurant"
                         android:layout_width="414dp"
                         android:layout_height="614dp"
                         tools:layout_editor_absoluteX="0dp"

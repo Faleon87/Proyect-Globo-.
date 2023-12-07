@@ -17,6 +17,8 @@ public class Restaurante {
         this.ventas = ventas;
         this.tematica = tematica;
     }
+
+
     public Restaurante(){
 
     }

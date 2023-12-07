@@ -35,7 +35,7 @@
                 app:srcCompat="@drawable/lago" />
 
             <TextView
-                android:id="@+id/textView7"
+                android:id="@+id/nombreRest"
                 android:layout_width="match_parent"
                 android:layout_height="54dp"
                 android:layout_weight="1"
