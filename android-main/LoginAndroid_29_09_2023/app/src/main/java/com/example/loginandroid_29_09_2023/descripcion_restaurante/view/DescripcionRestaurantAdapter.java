@@ -4,15 +4,17 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.loginandroid_29_09_2023.R;
 import com.example.loginandroid_29_09_2023.beans.Restaurante;
 
-import java.util.ArrayList;
+
 
 public class DescripcionRestaurantAdapter extends RecyclerView.Adapter<DescripcionRestaurantAdapter.ViewHolder> {
 
@@ -37,6 +39,12 @@ public class DescripcionRestaurantAdapter extends RecyclerView.Adapter<Descripci
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
             Restaurante restaurante = this.restaurante;
             holder.textViewNombreRest.setText(restaurante.getNombre());
+            holder.textViewDescripcion.setText(restaurante.getDescripcion());
+            holder.textViewTematica.setText(restaurante.getTematica());
+            String urlImagen = restaurante.getImagen();
+            Glide.with(context)
+                .load(urlImagen)
+                .into(holder.imageRestaurante);
     }
 
     @Override
@@ -46,9 +54,18 @@ public class DescripcionRestaurantAdapter extends RecyclerView.Adapter<Descripci
     public static class ViewHolder extends RecyclerView.ViewHolder{
 
         TextView textViewNombreRest;
+        TextView textViewDescripcion;
+
+        TextView textViewTematica;
+
+        ImageView imageRestaurante;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             textViewNombreRest = itemView.findViewById(R.id.nombreRest);
+            textViewDescripcion = itemView.findViewById(R.id.descripcionRestaurante);
+            textViewTematica = itemView.findViewById(R.id.tematicaRestauranteperso);
+            imageRestaurante = itemView.findViewById(R.id.imagenRestaurantePerso);
         }
     }
 }

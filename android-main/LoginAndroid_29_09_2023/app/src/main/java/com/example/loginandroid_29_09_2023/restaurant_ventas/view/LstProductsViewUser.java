@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.loginandroid_29_09_2023.beans.ProductRestaurant;
 import com.example.loginandroid_29_09_2023.beans.RestaurantFilter;
+import com.example.loginandroid_29_09_2023.beans.Restaurante;
 import com.example.loginandroid_29_09_2023.login_user.view.LoginUserM;
 import com.example.loginandroid_29_09_2023.R;
 import com.example.loginandroid_29_09_2023.restaurant_puntuacion.view.RestaurantOrderRatingView;
@@ -77,6 +78,22 @@ public class LstProductsViewUser extends AppCompatActivity implements ContractPr
         }
 
     private void initComponents() {
+        restaurant = findViewById(R.id.restaurant);
+        restaurant.setOnClickListener(new android.view.View.OnClickListener() {
+            @Override
+            public void onClick(android.view.View view) {
+                // Obtener el idCliente del intent actual
+                Intent intents = getIntent();
+                int idCliente = intents.getIntExtra("clienteId", -1);
+
+                // Crear un nuevo Intent y pasar el idCliente
+                Intent intent = new Intent(LstProductsViewUser.this, LstProductsViewUser.class);
+                intent.putExtra("clienteId", idCliente);
+
+                // Iniciar la nueva instancia de la actividad con el nuevo Intent
+                startActivity(intent);
+            }
+        });
         volver = findViewById(R.id.volver);
        volver.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,14 +111,7 @@ public class LstProductsViewUser extends AppCompatActivity implements ContractPr
             }
         });
 
-        restaurant = findViewById(R.id.restaurant);
-        restaurant.setOnClickListener(new android.view.View.OnClickListener() {
-            @Override
-            public void onClick(android.view.View view) {
-                Intent intent = new Intent(LstProductsViewUser.this, LstProductsViewUser.class);
-                startActivity(intent);
-            }
-        });
+
 
         american = findViewById(R.id.americano);
         american.setOnClickListener(new android.view.View.OnClickListener() {
@@ -147,9 +157,10 @@ public class LstProductsViewUser extends AppCompatActivity implements ContractPr
             @Override
             public void onClick(android.view.View view) {
                 for (int i = 0; i < ProductoRestaurantes.size(); i++) {
-                    if (ProductoRestaurantes.get(i).getRestaurante().getTematica().equals("Espanol")) {
-                        filterProductRestaurants.add(ProductoRestaurantes.get(i));
-                    }
+                        if (ProductoRestaurantes.get(i).getRestaurante().getTematica().equals("Espanol")) {
+                            filterProductRestaurants.add(ProductoRestaurantes.get(i));
+                        }
+
                 }
                 initRecyclerView(filterProductRestaurants);
             }
@@ -163,6 +174,8 @@ public class LstProductsViewUser extends AppCompatActivity implements ContractPr
 
         recyclerViewFilter = findViewById(R.id.recyclerViewFilter);
         recyclerViewFilter.setLayoutManager(new LinearLayoutManager(this , LinearLayoutManager.HORIZONTAL, false));
+
+
 
         presenter.lstProductosRest("Ayuda");
         fillSpinnerRating();

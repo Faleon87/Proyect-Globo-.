@@ -1,5 +1,7 @@
 package com.example.loginandroid_29_09_2023.restaurant_ventas.view;
 
+import static android.content.Intent.getIntent;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -65,7 +67,7 @@ public class ProductoVentasAdapter extends RecyclerView.Adapter<ProductoVentasAd
         HashMap<String , Integer> map = new HashMap<>();
         map.put("idRestaurante", idRestaurante);
         Intent intent = ((Activity) context).getIntent();
-        map.put("idCliente", intent.getIntExtra("clienteId", 0 ));
+        map.put("idCliente", intent.getIntExtra("clienteId", 0));
         holder.imageButtonImagen.setTag(map);
         holder.imageButtonImagen.setOnClickListener(new View.OnClickListener() {
             @Override
