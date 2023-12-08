@@ -1,7 +1,5 @@
 package com.example.loginandroid_29_09_2023.restaurant_ventas.view;
 
-import static android.content.Intent.getIntent;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -103,7 +101,7 @@ public class ProductoVentasAdapter extends RecyclerView.Adapter<ProductoVentasAd
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            textViewNombre = itemView.findViewById(R.id.restauranteFilterNombre);
+            textViewNombre = itemView.findViewById(R.id.nombreProducto);
             imageButtonImagen = itemView.findViewById(R.id.descripcionRest);
             textViewVentas = itemView.findViewById(R.id.Puntuacion);
         }

@@ -19,6 +19,7 @@ import com.example.loginandroid_29_09_2023.beans.RestaurantFilter;
 import com.example.loginandroid_29_09_2023.beans.Restaurante;
 import com.example.loginandroid_29_09_2023.login_user.view.LoginUserM;
 import com.example.loginandroid_29_09_2023.R;
+import com.example.loginandroid_29_09_2023.mostrarProductos.view.MostrarProductosView;
 import com.example.loginandroid_29_09_2023.restaurant_puntuacion.view.RestaurantOrderRatingView;
 import com.example.loginandroid_29_09_2023.restaurant_ventas.ContractProductUser;
 import com.example.loginandroid_29_09_2023.restaurant_ventas.presenter.LstRestVentasPresenter;
@@ -60,6 +61,8 @@ public class LstProductsViewUser extends AppCompatActivity implements ContractPr
     private TextView asian;
     private TextView spain ;
     private TextView italian;
+
+    private ImageButton productos;
 
 
     /* FIN PATRÓN SINGLETON*/
@@ -163,6 +166,23 @@ public class LstProductsViewUser extends AppCompatActivity implements ContractPr
 
                 }
                 initRecyclerView(filterProductRestaurants);
+            }
+        });
+
+        productos = findViewById(R.id.productos);
+        productos.setOnClickListener(new android.view.View.OnClickListener() {
+            @Override
+            public void onClick(android.view.View view) {
+                Intent intents = getIntent();
+                int idCliente = intents.getIntExtra("clienteId", -1);
+
+                // Crear un nuevo Intent y pasar el idCliente
+                Intent intent = new Intent(LstProductsViewUser.this, MostrarProductosView.class);
+                intent.putExtra("clienteId", idCliente);
+
+                // Iniciar la nueva instancia de la actividad con el nuevo Intent
+                startActivity(intent);
+
             }
         });
 

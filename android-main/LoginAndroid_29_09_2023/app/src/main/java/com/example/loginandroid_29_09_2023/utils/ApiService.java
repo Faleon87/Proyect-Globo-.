@@ -61,7 +61,11 @@ public interface ApiService {
 
             @GET("MyServlet")
             Call<ArrayList<RestaurantFilter>> getFilterAvanzado(@Query("ACTION") String action, @Query("PUNTUACION") double puntuacion, @Query("TEMATICA") String tematica);
-         /*
+
+        @GET("MyServlet")
+        Call<ArrayList<Producto>> getDataProductos(@Query("ACTION") String action);
+
+            /*
         @FormUrlEncoded
         @POST("/login")
         Call<ApiResponse> login(@Field("username") String username, @Field("password") String password);

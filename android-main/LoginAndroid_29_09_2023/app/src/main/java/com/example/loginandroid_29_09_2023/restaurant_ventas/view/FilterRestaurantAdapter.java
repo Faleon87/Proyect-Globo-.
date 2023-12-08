@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.GranularRoundedCorners;
 import com.example.loginandroid_29_09_2023.R;
-import com.example.loginandroid_29_09_2023.beans.ProductRestaurant;
 import com.example.loginandroid_29_09_2023.beans.RestaurantFilter;
 
 import java.util.List;
@@ -64,9 +63,9 @@ public class FilterRestaurantAdapter extends RecyclerView.Adapter<FilterRestaura
 
         public ViewHolder(@android.support.annotation.NonNull View itemView) {
             super(itemView);
-            textViewNombre = itemView.findViewById(R.id.restauranteFilterNombre);
+            textViewNombre = itemView.findViewById(R.id.nombreProducto);
             imageButtonImagen = itemView.findViewById(R.id.ImgTematica);
-            textViewTematica = itemView.findViewById(R.id.Tematica);
+            textViewTematica = itemView.findViewById(R.id.PrecioProductos);
         }
 
     }
