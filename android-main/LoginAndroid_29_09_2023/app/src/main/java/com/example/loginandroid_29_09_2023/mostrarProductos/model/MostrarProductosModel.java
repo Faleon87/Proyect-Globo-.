@@ -36,6 +36,7 @@ public class MostrarProductosModel implements MostrarProductosInterface.Model {
                     // Procesar la respuesta aquí
                     try {
                         ArrayList<Producto> myData = response.body();
+                        onLoginUserListener.onFinished(myData);
 
                     }catch (Exception ex){
                         System.out.println("error: " + ex);

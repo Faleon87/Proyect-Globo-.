@@ -8,15 +8,23 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.loginandroid_29_09_2023.R;
+import com.example.loginandroid_29_09_2023.beans.Producto;
 import com.example.loginandroid_29_09_2023.mostrarProductos.MostrarProductosInterface;
 import com.example.loginandroid_29_09_2023.mostrarProductos.presenter.MostrarProductosPresenter;
+
+import java.util.ArrayList;
 
 public class MostrarProductosView extends AppCompatActivity implements MostrarProductosInterface.View {
 
 
     private RecyclerView recyclerViewProductos;
 
+    private ArrayList<Producto> lstProductos = new ArrayList<>();
+
     private static MostrarProductosView mainActivity = null;
+
+    private MostrarProductosAdapter adapter;
+
 
     private MostrarProductosInterface.Presenter presenter =
             new MostrarProductosPresenter(this);
@@ -33,17 +41,20 @@ public class MostrarProductosView extends AppCompatActivity implements MostrarPr
         recyclerViewProductos = findViewById(R.id.listadeproductos);
         recyclerViewProductos.setLayoutManager(new LinearLayoutManager(this , LinearLayoutManager.HORIZONTAL, false));
 
-        Intent  intent = getIntent();
-        int id_cliente = intent.getIntExtra("clienteId",0);
         presenter.login();
-
-
-
     }
 
     @Override
-    public void success() {
+    public void success(ArrayList<Producto> lstProductos) {
+        this.lstProductos = lstProductos;
+        initRecyclerView(this.lstProductos);
+    }
 
+    private void initRecyclerView(ArrayList<Producto> lstProductos){
+        Intent  intent = getIntent();
+        int id_cliente = intent.getIntExtra("clienteId",0);
+        adapter = new MostrarProductosAdapter(lstProductos, this , id_cliente);
+        recyclerViewProductos.setAdapter(adapter);
     }
 
     @Override

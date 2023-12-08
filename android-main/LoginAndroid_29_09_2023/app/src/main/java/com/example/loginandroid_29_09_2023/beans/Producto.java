@@ -5,18 +5,29 @@ public class Producto {
     private int id_restauranter;
     private String descripcion;
 
+    private int id_cliente;
+
     private String imagen;
 
     private String nombre;
     private int precio;
 
-    public Producto(int id_producto, int id_restauranter, String descripcion, String imagen, String nombre, int precio) {
+    public Producto(int id_producto, int id_restauranter, String descripcion, String imagen, String nombre, int precio , int id_cliente) {
         this.id_producto = id_producto;
         this.id_restauranter = id_restauranter;
         this.descripcion = descripcion;
         this.imagen = imagen;
         this.nombre = nombre;
         this.precio = precio;
+        this.id_cliente = id_cliente;
+    }
+
+    public int getId_cliente() {
+        return id_cliente;
+    }
+
+    public void setId_cliente(int id_cliente) {
+        this.id_cliente = id_cliente;
     }
 
     public  Producto(){
