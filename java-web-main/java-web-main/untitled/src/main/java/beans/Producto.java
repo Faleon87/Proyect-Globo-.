@@ -1,7 +1,11 @@
 package beans;
 
+import com.google.gson.Gson;
+
+import java.util.ArrayList;
+
 public class Producto {
-    private transient int id_producto;
+    private  int id_producto;
     private int id_restauranter;
     private String descripcion;
 
@@ -80,6 +84,11 @@ public class Producto {
                 ", nombre='" + nombre + '\'' +
                 ", precio=" + precio +
                 '}';
+    }
+
+    public static String convertoJson(ArrayList<Producto> info){
+        Gson gson = new Gson();
+        return gson.toJson(info);
     }
 
 }

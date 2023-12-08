@@ -1,8 +1,12 @@
 package com.example.loginandroid_29_09_2023;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 
@@ -32,5 +36,4 @@ public class MainActivity extends AppCompatActivity{
         }, SPLASH_DISPLAY_LENGTH);
 
     }
-
 }

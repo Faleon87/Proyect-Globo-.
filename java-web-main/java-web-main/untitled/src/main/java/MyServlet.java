@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 
 import static beans.ProductRestaurant.convertToJson;
 import static beans.ProductRestaurant.convertToJsonToProductRest;
+import static beans.Producto.convertoJson;
 import static beans.Puntuacion.convertJsonToPuntuacion;
 import static beans.Restaurante.*;
 import static beans.RestaurantePuntuacion.convertToJsonRestaurantePuntuacion;
@@ -67,8 +68,16 @@ public class MyServlet extends HttpServlet {
             case "INFO_REST":
                 out.println(selectInfoRest(request, response));
                 break;
+            case "SELECT_PRODUCTOS":
+                out.println(selectProductos(request, response));
+                break;
 
         }
+    }
+    private String selectProductos(HttpServletRequest request, HttpServletResponse response) {
+        SqlAction sql = new SqlAction();
+        ArrayList<Producto> p1 = sql.findProductos();
+        return convertoJson(p1);
     }
 
     private String selectInfoRest(HttpServletRequest request, HttpServletResponse response) {

@@ -44,6 +44,7 @@ public class SqlAction {
                     "    PUNTUACION_PROMEDIO;\n";
     private final String SQL_INFO_REST = "SELECT NOMBRE, IMAGEN, DESCRIPCION, TEMATICA " + " FROM RESTAURANTE ";
 
+    private final String SQL_SELECT_PRODUCTOS = "SELECT ID_PRODUCTO, DESCRIPCION, IMAGEN, NOMBRE , PRECIO FROM PRODUCTO";
 
 
     private motorsql motorsql;
@@ -54,6 +55,28 @@ public class SqlAction {
         this.motorsql = new motorsql();
     }
 
+    public ArrayList<Producto> findProductos(){
+        String sql = SQL_SELECT_PRODUCTOS;
+        ArrayList<Producto> lstproducto = new ArrayList<>();
+        try {
+            this.motorsql.connect();
+            rs = this.motorsql.executeQuery(sql);
+            while (rs.next()){
+                Producto producto = new Producto();
+                producto.setId_producto(rs.getInt(1));
+                producto.setDescripcion(rs.getString(2));
+                producto.setImagen(rs.getString(3));
+                producto.setNombre(rs.getString(4));
+                producto.setPrecio(rs.getInt(5));
+                lstproducto.add(producto);
+            }
+        }catch (Exception ex){
+            System.out.println("Error: " + ex);
+        }finally {
+            this.motorsql.disconnect();
+        }
+        return lstproducto;
+    }
     public Restaurante findRestaurant(Restaurante restaurante) {
         String sql = SQL_INFO_REST;
         sql += "WHERE ID_RESTAURANTE = " + restaurante.getId_restaurante() + ";";
@@ -67,7 +90,7 @@ public class SqlAction {
                 restaurante.setTematica(rs.getString(4));
             }
         } catch (Exception ex) {
-            System.out.println("Error de sql: " + ex);
+            System.out.println("Error : " + ex);
         } finally {
             this.motorsql.disconnect();
         }
