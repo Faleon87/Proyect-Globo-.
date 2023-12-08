@@ -1,5 +1,6 @@
 import SQLACTION.SqlAction;
 import beans.*;
+import services.MailService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -71,7 +72,14 @@ public class MyServlet extends HttpServlet {
             case "SELECT_PRODUCTOS":
                 out.println(selectProductos(request, response));
                 break;
-
+            case "SEND_MAIL":
+                try {
+                    MailService mailService = new MailService("smtp.gmail.com", 587);
+                    mailService.sendMail("a26969@svalero.com","a26969@svalero.com","Prueba","Prueba");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                break;
         }
     }
     private String selectProductos(HttpServletRequest request, HttpServletResponse response) {
