@@ -32,6 +32,7 @@
         </activity>
         <activity android:name=".mostrarProductos.view.MostrarProductosView">
         </activity>
+        <activity android:name=".insertarDatosCarrito.view.insertarDatosCarritoView"></activity>
         <activity
             android:name=".descripcion_restaurante.view.DescripcionRestaurantView" >
         </activity>

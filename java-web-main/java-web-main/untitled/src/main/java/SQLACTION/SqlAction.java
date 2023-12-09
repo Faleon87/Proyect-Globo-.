@@ -46,10 +46,36 @@ public class SqlAction {
 
     private final String SQL_SELECT_PRODUCTOS = "SELECT ID_PRODUCTO, DESCRIPCION, IMAGEN, NOMBRE , PRECIO FROM PRODUCTO";
 
+    private final String SQL_INSERT_CARRITO = "INSERT INTO CARRITO(ID_CLIENTE, ID_PRODUCTO) VALUES ";
+
 
     private motorsql motorsql;
     private ResultSet rs;
 
+
+    public ArrayList<Carrito> insertCarrito(int id_producto, int id_cliente) {
+        System.out.printf("id_producto: " + id_producto);
+        System.out.printf("id_cliente: " + id_cliente);
+//        String sql = SQL_INSERT_CARRITO;
+//        try {
+//            this.motorsql.connect();
+//            for (int i = 0; i < lstproductos.size(); i++) {
+//                sql += "(" + lstproductos.get(i).getId_cliente() + ", ";
+//                sql += lstproductos.get(i).getId_producto() + ")";
+//                if (i < lstproductos.size() - 1) {
+//                    sql += ", ";
+//                }
+//            }
+//             lstproductos.add(new Carrito());
+//        } catch (Exception ex) {
+//            System.out.println("Error: " + ex);
+//            return null;
+//        } finally {
+//            this.motorsql.disconnect();
+//        }
+//        return lstproductos;
+        return null;
+    }
 
     public SqlAction() {
         this.motorsql = new motorsql();

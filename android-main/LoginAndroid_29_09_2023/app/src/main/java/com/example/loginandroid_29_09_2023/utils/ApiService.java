@@ -1,5 +1,6 @@
 package com.example.loginandroid_29_09_2023.utils;
 
+import com.example.loginandroid_29_09_2023.beans.Carrito;
 import com.example.loginandroid_29_09_2023.beans.ProductRestaurant;
 import com.example.loginandroid_29_09_2023.beans.Producto;
 import com.example.loginandroid_29_09_2023.beans.Puntuacion;
@@ -64,6 +65,12 @@ public interface ApiService {
 
         @GET("MyServlet")
         Call<ArrayList<Producto>> getDataProductos(@Query("ACTION") String action);
+
+        @POST("MyServlet")
+        Call<ArrayList<Carrito>> sendDataProduct(
+                @Query("ACTION") String action,
+                @Body ArrayList <Carrito> lstCarrito
+        );
 
             /*
         @FormUrlEncoded

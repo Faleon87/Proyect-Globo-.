@@ -10,8 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.stream.Collectors;
 
+import static beans.Carrito.convertToJsonCarrito;
+import static beans.Carrito.convertToJsonCarritoArray;
 import static beans.ProductRestaurant.convertToJson;
 import static beans.ProductRestaurant.convertToJsonToProductRest;
 import static beans.Producto.convertoJson;
@@ -80,6 +83,27 @@ public class MyServlet extends HttpServlet {
                     e.printStackTrace();
                 }
                 break;
+            case "INSERTAR_DATOS_CARRITO":
+                String requestBody2 = request.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
+                ArrayList <Carrito> lstproductose =convertToJsonCarritoArray(requestBody2);
+                out.println(insertCarrito(lstproductose));
+
+                break;
+        }
+    }
+
+    private String insertCarrito(ArrayList<Carrito> lstproductos) {
+        SqlAction sql = new SqlAction();
+        try {
+            for (Carrito carrito : lstproductos) {
+                System.out.println("id_producto: " + carrito.getId_producto());
+                System.out.println("id_cliente: " + carrito.getId_cliente());
+                sql.insertCarrito(carrito.getId_producto(), carrito.getId_cliente());
+            }
+            return "Datos insertados en la tabla Carrito";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "Error al insertar datos en la tabla Carrito: " + e.getMessage();
         }
     }
     private String selectProductos(HttpServletRequest request, HttpServletResponse response) {

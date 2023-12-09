@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,8 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.loginandroid_29_09_2023.R;
 import com.example.loginandroid_29_09_2023.beans.Producto;
-import com.example.loginandroid_29_09_2023.insertarDatosCarrito.view.insertarDatosCarrito;
-import com.example.loginandroid_29_09_2023.restaurant_ventas.view.FilterRestaurantAdapter;
+import com.example.loginandroid_29_09_2023.insertarDatosCarrito.view.insertarDatosCarritoView;
 
 import java.util.List;
 
@@ -61,7 +59,7 @@ public class MostrarProductosAdapter extends RecyclerView.Adapter<MostrarProduct
         holder.btnAddCarrito.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, insertarDatosCarrito.class);
+                Intent intent = new Intent(context, insertarDatosCarritoView.class);
                 intent.putExtra("idProducto", idProducto);
                 intent.putExtra("idCliente", idCliente);
                 context.startActivity(intent);
