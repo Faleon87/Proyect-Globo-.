@@ -25,8 +25,14 @@ public class inserDatosPresenter implements insertarDatosCarrito.Presenter  , in
     }
 
     @Override
-    public void onFinished() {
-        vista.successLogin();
+    public void producto(Carrito carrito) {
+        model.productoAPI(carrito,this);
+    }
+
+
+    @Override
+    public void onFinished(Carrito carrito) {
+        vista.successLogin(carrito);
     }
 
     @Override

@@ -36,7 +36,8 @@ public class inserDatosModel implements insertarDatosCarrito.Model {
                     // Procesar la respuesta aquí
                     try {
                         Carrito myData = response.body();
-                        onLoginUserListener.onFinished();
+                        carrito.setId_cliente(myData.getId_cliente());
+                        onLoginUserListener.onFinished(carrito);
 
                     }catch (Exception ex){
                         System.out.println("error: " + ex);
@@ -60,4 +61,41 @@ public class inserDatosModel implements insertarDatosCarrito.Model {
             }
         });
     }
+
+    @Override
+    public void productoAPI(Carrito carrito, OnLoginUserListener onLoginUserListener) {
+        ApiService apiService = RetrofitCliente.getClient("http://" +  IP_BASE + "/untitled/").
+                create(ApiService.class);
+        Call <Carrito> call = apiService.selectProductUser("SELECT_PRODUCTOS_USER" ,carrito.getId_cliente() );
+        call.enqueue(new Callback<Carrito>() {
+            @Override
+            public void onResponse(Call<Carrito> call, Response<Carrito> response) {
+                if (response.isSuccessful()) {
+                    // Procesar la respuesta aquí
+                    try {
+                        Carrito myData = response.body();
+                    }catch (Exception ex){
+                        System.out.println("error: " + ex);
+                    }
+                    // Actualizar la interfaz de usuario con el mensaje recibido
+                } else {
+                    // Manejar una respuesta no exitosa
+                    //Log.e("Response Error", "Código de estado HTTP: " + response.code());
+                    try {
+                        String errorBody = response.errorBody().string();
+                        //Log.e("Response Error", "Cuerpo de error: " + errorBody);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Carrito> call, Throwable t) {
+                Log.e("Response Error", "Cuerpo de error: " + t.getMessage());
+            }
+        });
+    }
+
+
 }

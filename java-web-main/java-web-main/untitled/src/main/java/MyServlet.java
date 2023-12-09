@@ -88,9 +88,20 @@ public class MyServlet extends HttpServlet {
                 out.println(insertCarrito(carrito));
 
                 break;
+            case "SELECT_PRODUCTOS_USER":
+                out.println(selectCarrito(request, response));
+                break;
         }
     }
 
+
+    private String selectCarrito(HttpServletRequest request, HttpServletResponse response) {
+        SqlAction sql = new SqlAction();
+        Carrito carrito = new Carrito();
+        carrito.setId_cliente(Integer.parseInt(request.getParameter("IDCLIENTE")));
+        ArrayList<Producto> productos = sql.selectinfoProducto(carrito);
+        return convertoJson(productos);
+    }
     private String insertCarrito(Carrito carrito) {
         SqlAction sql = new SqlAction();
         int id_producto = carrito.getId_producto();

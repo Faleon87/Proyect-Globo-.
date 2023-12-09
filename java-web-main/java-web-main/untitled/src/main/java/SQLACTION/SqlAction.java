@@ -49,9 +49,34 @@ public class SqlAction {
     private final String SQL_INSERT_CARRITO = "INSERT INTO CARRITO(ID_CLIENTE, ID_PRODUCTO) VALUES ";
 
 
+    private final String SQL_SELECT_CARRITO = "SELECT P.ID_PRODUCTO, P.NOMBRE, P.PRECIO, P.IMAGEN\n" +
+            "FROM CARRITO C\n" +
+            "JOIN PRODUCTO P ON C.ID_PRODUCTO = P.ID_PRODUCTO\n" +
+            "WHERE C.ID_CLIENTE = ";
+
     private motorsql motorsql;
     private ResultSet rs;
 
+    public ArrayList<Producto> selectinfoProducto(Carrito info){
+        String sql = SQL_SELECT_CARRITO;
+        sql += info.getId_cliente() + ";" ;
+        ArrayList<Producto> lstproducto = new ArrayList<>();
+        try {
+            this.motorsql.connect();
+            rs = this.motorsql.executeQuery(sql);
+            while (rs.next()){
+                Producto producto = new Producto();
+                producto.setId_producto(rs.getInt(1));
+                producto.setNombre(rs.getString(2));
+                producto.setPrecio(rs.getInt(3));
+                producto.setImagen(rs.getString(4));
+                lstproducto.add(producto);
+            }
+        }catch (Exception ex){
+            System.out.println("Error: " + ex);
+        }
+        return lstproducto;
+    }
 
     public Carrito insertCarrito(Carrito carrito) {
         System.out.printf(" id_producto: " + carrito.getId_producto());

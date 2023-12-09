@@ -7,13 +7,15 @@ import java.util.ArrayList;
 public interface insertarDatosCarrito {
 
     public interface View{
-        public void successLogin();
+        public void successLogin(Carrito carrito);
         void failureLogin(String err);
 
     }
     public interface Presenter{
         // void login(String email, String pass);
         void login(Carrito carrito);
+
+        void producto(Carrito carrito);
         // void login(ViewUser viewUser);
         // VIEW-ORM
         // BEANS-ENTITIES
@@ -21,11 +23,13 @@ public interface insertarDatosCarrito {
     }
     public interface Model{
         interface OnLoginUserListener{
-            void onFinished();
+            void onFinished(Carrito carrito);
             void onFailure(String err);
 
         }
         void loginAPI(Carrito carrito, OnLoginUserListener onLoginUserListener);
+
+        void productoAPI(Carrito carrito , OnLoginUserListener onLoginUserListener);
     }
 
 }

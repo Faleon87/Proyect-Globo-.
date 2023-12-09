@@ -43,11 +43,17 @@ public class insertarDatosCarritoView extends AppCompatActivity implements inser
         carrito.setId_cliente(idCliente);
         presenter.login(carrito);
 
-    }
-    @Override
-    public void successLogin() {
+
 
     }
+    @Override
+    public void successLogin(Carrito carrito) {
+        int idCliente =carrito.getId_cliente();
+        System.out.println("idCliente: " + idCliente);
+        presenter.producto(carrito);
+
+    }
+
 
     @Override
     public void failureLogin(String err) {

@@ -72,6 +72,9 @@ public interface ApiService {
                 @Body Carrito carrito
         );
 
+        @GET("MyServlet")
+       Call<Carrito> selectProductUser(@Query("ACTION") String action, @Query("IDCLIENTE") int idCliente);
+
             /*
         @FormUrlEncoded
         @POST("/login")
