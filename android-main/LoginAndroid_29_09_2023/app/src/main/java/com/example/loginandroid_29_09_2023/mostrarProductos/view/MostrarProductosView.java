@@ -10,10 +10,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.loginandroid_29_09_2023.R;
 import com.example.loginandroid_29_09_2023.beans.Producto;
-import com.example.loginandroid_29_09_2023.insertarDatosCarrito.view.insertarDatosCarritoView;
 import com.example.loginandroid_29_09_2023.mostrarProductos.MostrarProductosInterface;
 import com.example.loginandroid_29_09_2023.mostrarProductos.presenter.MostrarProductosPresenter;
-import com.example.loginandroid_29_09_2023.restaurant_ventas.view.LstProductsViewUser;
 
 import java.util.ArrayList;
 
@@ -44,7 +42,7 @@ public class MostrarProductosView extends AppCompatActivity implements MostrarPr
     }
 
     private void initComponents() {
-        recyclerViewProductos = findViewById(R.id.listadeproductos);
+        recyclerViewProductos = findViewById(R.id.listaProductosCarritosxd);
         recyclerViewProductos.setLayoutManager(new LinearLayoutManager(this , LinearLayoutManager.HORIZONTAL, false));
         presenter.login();
 

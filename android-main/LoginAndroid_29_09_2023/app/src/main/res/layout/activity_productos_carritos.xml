@@ -33,7 +33,7 @@
     </ImageButton>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/listadeproductos"
+        android:id="@+id/listaProductosCarritosxd"
         android:layout_width="match_parent"
         android:layout_height="444dp"
         android:layout_below="@id/imageButton"
@@ -45,7 +45,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="412dp"
         android:layout_height="87dp"
-        android:layout_below="@+id/listadeproductos"
+        android:layout_below="@+id/listaProductosCarritosxd"
         android:layout_marginTop="254dp"
         android:layout_weight="1"
         android:background="@color/greenGlovo">

@@ -4,9 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.loginandroid_29_09_2023.R;
 import com.example.loginandroid_29_09_2023.beans.Carrito;
+import com.example.loginandroid_29_09_2023.beans.Producto;
 import com.example.loginandroid_29_09_2023.insertarDatosCarrito.insertarDatosCarrito;
 import com.example.loginandroid_29_09_2023.insertarDatosCarrito.presenter.inserDatosPresenter;
 
@@ -19,6 +22,10 @@ public class insertarDatosCarritoView extends AppCompatActivity implements inser
     private inserDatosPresenter presenter = new inserDatosPresenter(this);
 
     private static insertarDatosCarritoView mainActivity = null;
+
+    private RecyclerView recyclerViewProductos;
+
+    private insertarDatosCarritoAdapter adapter;
 
     public static insertarDatosCarritoView getInstance(){
         return mainActivity;
@@ -50,8 +57,16 @@ public class insertarDatosCarritoView extends AppCompatActivity implements inser
     public void successLogin(Carrito carrito) {
         int idCliente =carrito.getId_cliente();
         System.out.println("idCliente: " + idCliente);
+        recyclerViewProductos = findViewById(R.id.listaProductosCarritosxd);
+        recyclerViewProductos.setLayoutManager(new LinearLayoutManager(this , LinearLayoutManager.HORIZONTAL, false));
         presenter.producto(carrito);
 
+    }
+
+    @Override
+    public void successLogin2(ArrayList<Producto> producto) {
+        adapter = new insertarDatosCarritoAdapter(producto, this);
+        recyclerViewProductos.setAdapter(adapter);
     }
 
 

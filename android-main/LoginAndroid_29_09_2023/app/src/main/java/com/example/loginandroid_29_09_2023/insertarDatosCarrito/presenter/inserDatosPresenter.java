@@ -37,7 +37,7 @@ public class inserDatosPresenter implements insertarDatosCarrito.Presenter  , in
     }
 
     @Override
-    public void onFinished2(Producto producto) {
+    public void onFinished2(ArrayList<Producto> producto) {
         vista.successLogin2(producto);
     }
 

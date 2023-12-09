@@ -10,7 +10,7 @@ public interface insertarDatosCarrito {
     public interface View{
         public void successLogin(Carrito carrito);
 
-        public void successLogin2(Producto producto);
+        public void successLogin2(ArrayList<Producto> producto);
 
         void failureLogin(String err);
 
@@ -29,7 +29,7 @@ public interface insertarDatosCarrito {
         interface OnLoginUserListener{
             void onFinished(Carrito carrito);
 
-            void onFinished2 (Producto producto);
+            void onFinished2 (ArrayList<Producto> lstProductos);
             void onFailure(String err);
 
         }

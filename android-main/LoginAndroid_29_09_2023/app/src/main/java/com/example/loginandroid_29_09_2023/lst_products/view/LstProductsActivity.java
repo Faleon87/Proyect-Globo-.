@@ -53,7 +53,7 @@ public class LstProductsActivity extends AppCompatActivity
                 startActivity(intent);
             }
         });
-        recyclerView = findViewById(R.id.listadeproductos);
+        recyclerView = findViewById(R.id.listaProductosCarritosxd);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
         presenter.lstProductos("Ayuda");

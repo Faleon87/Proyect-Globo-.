@@ -67,14 +67,14 @@ public class inserDatosModel implements insertarDatosCarrito.Model {
     public void productoAPI(Carrito carrito, OnLoginUserListener onLoginUserListener) {
         ApiService apiService = RetrofitCliente.getClient("http://" +  IP_BASE + "/untitled/").
                 create(ApiService.class);
-        Call <Producto> call = apiService.selectProductUser("SELECT_PRODUCTOS_USER" ,carrito.getId_cliente());
-        call.enqueue(new Callback<Producto>() {
+        Call <ArrayList<Producto>> call = apiService.selectProductUser("SELECT_PRODUCTOS_USER" ,carrito.getId_cliente());
+        call.enqueue(new Callback<ArrayList<Producto>>() {
             @Override
-            public void onResponse(Call<Producto> call, Response<Producto> response) {
+            public void onResponse(Call<ArrayList<Producto>> call, Response<ArrayList<Producto>> response) {
                 if (response.isSuccessful()) {
                     // Procesar la respuesta aquí
                     try {
-                        Producto myData = response.body();
+                        ArrayList<Producto> myData = response.body();
                         onLoginUserListener.onFinished2(myData);
                     }catch (Exception ex){
                         System.out.println("error: " + ex);
@@ -93,7 +93,7 @@ public class inserDatosModel implements insertarDatosCarrito.Model {
             }
 
             @Override
-            public void onFailure(Call<Producto> call, Throwable t) {
+            public void onFailure(Call<ArrayList<Producto>> call, Throwable t) {
                 Log.e("Response Error", "Cuerpo de error: " + t.getMessage());
             }
         });
