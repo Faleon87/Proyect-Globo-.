@@ -176,6 +176,7 @@ public class LstProductsViewUser extends AppCompatActivity implements ContractPr
                 Intent intents = getIntent();
                 int idCliente = intents.getIntExtra("clienteId", -1);
 
+                System.out.println("Productooooooooo :idCliente: " + idCliente);
                 // Crear un nuevo Intent y pasar el idCliente
                 Intent intent = new Intent(LstProductsViewUser.this, MostrarProductosView.class);
                 intent.putExtra("clienteId", idCliente);

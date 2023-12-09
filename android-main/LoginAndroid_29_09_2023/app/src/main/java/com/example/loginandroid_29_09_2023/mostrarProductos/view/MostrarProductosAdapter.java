@@ -1,5 +1,8 @@
 package com.example.loginandroid_29_09_2023.mostrarProductos.view;
 
+import static androidx.core.content.ContextCompat.startActivity;
+
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -63,6 +66,7 @@ public class MostrarProductosAdapter extends RecyclerView.Adapter<MostrarProduct
                 intent.putExtra("idProducto", idProducto);
                 intent.putExtra("idCliente", idCliente);
                 context.startActivity(intent);
+//                ((Activity) context).setResult(Activity.RESULT_OK, intent);
             }
         });
     }

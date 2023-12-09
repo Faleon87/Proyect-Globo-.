@@ -27,7 +27,7 @@ public class insertarDatosCarritoView extends AppCompatActivity implements inser
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.actvity_carrito_productos);
+        setContentView(R.layout.activity_productos_carritos);
         mainActivity = this;
         initComponents();
     }
