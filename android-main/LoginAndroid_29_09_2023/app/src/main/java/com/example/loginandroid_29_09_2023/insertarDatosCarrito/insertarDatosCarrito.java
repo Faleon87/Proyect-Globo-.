@@ -1,6 +1,7 @@
 package com.example.loginandroid_29_09_2023.insertarDatosCarrito;
 
 import com.example.loginandroid_29_09_2023.beans.Carrito;
+import com.example.loginandroid_29_09_2023.beans.Producto;
 
 import java.util.ArrayList;
 
@@ -8,6 +9,9 @@ public interface insertarDatosCarrito {
 
     public interface View{
         public void successLogin(Carrito carrito);
+
+        public void successLogin2(Producto producto);
+
         void failureLogin(String err);
 
     }
@@ -24,6 +28,8 @@ public interface insertarDatosCarrito {
     public interface Model{
         interface OnLoginUserListener{
             void onFinished(Carrito carrito);
+
+            void onFinished2 (Producto producto);
             void onFailure(String err);
 
         }

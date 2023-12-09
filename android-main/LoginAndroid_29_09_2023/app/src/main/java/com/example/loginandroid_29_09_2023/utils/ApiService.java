@@ -73,7 +73,7 @@ public interface ApiService {
         );
 
         @GET("MyServlet")
-       Call<Carrito> selectProductUser(@Query("ACTION") String action, @Query("IDCLIENTE") int idCliente);
+       Call<Producto> selectProductUser(@Query("ACTION") String action, @Query("IDCLIENTE") int idCliente);
 
             /*
         @FormUrlEncoded

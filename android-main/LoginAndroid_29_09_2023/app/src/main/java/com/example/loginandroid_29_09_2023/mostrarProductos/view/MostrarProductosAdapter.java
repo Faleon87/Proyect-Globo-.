@@ -1,8 +1,5 @@
 package com.example.loginandroid_29_09_2023.mostrarProductos.view;
 
-import static androidx.core.content.ContextCompat.startActivity;
-
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -86,9 +83,9 @@ public class MostrarProductosAdapter extends RecyclerView.Adapter<MostrarProduct
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            textViewNombre = itemView.findViewById(R.id.nombreProducto);
+            textViewNombre = itemView.findViewById(R.id.nombreProductoCarrito);
             imageView = itemView.findViewById(R.id.ImgProductos);
-            textViewPrecio = itemView.findViewById(R.id.PrecioProductos);
+            textViewPrecio = itemView.findViewById(R.id.precioProductoCarrito);
             btnAddCarrito = itemView.findViewById(R.id.añadirCarrito);
 
         }

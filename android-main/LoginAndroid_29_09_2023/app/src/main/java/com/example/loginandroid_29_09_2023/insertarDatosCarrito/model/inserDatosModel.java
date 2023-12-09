@@ -3,6 +3,7 @@ package com.example.loginandroid_29_09_2023.insertarDatosCarrito.model;
 import android.util.Log;
 
 import com.example.loginandroid_29_09_2023.beans.Carrito;
+import com.example.loginandroid_29_09_2023.beans.Producto;
 import com.example.loginandroid_29_09_2023.insertarDatosCarrito.insertarDatosCarrito;
 import com.example.loginandroid_29_09_2023.insertarDatosCarrito.presenter.inserDatosPresenter;
 import com.example.loginandroid_29_09_2023.utils.ApiService;
@@ -66,14 +67,15 @@ public class inserDatosModel implements insertarDatosCarrito.Model {
     public void productoAPI(Carrito carrito, OnLoginUserListener onLoginUserListener) {
         ApiService apiService = RetrofitCliente.getClient("http://" +  IP_BASE + "/untitled/").
                 create(ApiService.class);
-        Call <Carrito> call = apiService.selectProductUser("SELECT_PRODUCTOS_USER" ,carrito.getId_cliente() );
-        call.enqueue(new Callback<Carrito>() {
+        Call <Producto> call = apiService.selectProductUser("SELECT_PRODUCTOS_USER" ,carrito.getId_cliente());
+        call.enqueue(new Callback<Producto>() {
             @Override
-            public void onResponse(Call<Carrito> call, Response<Carrito> response) {
+            public void onResponse(Call<Producto> call, Response<Producto> response) {
                 if (response.isSuccessful()) {
                     // Procesar la respuesta aquí
                     try {
-                        Carrito myData = response.body();
+                        Producto myData = response.body();
+                        onLoginUserListener.onFinished2(myData);
                     }catch (Exception ex){
                         System.out.println("error: " + ex);
                     }
@@ -91,7 +93,7 @@ public class inserDatosModel implements insertarDatosCarrito.Model {
             }
 
             @Override
-            public void onFailure(Call<Carrito> call, Throwable t) {
+            public void onFailure(Call<Producto> call, Throwable t) {
                 Log.e("Response Error", "Cuerpo de error: " + t.getMessage());
             }
         });

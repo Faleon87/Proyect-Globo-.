@@ -74,7 +74,7 @@ public class RestaurantOrderRatingAdapter  extends RecyclerView.Adapter<Restaura
 
         public ViewHolder(@android.support.annotation.NonNull View itemView) {
             super(itemView);
-            textViewNombre = itemView.findViewById(R.id.nombreProducto);
+            textViewNombre = itemView.findViewById(R.id.nombreProductoCarrito);
             imageButtonImagen = itemView.findViewById(R.id.descripcionRest);
             textViewVentas = itemView.findViewById(R.id.Puntuacion);
         }

@@ -1,6 +1,7 @@
 package com.example.loginandroid_29_09_2023.insertarDatosCarrito.presenter;
 
 import com.example.loginandroid_29_09_2023.beans.Carrito;
+import com.example.loginandroid_29_09_2023.beans.Producto;
 import com.example.loginandroid_29_09_2023.insertarDatosCarrito.insertarDatosCarrito;
 import com.example.loginandroid_29_09_2023.insertarDatosCarrito.model.inserDatosModel;
 
@@ -34,6 +35,13 @@ public class inserDatosPresenter implements insertarDatosCarrito.Presenter  , in
     public void onFinished(Carrito carrito) {
         vista.successLogin(carrito);
     }
+
+    @Override
+    public void onFinished2(Producto producto) {
+        vista.successLogin2(producto);
+    }
+
+
 
     @Override
     public void onFailure(String err) {

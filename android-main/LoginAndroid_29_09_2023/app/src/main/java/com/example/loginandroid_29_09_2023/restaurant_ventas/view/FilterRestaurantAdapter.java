@@ -63,9 +63,9 @@ public class FilterRestaurantAdapter extends RecyclerView.Adapter<FilterRestaura
 
         public ViewHolder(@android.support.annotation.NonNull View itemView) {
             super(itemView);
-            textViewNombre = itemView.findViewById(R.id.nombreProducto);
+            textViewNombre = itemView.findViewById(R.id.nombreProductoCarrito);
             imageButtonImagen = itemView.findViewById(R.id.ImgProductos);
-            textViewTematica = itemView.findViewById(R.id.PrecioProductos);
+            textViewTematica = itemView.findViewById(R.id.precioProductoCarrito);
         }
 
     }
