@@ -65,7 +65,7 @@ public class insertarDatosCarritoView extends AppCompatActivity implements inser
 
     @Override
     public void successLogin2(ArrayList<Producto> producto) {
-        adapter = new insertarDatosCarritoAdapter(producto, this);
+        adapter = new insertarDatosCarritoAdapter(producto ,this);
         recyclerViewProductos.setAdapter(adapter);
     }
 
