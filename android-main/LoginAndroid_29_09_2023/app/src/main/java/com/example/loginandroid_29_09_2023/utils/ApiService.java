@@ -67,9 +67,9 @@ public interface ApiService {
         Call<ArrayList<Producto>> getDataProductos(@Query("ACTION") String action);
 
         @POST("MyServlet")
-        Call<ArrayList<Carrito>> sendDataProduct(
+        Call<Carrito> sendDataProduct(
                 @Query("ACTION") String action,
-                @Body ArrayList <Carrito> lstCarrito
+                @Body Carrito carrito
         );
 
             /*

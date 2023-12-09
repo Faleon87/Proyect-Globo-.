@@ -13,7 +13,7 @@ public interface insertarDatosCarrito {
     }
     public interface Presenter{
         // void login(String email, String pass);
-        void login(ArrayList<Carrito> lstCarrito);
+        void login(Carrito carrito);
         // void login(ViewUser viewUser);
         // VIEW-ORM
         // BEANS-ENTITIES
@@ -25,7 +25,7 @@ public interface insertarDatosCarrito {
             void onFailure(String err);
 
         }
-        void loginAPI(ArrayList<Carrito> lstCarrito, OnLoginUserListener onLoginUserListener);
+        void loginAPI(Carrito carrito, OnLoginUserListener onLoginUserListener);
     }
 
 }

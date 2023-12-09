@@ -38,12 +38,10 @@ public class insertarDatosCarritoView extends AppCompatActivity implements inser
         int idCliente = intent.getIntExtra("idCliente", 0);
         System.out.println("idProducto: " + idProducto);
         System.out.println("idCliente: " + idCliente);
-        ArrayList<Carrito> lstCarrito = new ArrayList<>();
         Carrito carrito = new Carrito();
         carrito.setId_producto(idProducto);
         carrito.setId_cliente(idCliente);
-        lstCarrito.add(carrito);
-        presenter.login(lstCarrito);
+        presenter.login(carrito);
 
     }
     @Override

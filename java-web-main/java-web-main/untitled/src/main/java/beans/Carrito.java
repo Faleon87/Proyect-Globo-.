@@ -2,7 +2,7 @@ package beans;
 
 import com.google.gson.Gson;
 
-import java.util.ArrayList;
+
 
 public class Carrito {
 
@@ -43,9 +43,9 @@ public class Carrito {
         this.cantidad = cantidad;
     }
 
-    public static ArrayList<Carrito> convertToJsonCarritoArray(String info) {
+    public static String convertToJsonCarrito2(Carrito info) {
         Gson gson = new Gson();
-        return gson.fromJson(info, ArrayList.class);
+        return  gson.toJson(info);
     }
 
     public static Carrito convertToJsonCarrito(String info) {
