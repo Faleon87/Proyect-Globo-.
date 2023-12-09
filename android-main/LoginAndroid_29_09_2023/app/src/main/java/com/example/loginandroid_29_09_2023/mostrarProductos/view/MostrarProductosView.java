@@ -10,8 +10,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.loginandroid_29_09_2023.R;
 import com.example.loginandroid_29_09_2023.beans.Producto;
+import com.example.loginandroid_29_09_2023.insertarDatosCarrito.view.insertarDatosCarritoView;
 import com.example.loginandroid_29_09_2023.mostrarProductos.MostrarProductosInterface;
 import com.example.loginandroid_29_09_2023.mostrarProductos.presenter.MostrarProductosPresenter;
+import com.example.loginandroid_29_09_2023.restaurant_ventas.view.LstProductsViewUser;
 
 import java.util.ArrayList;
 
@@ -24,7 +26,7 @@ public class MostrarProductosView extends AppCompatActivity implements MostrarPr
 
     private static MostrarProductosView mainActivity = null;
 
-    private MostrarProductosAdapter adapter;
+    private MostrarProductosAdapter  adapter;
 
     private ImageButton btnCarrito;
 
@@ -46,11 +48,7 @@ public class MostrarProductosView extends AppCompatActivity implements MostrarPr
         recyclerViewProductos.setLayoutManager(new LinearLayoutManager(this , LinearLayoutManager.HORIZONTAL, false));
         presenter.login();
 
-        btnCarrito = findViewById(R.id.carrito);
-        btnCarrito.setOnClickListener(v -> {
 
-
-        });
     }
 
     @Override
@@ -63,8 +61,19 @@ public class MostrarProductosView extends AppCompatActivity implements MostrarPr
         Intent  intent = getIntent();
         int id_cliente = intent.getIntExtra("clienteId",0);
         System.out.println( "Aqui es donde da por culo id_cliente: " + id_cliente);
+
+
         adapter = new MostrarProductosAdapter( lstProductos, this , id_cliente);
         recyclerViewProductos.setAdapter(adapter);
+
+
+
+        ImageButton volver = findViewById(R.id.imageButton);
+        volver.setOnClickListener(v -> {
+            finish();
+        });
+
+
     }
 
     @Override

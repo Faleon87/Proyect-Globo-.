@@ -2,6 +2,8 @@ package com.example.loginandroid_29_09_2023.insertarDatosCarrito.view;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -12,6 +14,7 @@ import com.example.loginandroid_29_09_2023.beans.Carrito;
 import com.example.loginandroid_29_09_2023.beans.Producto;
 import com.example.loginandroid_29_09_2023.insertarDatosCarrito.insertarDatosCarrito;
 import com.example.loginandroid_29_09_2023.insertarDatosCarrito.presenter.inserDatosPresenter;
+import com.example.loginandroid_29_09_2023.mostrarProductos.view.MostrarProductosView;
 
 import java.util.ArrayList;
 
@@ -67,6 +70,11 @@ public class insertarDatosCarritoView extends AppCompatActivity implements inser
     public void successLogin2(ArrayList<Producto> producto) {
         adapter = new insertarDatosCarritoAdapter(producto ,this);
         recyclerViewProductos.setAdapter(adapter);
+        ImageButton volver = findViewById(R.id.imageButton);
+        volver.setOnClickListener(v -> {
+            finish();
+        });
+
     }
 
 

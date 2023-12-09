@@ -56,16 +56,21 @@ public class MostrarProductosAdapter extends RecyclerView.Adapter<MostrarProduct
                 .load(urlImagen)
                 .transform(new com.bumptech.glide.load.resource.bitmap.GranularRoundedCorners(30, 30, 0, 0))
                 .into(holder.imageView);
+        holder.btnAddCarrito.setTag(idProducto);
+
         holder.btnAddCarrito.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Obtiene el idProducto de la etiqueta del botón
+                int idProducto = (int) v.getTag();
+
                 Intent intent = new Intent(context, insertarDatosCarritoView.class);
                 intent.putExtra("idProducto", idProducto);
                 intent.putExtra("idCliente", idCliente);
                 context.startActivity(intent);
-//                ((Activity) context).setResult(Activity.RESULT_OK, intent);
             }
         });
+
     }
 
     @Override
