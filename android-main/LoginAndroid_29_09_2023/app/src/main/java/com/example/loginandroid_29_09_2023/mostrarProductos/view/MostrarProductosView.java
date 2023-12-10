@@ -60,7 +60,7 @@ public class MostrarProductosView extends AppCompatActivity implements MostrarPr
     private void initRecyclerView(ArrayList<Producto> lstProductos){
         Intent  intent = getIntent();
         int id_cliente = intent.getIntExtra("clienteId",0);
-        System.out.println( "Aqui es donde da por culo id_cliente: " + id_cliente);
+
 
 
         adapter = new MostrarProductosAdapter( lstProductos, this , id_cliente);

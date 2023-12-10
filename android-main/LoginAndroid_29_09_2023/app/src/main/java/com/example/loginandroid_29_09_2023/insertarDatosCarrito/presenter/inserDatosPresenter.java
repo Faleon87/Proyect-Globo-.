@@ -1,6 +1,7 @@
 package com.example.loginandroid_29_09_2023.insertarDatosCarrito.presenter;
 
 import com.example.loginandroid_29_09_2023.beans.Carrito;
+import com.example.loginandroid_29_09_2023.beans.Correo;
 import com.example.loginandroid_29_09_2023.beans.Producto;
 import com.example.loginandroid_29_09_2023.insertarDatosCarrito.insertarDatosCarrito;
 import com.example.loginandroid_29_09_2023.insertarDatosCarrito.model.inserDatosModel;
@@ -30,6 +31,11 @@ public class inserDatosPresenter implements insertarDatosCarrito.Presenter  , in
         model.productoAPI(carrito,this);
     }
 
+    @Override
+    public void insertarCorreo(Correo correo) {
+        model.insertarCorreoAPI(correo,this);
+    }
+
 
     @Override
     public void onFinished(Carrito carrito) {
@@ -41,6 +47,10 @@ public class inserDatosPresenter implements insertarDatosCarrito.Presenter  , in
         vista.successLogin2(producto);
     }
 
+    @Override
+    public void onFinished3(Correo correo) {
+        vista.successLogin3(correo);
+    }
 
 
     @Override

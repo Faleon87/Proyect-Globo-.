@@ -3,6 +3,7 @@ package com.example.loginandroid_29_09_2023.insertarDatosCarrito.model;
 import android.util.Log;
 
 import com.example.loginandroid_29_09_2023.beans.Carrito;
+import com.example.loginandroid_29_09_2023.beans.Correo;
 import com.example.loginandroid_29_09_2023.beans.Producto;
 import com.example.loginandroid_29_09_2023.insertarDatosCarrito.insertarDatosCarrito;
 import com.example.loginandroid_29_09_2023.insertarDatosCarrito.presenter.inserDatosPresenter;
@@ -94,6 +95,42 @@ public class inserDatosModel implements insertarDatosCarrito.Model {
 
             @Override
             public void onFailure(Call<ArrayList<Producto>> call, Throwable t) {
+                Log.e("Response Error", "Cuerpo de error: " + t.getMessage());
+            }
+        });
+    }
+
+    @Override
+    public void insertarCorreoAPI(Correo correo, OnLoginUserListener onLoginUserListener) {
+        ApiService apiService = RetrofitCliente.getClient("http://" +  IP_BASE + "/untitled/").
+                create(ApiService.class);
+        Call <Correo> call = apiService.insertarCorreo("INSERTAR_CORREO" ,correo );
+        call.enqueue(new Callback<Correo>() {
+            @Override
+            public void onResponse(Call<Correo> call, Response<Correo> response) {
+                if (response.isSuccessful()) {
+                    // Procesar la respuesta aquí
+                    try {
+                        Correo myData = response.body();
+                       onLoginUserListener.onFinished3(myData);
+                    }catch (Exception ex){
+                        System.out.println("error: " + ex);
+                    }
+                    // Actualizar la interfaz de usuario con el mensaje recibido
+                } else {
+                    // Manejar una respuesta no exitosa
+                    //Log.e("Response Error", "Código de estado HTTP: " + response.code());
+                    try {
+                        String errorBody = response.errorBody().string();
+                        //Log.e("Response Error", "Cuerpo de error: " + errorBody);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Correo> call, Throwable t) {
                 Log.e("Response Error", "Cuerpo de error: " + t.getMessage());
             }
         });

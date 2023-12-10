@@ -1,6 +1,7 @@
 package com.example.loginandroid_29_09_2023.utils;
 
 import com.example.loginandroid_29_09_2023.beans.Carrito;
+import com.example.loginandroid_29_09_2023.beans.Correo;
 import com.example.loginandroid_29_09_2023.beans.ProductRestaurant;
 import com.example.loginandroid_29_09_2023.beans.Producto;
 import com.example.loginandroid_29_09_2023.beans.Puntuacion;
@@ -46,7 +47,8 @@ public interface ApiService {
 
 
        @GET("MyServlet")
-        Call<ArrayList<ProductRestaurant>> getDataRestaurantVentas (@Query("ACTION") String action);
+        Call<ArrayList<ProductRestaurant>> getDataRestaurantVentas
+               (@Query("ACTION") String action);
 
 
          @POST("MyServlet")
@@ -55,13 +57,19 @@ public interface ApiService {
             @Body Puntuacion puntuacion
         );
          @GET("MyServlet")
-         Call<ArrayList<RestaurantePuntuacion>> getDataRestaurantPuntuacion(@Query("ACTION") String action);
+         Call<ArrayList<RestaurantePuntuacion>> getDataRestaurantPuntuacion
+                 (@Query("ACTION") String action);
 
          @GET("MyServlet")
-        Call<Restaurante> getDescripcionRest(@Query("ACTION")String action , @Query("IDRESTAURANTE") int idRestaurante);
+        Call<Restaurante> getDescripcionRest
+                 (@Query("ACTION")String action ,
+                  @Query("IDRESTAURANTE") int idRestaurante);
 
             @GET("MyServlet")
-            Call<ArrayList<RestaurantFilter>> getFilterAvanzado(@Query("ACTION") String action, @Query("PUNTUACION") double puntuacion, @Query("TEMATICA") String tematica);
+            Call<ArrayList<RestaurantFilter>> getFilterAvanzado
+                    (@Query("ACTION") String action,
+                     @Query("PUNTUACION") double puntuacion,
+                     @Query("TEMATICA") String tematica);
 
         @GET("MyServlet")
         Call<ArrayList<Producto>> getDataProductos(@Query("ACTION") String action);
@@ -73,7 +81,14 @@ public interface ApiService {
         );
 
         @GET("MyServlet")
-       Call<ArrayList<Producto>> selectProductUser(@Query("ACTION") String action, @Query("IDCLIENTE") int idCliente);
+       Call<ArrayList<Producto>> selectProductUser
+                (@Query("ACTION") String action,
+                 @Query("IDCLIENTE") int idCliente);
+
+        @POST("MyServlet")
+        Call<Correo>insertarCorreo
+                (@Query("ACTION") String action,
+                 @Body Correo correo);
 
             /*
         @FormUrlEncoded

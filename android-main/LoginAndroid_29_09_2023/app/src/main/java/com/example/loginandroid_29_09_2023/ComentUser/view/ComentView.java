@@ -31,7 +31,7 @@ import com.example.loginandroid_29_09_2023.restaurant_ventas.view.LstProductsVie
 
 public class ComentView extends AppCompatActivity implements ContractUserComent.View {
 
-    public static final String CHANNEL_ID = "your_channel_id";
+
 
     private static ComentView mainActivity = null;
 
@@ -51,27 +51,10 @@ public class ComentView extends AppCompatActivity implements ContractUserComent.
         mainActivity = this;
         initComponents();
 
-        createNotificationChannel();
+
     }
 
-    private void createNotificationChannel() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            // Request notification permissions here
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                requestPermissions(new String[]{Manifest.permission.POST_NOTIFICATIONS}, 1);
-            }
 
-            CharSequence name = "Your Channel Name";
-            String description = "Your Channel Description";
-            int importance = NotificationManager.IMPORTANCE_DEFAULT;
-            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
-            channel.setDescription(description);
-
-            // Register the channel with the system
-            NotificationManager notificationManager = getSystemService(NotificationManager.class);
-            notificationManager.createNotificationChannel(channel);
-        }
-    }
 
 
     private void initComponents() {
@@ -113,26 +96,8 @@ public class ComentView extends AppCompatActivity implements ContractUserComent.
 
     @Override
     public void success() {
-//        Toast.makeText(mainActivity, "Enviados correctamente", Toast.LENGTH_SHORT).show();
-//        mainActivity.finish();
-
-
-        Intent intent = new Intent(this, ComentView.class);
-
-        PendingIntent pendingIntent = PendingIntent.getActivity(
-                this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
-
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
-                .setSmallIcon(R.drawable.baseline_fastfood_24)
-                .setContentTitle("Comentario enviado")
-                .setContentText("Gracias por su comentario")
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                .setContentIntent(pendingIntent)
-                .setAutoCancel(true); // Dismisses the notification when clicked
-
-        // Show the notification
-        NotificationManager notificationManager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
-        notificationManager.notify(1, builder.build());
+       Toast.makeText(mainActivity, "Enviados correctamente", Toast.LENGTH_SHORT).show();
+       mainActivity.finish();
     }
 
     @Override

@@ -14,6 +14,7 @@ import java.util.Arrays;
 import java.util.stream.Collectors;
 
 import static beans.Carrito.convertToJsonCarrito;
+import static beans.Correo.convertToJsonCorreo;
 import static beans.ProductRestaurant.convertToJson;
 import static beans.ProductRestaurant.convertToJsonToProductRest;
 import static beans.Producto.convertoJson;
@@ -74,28 +75,41 @@ public class MyServlet extends HttpServlet {
             case "SELECT_PRODUCTOS":
                 out.println(selectProductos(request, response));
                 break;
-            case "SEND_MAIL":
-                try {
-                    MailService mailService = new MailService("smtp.gmail.com", 587);
-                    mailService.sendMail("a26969@svalero.com","a26969@svalero.com","Prueba","Prueba");
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                break;
             case "INSERTAR_DATOS_CARRITO":
                 String requestBody2 = request.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
                 Carrito carrito = convertToJsonCarrito(requestBody2);
-                out.println(insertCarrito(carrito));
+                out.println(insertCarrito(carrito ));
 
                 break;
             case "SELECT_PRODUCTOS_USER":
                 out.println(selectCarrito(request, response));
                 break;
+            case "INSERTAR_CORREO":
+                String requestBody3 = request.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
+                Correo correo = convertToJsonCorreo(requestBody3);
+                out.println(enviarCorreo(correo , request, response));
+
         }
     }
 
+    private String enviarCorreo(Correo correo , HttpServletRequest request, HttpServletResponse response ) {
+        String requestBody3 = correo.getCorreo();
+        int id_cliente = correo.getId_cliente();
+        try {
+            MailService mailService = new MailService("smtp.gmail.com", 587);
+            SqlAction sql = new SqlAction();
+            Carrito carrito = new Carrito();
+            carrito.setId_cliente(id_cliente);
+            ArrayList<Producto> productos = sql.selectinfoProducto(carrito);
+            mailService.sendMail("a26969@svalero.com",requestBody3,"Tu Pedido",  productos.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return Correo.convertToJsonCorreo2(correo);
+    }
 
-    private String selectCarrito(HttpServletRequest request, HttpServletResponse response) {
+
+    public String selectCarrito(HttpServletRequest request, HttpServletResponse response) {
         SqlAction sql = new SqlAction();
         Carrito carrito = new Carrito();
         carrito.setId_cliente(Integer.parseInt(request.getParameter("IDCLIENTE")));

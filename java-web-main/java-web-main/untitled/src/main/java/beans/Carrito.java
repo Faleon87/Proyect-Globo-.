@@ -6,7 +6,7 @@ import com.google.gson.Gson;
 
 public class Carrito {
 
-    private int id_cliente;
+    private  int id_cliente;
     private int id_producto;
     private int cantidad;
 
@@ -52,4 +52,6 @@ public class Carrito {
         Gson gson = new Gson();
         return gson.fromJson(info, Carrito.class);
     }
+
+
 }
