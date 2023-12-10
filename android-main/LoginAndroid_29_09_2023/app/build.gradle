@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.loginandroid_29_09_2023"
-        minSdk 33
+        minSdk 23
         targetSdk 33
         versionCode 1
         versionName "1.0"
