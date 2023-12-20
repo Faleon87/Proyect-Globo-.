@@ -19,7 +19,7 @@ import retrofit2.Response;
 
 public class ComentModel implements ContractUserComent.Model{
 
-    private  static final String IP_BASE = "192.168.0.22:8080";
+    private  static final String IP_BASE = "192.168.104.62:8080";
     private ComentPresenter presenter;
 
     private Puntuacion puntuacion = new Puntuacion();

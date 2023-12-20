@@ -16,7 +16,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class AdminModel implements ContractAdmin.Model {
-    private static final String IP_BASE = "192.168.0.22:8080";
+    private static final String IP_BASE = "192.168.104.62:8080";
     private LstPAdminPresenter presenter;
     public AdminModel(LstPAdminPresenter presenter){
         this.presenter = presenter;
